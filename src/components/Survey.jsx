@@ -1,7 +1,8 @@
 import { useState, useMemo } from "react";
 import surveyBg from "../assets/images/b0b6e3adad261f511b3205f0f125e3ba.jpg";
 import { images } from "../assets/images";
-import TrippyRings from "./TrippyRings";
+// import TrippyRings from "./TrippyRings";
+import TrippyTriangles from "./TrippyTriangles";
 import "./Survey.css";
 
 function getRandomBg(exclude) {
@@ -36,7 +37,7 @@ export default function Survey({ onComplete, onStartMusic }) {
       style={{ backgroundImage: `url(${currentBg})` }}
     >
       <div className="trippy-wrapper">
-        <TrippyRings />
+        <TrippyTriangles />
       </div>
       <div className="survey-content">
         {step === 1 && (
