@@ -1,0 +1,127 @@
+.survey-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: center / cover no-repeat;
+}
+
+.survey-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.survey-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
+  max-width: 480px;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* Top half — question */
+.survey-question {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.survey-question h1 {
+  font-size: 2rem;
+  margin: 0 0 12px;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.survey-question p {
+  font-size: 1rem;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Bottom half — buttons */
+.survey-choices {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.survey-btn {
+  width: 100%;
+  padding: 18px 24px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.survey-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: #fff;
+}
+
+.survey-btn:active {
+  transform: scale(0.97);
+}
+
+.survey-btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+/* Tablet+ — wider layout */
+@media (min-width: 768px) {
+  .survey-content {
+    max-height: 700px;
+    border-radius: 20px;
+    padding: 48px 40px;
+  }
+
+  .survey-question h1 {
+    font-size: 2.5rem;
+  }
+
+  .survey-btn {
+    padding: 22px 32px;
+    font-size: 1.25rem;
+  }
+}
+
+.survey-about-link {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #7db8e0;
+  font-size: 0.8rem;
+  text-decoration: none;
+  padding: 12px 0;
+  opacity: 0.85;
+}
+
+.survey-about-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}

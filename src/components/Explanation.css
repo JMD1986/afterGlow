@@ -1,0 +1,39 @@
+.explanation-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  padding: 24px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.explanation-page h1 {
+  font-size: 2rem;
+  margin: 0 0 24px;
+}
+
+.explanation-page p {
+  font-size: 1.125rem;
+  max-width: 520px;
+  margin: 0 0 16px;
+  line-height: 1.6;
+}
+
+.back-link {
+  margin-top: 24px;
+  color: #7db8e0;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .explanation-page h1 {
+    font-size: 2.5rem;
+  }
+}

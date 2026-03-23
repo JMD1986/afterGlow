@@ -1,0 +1,30 @@
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  padding: 24px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.main-content h1 {
+  font-size: 2rem;
+  margin: 0 0 12px;
+}
+
+.main-content p {
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .main-content h1 {
+    font-size: 3rem;
+  }
+
+  .main-content p {
+    font-size: 1.25rem;
+  }
+}

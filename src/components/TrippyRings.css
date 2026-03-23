@@ -1,0 +1,41 @@
+.trippy-wrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.trippy-container {
+  width: 480px;
+  height: 480px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.trippy-container .ring {
+  position: absolute;
+  border: 2px solid;
+  animation: ring-animate 2.5s linear infinite;
+}
+
+@keyframes ring-animate {
+  0% {
+    border-color: var(--ring-color-0);
+    transform: rotate(0deg);
+  }
+  25% {
+    border-color: var(--ring-color-25);
+    transform: rotate(45deg);
+  }
+  75% {
+    border-color: var(--ring-color-75);
+    transform: rotate(135deg);
+  }
+  100% {
+    border-color: var(--ring-color-0);
+    transform: rotate(180deg);
+  }
+}
