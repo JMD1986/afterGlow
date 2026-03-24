@@ -1,0 +1,14 @@
+{
+  "name": "afterglow-server",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node twilio-sms.js"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "twilio": "^5.13.0"
+  }
+}
