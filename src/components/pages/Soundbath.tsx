@@ -135,9 +135,3 @@ const Soundbath: React.FC = () => {
 };
 
 export default Soundbath;
-const jayk =
-  "Austin-based multi-instrumentalist Jayk Wilson presents an immersive late-night experience, combining the deep resonance of a three-foot gong with the ethereal tones of an analog drone synthesizer, crafting a psychedelic fusion of ambient drones and slowly unfolding textures that transcend space and time.";
-const bryan =
-  "Bryan is a composer and multi instrumentalist crafting long-form ambient works with modular synthesis. Their music unfolds as a meditative space, designed to encourage deep listening- whether as a passive presence or an active immersion. Each piece is a deliberate act of reflection, inviting a heightened awareness of self, connection, and the fragile interplay between internal and external worlds.";
-const couchbound =
-  "Couchbound is a duo of Austin-based musicians, producers, and sound artists working across modular synthesis, field recording, and live processing. Their work explores the intersection of ambient, drone, and experimental music, creating immersive soundscapes that invite deep listening and introspection.";

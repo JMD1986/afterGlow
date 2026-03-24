@@ -140,3 +140,11 @@ code {
   color: #fff;
   text-shadow: 0 0 3px #000, 0 1px 3px #000;
 }
+
+.page-content h1,
+.page-content h2,
+.page-content h3,
+.page-content p,
+.page-content a {
+  color: #fff;
+}

@@ -29,18 +29,18 @@ const WhatIs: React.FC = () => {
           experimental electronic music, comedy, and vibe elevation.
         </p>
 
-        <p style={{ fontSize: 18, lineHeight: 1.75, marginBottom: 24 }}>
+        <p style={{ fontSize: 20, lineHeight: 1.75, marginBottom: 24 }}>
           One of Austin's oldest independent comedy spaces is opening its doors
           and letting the weirdos from the experimental music scene take over
           for a night.
         </p>
 
-        <p style={{ fontSize: 18, lineHeight: 1.75, marginBottom: 24 }}>
+        <p style={{ fontSize: 20, lineHeight: 1.75, marginBottom: 24 }}>
           If you're tired of the corporate commodification of Austin culture and
           the slow erosion of the city's weirdness — look no further.
         </p>
 
-        <p style={{ fontSize: 18, lineHeight: 1.75, marginBottom: 24 }}>
+        <p style={{ fontSize: 20, lineHeight: 1.75, marginBottom: 24 }}>
           Shows are cheap, because the economy fuckin sucks. Expect multiple
           ambient musicians running simultaneous sets, a collective of
           instrumentalists in the main room performing improvisational
@@ -50,7 +50,7 @@ const WhatIs: React.FC = () => {
 
         <p
           style={{
-            fontSize: 20,
+            fontSize: 24,
             lineHeight: 1.75,
             fontWeight: 700,
             letterSpacing: "0.04em",
