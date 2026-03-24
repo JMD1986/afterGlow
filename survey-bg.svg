@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a0533"/>
+      <stop offset="50%" stop-color="#2d1b69"/>
+      <stop offset="100%" stop-color="#0f0c29"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="rgba(170,59,255,0.35)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+    </radialGradient>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#g)"/>
+  <rect width="1080" height="1920" fill="url(#glow)"/>
+  <circle cx="540" cy="600" r="300" fill="rgba(170,59,255,0.08)"/>
+  <circle cx="200" cy="1400" r="200" fill="rgba(100,40,200,0.06)"/>
+  <circle cx="900" cy="300" r="150" fill="rgba(200,100,255,0.05)"/>
+</svg>
