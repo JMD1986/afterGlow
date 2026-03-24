@@ -9,43 +9,67 @@ import {
   img3472,
   img372c,
   img6e3d,
+  img5def,
+  imgEafb,
+  imgdD123,
+  img920e7,
+  imgDdec,
 } from "../assets/images";
 import "./EventInfo.css";
 // import EventInfoImageOverlay from "./EventInfoImageOverlay";
 
-import TrippyRings from "./TrippyRings";
+import TrippyRings from "./animations/TrippyRings";
 import { Link } from "react-router-dom";
-
 const sections = [
   {
-    image: img3192,
+    image: img5def,
     title: "What is Afterglow?",
-    text: "Afterglow is your chance to experience the ultimate in chillness. Combining live instrumental music, healing sound baths, modular synthesizers, live painting, immersive visual art displays, DJ sets, and our patented vibe technicians to ensure the most thoroughly curated mood enhancement experience. It is a multi-stage event consisting of three areas focused on mood enhancement.",
+    text: "Afterglow is an immersive, multi-stage mood enhancement environment designed to facilitate calm, openness, and controlled descent. Combining live instrumental music, healing sound baths, modular synthesizers, live painting, immersive visual installations, DJ sets, and our in-house vibe technicians, Afterglow offers a thoroughly curated atmosphere for emotional softening and sensory realignment. The experience unfolds across three distinct areas, each engineered to support a different phase of attunement.",
   },
   {
     image: img171f,
     title: "The Atrium",
-    text: "A relaxing space designed for socializing, libations, and casual conversation, featuring DJs spinning downtempo, ambient, and trip-hop music.",
+    text: "The Atrium is a social decompression chamber designed for conversation, libations, and gradual environmental adjustment. Here, guests are invited to settle into the evening at their own pace while DJs guide the room through downtempo, ambient, and trip-hop selections calibrated for ease, drift, and interpersonal warmth.",
   },
   {
     image: img3472,
     title: "The Soundbath",
-    text: "A dedicated area where our in-house team of atmosphere engineers and sensory technicians curate a series of live sound baths using modular synthesizers, live instruments, and interactive projected visuals to assist emotional realignment and frequency tuning essential for deep relaxation.",
+    text: "The Soundbath is a dedicated alignment zone where our in-house atmosphere engineers and sensory technicians administer a sequence of live sound environments using modular synthesizers, live instrumentation, and responsive projected visuals. Each session is structured to encourage frequency tuning, emotional recalibration, and the kind of deep full-body relaxation not typically available in unsupervised conditions.",
   },
   {
     image: img372c,
     title: "The Portal",
-    text: "Live instrumental downtempo, ambient, and trip-hop performed by DRIFTSIDE, a collective of ATX-based musicians playing steel guitar, saxophone, synthesizers, and percussion. Enjoy an evening of live electronic music with a live painting performance from local artist The Suddenkind.",
+    text: "The Portal serves as the evening’s primary transmission chamber, featuring live instrumental downtempo, ambient, and trip-hop performed by DRIFTSIDE, a collective of Austin-based musicians working across steel guitar, saxophone, synthesizers, and percussion. The environment is further activated by a live painting performance from local artist The Suddenkind, offering a parallel visual signal as the night continues to open.",
   },
   {
-    image: img6e3d,
+    image: imgDdec,
     title: "The Team",
-    text: "Throughout the space, we have a team of Harmonic Analysts, signal creators, and hidden artifacts from our team at Afterglow Enterprises LLC.",
+    text: "Distributed throughout the space is the Afterglow team: Harmonic Analysts, signal creators, and additional field personnel working quietly behind the scenes to maintain favorable atmospheric conditions. Guests may also encounter hidden artifacts, subtle interventions, and other traces of ongoing research from Afterglow Enterprises LLC.",
   },
   {
     image: imgC8ae,
     title: "The Venue",
-    text: "The venue for Afterglow is 616 Lavaca Street, located right downtown in Austin, Texas.",
+    text: (
+      <>
+        The venue for Afterglow is 616 Lavaca Street, located right downtown in
+        Austin, Texas.
+        <br />
+        <a
+          href="https://www.eventbrite.com/e/afterglow-a-late-night-dance-party-tickets-1984935756280?aff=oddtdtcreator"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            color: "#ffb347",
+            fontWeight: 700,
+            textDecoration: "underline",
+            display: "inline-block",
+            marginTop: 8,
+          }}
+        >
+          purchase tickets here
+        </a>
+      </>
+    ),
   },
 ];
 

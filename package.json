@@ -10,12 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "body-parser": "^2.2.2",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
     "gsap": "^3.14.2",
     "midi-player-js": "^2.0.17",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router-dom": "^7.13.2",
-    "soundfont-player": "^0.12.0"
+    "soundfont-player": "^0.12.0",
+    "twilio": "^5.13.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",

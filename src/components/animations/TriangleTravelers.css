@@ -1,0 +1,65 @@
+/* TriangleTravelers.css - subtle, highly transparent animated triangles */
+
+.triangle-travelers-wrap {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.13; /* High transparency */
+  transform-style: preserve-3d;
+  perspective: 800px;
+}
+
+.triangle-traveler {
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-top: 0 solid transparent;
+  border-right: 0 solid transparent;
+  border-left: 0 solid transparent;
+  opacity: 0;
+  filter: grayscale(1);
+  animation: triangle-travelers-anim 10s linear infinite;
+}
+
+/* Generate 200 unique triangles with random size, color, rotation, delay */
+@keyframes triangle-travelers-anim {
+  0% {
+    opacity: 1;
+    transform: rotate(var(--tt-rotate, 0deg)) translate3d(0,0,-1500px) scale(0);
+    border-top: var(--tt-size, 20px) solid var(--tt-color, #fff);
+    border-right: var(--tt-size, 20px) solid transparent;
+    border-left: var(--tt-size, 20px) solid transparent;
+    margin-left: calc(var(--tt-size, 20px) / -2);
+    margin-top: calc(var(--tt-size, 20px) / -2);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(calc(var(--tt-rotate, 0deg) * 1.5)) translate3d(var(--tt-x, 0px), var(--tt-y, 0px), 1000px) scale(1);
+  }
+}
+
+/* Assign random properties using nth-child selectors */
+/* This is a CSS-only approximation; for true randomness, use inline styles in JS */
+.triangle-traveler {
+  --tt-size: 20px;
+  --tt-rotate: 0deg;
+  --tt-color: hsla(0, 100%, 50%, 1);
+  --tt-x: 0px;
+  --tt-y: 0px;
+}
+
+/* Example: add more variety for the first 20 triangles */
+.triangle-traveler:nth-child(1)  { --tt-size: 32px; --tt-rotate: 45deg;  --tt-color: hsla(12,100%,50%,1);  --tt-x: 120px;  --tt-y: 80px;  animation-delay: 0s; }
+.triangle-traveler:nth-child(2)  { --tt-size: 18px; --tt-rotate: 120deg; --tt-color: hsla(60,100%,50%,1);  --tt-x: -200px; --tt-y: 150px; animation-delay: -0.05s; }
+.triangle-traveler:nth-child(3)  { --tt-size: 24px; --tt-rotate: 200deg; --tt-color: hsla(180,100%,50%,1); --tt-x: 300px;  --tt-y: -100px; animation-delay: -0.1s; }
+.triangle-traveler:nth-child(4)  { --tt-size: 40px; --tt-rotate: 300deg; --tt-color: hsla(240,100%,50%,1); --tt-x: -350px; --tt-y: -200px; animation-delay: -0.15s; }
+.triangle-traveler:nth-child(5)  { --tt-size: 22px; --tt-rotate: 90deg;  --tt-color: hsla(320,100%,50%,1); --tt-x: 180px;  --tt-y: 220px; animation-delay: -0.2s; }
+.triangle-traveler:nth-child(6)  { --tt-size: 28px; --tt-rotate: 60deg;  --tt-color: hsla(90,100%,50%,1);  --tt-x: -120px; --tt-y: -180px; animation-delay: -0.25s; }
+.triangle-traveler:nth-child(7)  { --tt-size: 36px; --tt-rotate: 210deg; --tt-color: hsla(150,100%,50%,1); --tt-x: 250px;  --tt-y: 300px; animation-delay: -0.3s; }
+.triangle-traveler:nth-child(8)  { --tt-size: 20px; --tt-rotate: 330deg; --tt-color: hsla(270,100%,50%,1); --tt-x: -280px; --tt-y: 120px; animation-delay: -0.35s; }
+.triangle-traveler:nth-child(9)  { --tt-size: 30px; --tt-rotate: 150deg; --tt-color: hsla(210,100%,50%,1); --tt-x: 100px;  --tt-y: -250px; animation-delay: -0.4s; }
+.triangle-traveler:nth-child(10) { --tt-size: 26px; --tt-rotate: 270deg; --tt-color: hsla(30,100%,50%,1);  --tt-x: 350px;  --tt-y: 200px; animation-delay: -0.45s; }
+/* ...repeat for more triangles or randomize in JS for full effect */

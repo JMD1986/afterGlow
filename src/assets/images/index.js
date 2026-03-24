@@ -12,6 +12,11 @@ import img8a5e from "./8a5ecb73a25cd04773d35a1bb6cd6c10.jpg";
 import imgB0b6 from "./b0b6e3adad261f511b3205f0f125e3ba.jpg";
 import imgB7e5 from "./b7e5018e67e516a745ee7019cb7865ed.jpg";
 import imgC8ae from "./c8aef42d377e666f0105c34e4626791c.jpg";
+import img5def from "./5defb736de388cad890835c4c83ca1e8.jpg";
+import imgEafb from "./eafbdf92d00b49764370982accb88f41.jpg";
+import imgdD123 from "./d41235b2ca4321ebaa8721d6fdf2d185.jpg";
+import img920e7 from "./920e74e7cb8eac0c937459cc16c2ae2e.jpg";
+import imgDdec from "./ddcec9e8b5e1ef0529bfe3a9fa8a30e1.jpg";
 import canvas from "./canvas.png";
 
 export const images = [
@@ -29,6 +34,11 @@ export const images = [
   imgB0b6,
   imgB7e5,
   imgC8ae,
+  img5def,
+  imgEafb,
+  imgdD123,
+  img920e7,
+  imgDdec,
   canvas,
 ];
 
@@ -47,5 +57,10 @@ export {
   imgB0b6,
   imgB7e5,
   imgC8ae,
+  img5def,
+  imgEafb,
+  imgdD123,
+  img920e7,
+  imgDdec,
   canvas,
 };

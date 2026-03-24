@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import surveyBg from "../assets/images/b0b6e3adad261f511b3205f0f125e3ba.jpg";
 import { images } from "../assets/images";
-import TrippyTriangles from "./TrippyTriangles";
+import TrippyTriangles from "./animations/TrippyTriangles";
 import "./Survey.css";
 
 function getRandomBg(exclude) {
