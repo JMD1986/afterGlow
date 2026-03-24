@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import surveyBg from "../assets/images/b0b6e3adad261f511b3205f0f125e3ba.jpg";
 import { images } from "../assets/images";
 import TrippyTriangles from "./TrippyTriangles";
@@ -10,6 +11,7 @@ function getRandomBg(exclude) {
 }
 
 export default function Survey({ onComplete, onStartMusic }) {
+  const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [firstAnswer, setFirstAnswer] = useState(null);
   const [pulseKey, setPulseKey] = useState(0);
@@ -31,6 +33,11 @@ export default function Survey({ onComplete, onStartMusic }) {
     setFirstAnswer(answer);
     setStep(2);
     onStartMusic();
+  }
+
+  function handleCompleteAndNavigate(data) {
+    onComplete(data);
+    navigate("/eventInfo");
   }
 
   const currentBg =
@@ -81,7 +88,7 @@ export default function Survey({ onComplete, onStartMusic }) {
                 className="survey-btn"
                 onClick={() => {
                   triggerPulse();
-                  onComplete({ vibe: "chill", share: true });
+                  handleCompleteAndNavigate({ vibe: "chill", share: true });
                 }}
               >
                 Yes, I'm Chill Like That
@@ -90,7 +97,7 @@ export default function Survey({ onComplete, onStartMusic }) {
                 className="survey-btn"
                 onClick={() => {
                   triggerPulse();
-                  onComplete({ vibe: "chill", share: false });
+                  handleCompleteAndNavigate({ vibe: "chill", share: false });
                 }}
               >
                 Not Really. I Keep My Vibes to Myself
@@ -112,7 +119,7 @@ export default function Survey({ onComplete, onStartMusic }) {
                 className="survey-btn"
                 onClick={() => {
                   triggerPulse();
-                  onComplete({ vibe: "could be chiller", assist: true });
+                  handleCompleteAndNavigate({ vibe: "could be chiller", assist: true });
                 }}
               >
                 Yes, Elevate My Vibe
@@ -121,7 +128,7 @@ export default function Survey({ onComplete, onStartMusic }) {
                 className="survey-btn"
                 onClick={() => {
                   triggerPulse();
-                  onComplete({ vibe: "could be chiller", assist: false });
+                  handleCompleteAndNavigate({ vibe: "could be chiller", assist: false });
                 }}
               >
                 No Thanks, I'll Figure It Out

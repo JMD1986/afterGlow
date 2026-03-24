@@ -1,3 +1,5 @@
+import imgF58c from "./f58cfaaf0752d7cc4672ccd181d032a7.jpg";
+import img77d3 from "./77d31ebdafae6c4bc2818eaa3862e676.jpg";
 import img171f from "./171f63db05335d54c8643985242b1ff9.jpg";
 import img3192 from "./3192e5096ad1e2e4f50236ae4e1849dd.jpg";
 import img3472 from "./3472dc0a0a46b08932ddbe45c9a143a7.jpg";
@@ -13,6 +15,8 @@ import imgC8ae from "./c8aef42d377e666f0105c34e4626791c.jpg";
 import canvas from "./canvas.png";
 
 export const images = [
+  imgF58c,
+  img77d3,
   img171f,
   img3192,
   img3472,
@@ -29,6 +33,8 @@ export const images = [
 ];
 
 export {
+  imgF58c,
+  img77d3,
   img171f,
   img3192,
   img3472,

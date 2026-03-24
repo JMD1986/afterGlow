@@ -4,6 +4,8 @@ import Survey from "./components/Survey";
 import MusicToggle from "./components/MidiBackground";
 import Explanation from "./components/Explanation";
 import CountdownModal from "./components/CountdownModal";
+import EventInfo from "./components/EventInfo";
+import ForReal from "./components/ForReal";
 import "./App.css";
 
 function App() {
@@ -58,11 +60,29 @@ function App() {
                 />
               )}
               {surveyDone && <CountdownModal />}
-              <main className="main-content"></main>
+              <main className="main-content">
+                <EventInfo />
+              </main>
             </>
           }
         />
         <Route path="/explanation" element={<Explanation />} />
+        <Route
+          path="/eventInfo"
+          element={
+            <main className="main-content">
+              <EventInfo />
+            </main>
+          }
+        />
+        <Route
+          path="/forReal"
+          element={
+            <main className="main-content">
+              <ForReal />
+            </main>
+          }
+        />
       </Routes>
     </>
   );
