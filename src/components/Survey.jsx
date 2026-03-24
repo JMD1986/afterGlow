@@ -1,12 +1,19 @@
 import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import surveyBg from "../assets/images/b0b6e3adad261f511b3205f0f125e3ba.jpg";
-import { images } from "../assets/images";
+import img6ea6 from "../assets/images/6ea6e702af903f2ea78d50bf67586742.jpg";
+import img3192 from "../assets/images/3192e5096ad1e2e4f50236ae4e1849dd.jpg";
+import img8828 from "../assets/images/88284e6d2410dd97ff03d95d6bcd814a.jpg";
+import img6764 from "../assets/images/6764b30da07c880043fc8d4388b534b7.jpg";
+import imgB7e5 from "../assets/images/b7e5018e67e516a745ee7019cb7865ed.jpg";
+import imgdD123 from "../assets/images/d41235b2ca4321ebaa8721d6fdf2d185.jpg";
 import TrippyTriangles from "./animations/TrippyTriangles";
 import "./Survey.css";
 
+const surveyImages = [img6ea6, img3192, img8828, img6764, imgB7e5, imgdD123];
+
 function getRandomBg(exclude) {
-  const pool = images.filter((img) => img !== exclude);
+  const pool = surveyImages.filter((img) => img !== exclude);
   return pool[Math.floor(Math.random() * pool.length)];
 }
 

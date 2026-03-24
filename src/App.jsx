@@ -6,6 +6,12 @@ import Explanation from "./components/Explanation";
 import CountdownModal from "./components/CountdownModal";
 import EventInfo from "./components/EventInfo";
 import ForReal from "./components/ForReal";
+import WhatIs from "./components/pages/WhatIs";
+import Atrium from "./components/pages/Atrium";
+import Soundbath from "./components/pages/Soundbath";
+import ThePortal from "./components/pages/ThePortal";
+import TheTeam from "./components/pages/TheTeam";
+import TheVenue from "./components/pages/TheVenue";
 import "./App.css";
 
 function App() {
@@ -80,6 +86,54 @@ function App() {
           element={
             <main className="main-content">
               <ForReal />
+            </main>
+          }
+        />
+        <Route
+          path="/whatIs"
+          element={
+            <main className="main-content">
+              <WhatIs />
+            </main>
+          }
+        />
+        <Route
+          path="/atrium"
+          element={
+            <main className="main-content">
+              <Atrium />
+            </main>
+          }
+        />
+        <Route
+          path="/soundbath"
+          element={
+            <main className="main-content">
+              <Soundbath />
+            </main>
+          }
+        />
+        <Route
+          path="/thePortal"
+          element={
+            <main className="main-content">
+              <ThePortal />
+            </main>
+          }
+        />
+        <Route
+          path="/theTeam"
+          element={
+            <main className="main-content">
+              <TheTeam />
+            </main>
+          }
+        />
+        <Route
+          path="/theVenue"
+          element={
+            <main className="main-content">
+              <TheVenue />
             </main>
           }
         />

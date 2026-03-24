@@ -17,6 +17,17 @@ import imgEafb from "./eafbdf92d00b49764370982accb88f41.jpg";
 import imgdD123 from "./d41235b2ca4321ebaa8721d6fdf2d185.jpg";
 import img920e7 from "./920e74e7cb8eac0c937459cc16c2ae2e.jpg";
 import imgDdec from "./ddcec9e8b5e1ef0529bfe3a9fa8a30e1.jpg";
+import falloutLobby from "./falloutLobby.jpg";
+import jaykWilson from "./JaykWilson.png";
+import bryanGary from "./BrianGary.png";
+import couchbound from "./Couchbound.png";
+import fallloutLobby2 from "./falloutlobby2.jpg";
+import mainStage from "./falloutMainStage.jpg";
+import mainStage2 from "./falloutMainStage2.jpg";
+import driftside from "./driftside.png";
+import vibeReader from "./vibeReader.jpg";
+import jester from "./jester.jpg";
+import falloutOutside from "./falloutOutside.jpg";
 import canvas from "./canvas.png";
 
 export const images = [
@@ -39,6 +50,17 @@ export const images = [
   imgdD123,
   img920e7,
   imgDdec,
+  falloutLobby,
+  fallloutLobby2,
+  jaykWilson,
+  bryanGary,
+  couchbound,
+  mainStage,
+  mainStage2,
+  driftside,
+  vibeReader,
+  jester,
+  falloutOutside,
   canvas,
 ];
 
@@ -62,5 +84,16 @@ export {
   imgdD123,
   img920e7,
   imgDdec,
+  falloutLobby,
+  fallloutLobby2,
+  jaykWilson,
+  bryanGary,
+  couchbound,
+  mainStage,
+  mainStage2,
+  driftside,
+  vibeReader,
+  jester,
+  falloutOutside,
   canvas,
 };

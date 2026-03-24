@@ -1,0 +1,78 @@
+import React from "react";
+import { falloutLobby, fallloutLobby2 } from "../../assets/images";
+import bg from "../../assets/backgrounds/pppsychedelic.webp";
+
+const Atrium: React.FC = () => {
+  return (
+    <div
+      style={{
+        minHeight: "100vh",
+        backgroundImage: `url(${bg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      <div
+        className="atrium-page"
+        style={{
+          maxWidth: 800,
+          margin: "0 auto",
+          padding: 24,
+          position: "relative",
+          zIndex: 3,
+        }}
+      >
+        <h1>The Atrium</h1>
+        <div
+          style={{
+            display: "flex",
+            gap: 16,
+            flexWrap: "wrap",
+            justifyContent: "center",
+            marginBottom: 24,
+          }}
+        >
+          <img
+            src={falloutLobby}
+            alt="Atrium Lobby"
+            style={{
+              maxWidth: 360,
+              width: "100%",
+              borderRadius: 12,
+              boxShadow: "0 2px 12px #0002",
+            }}
+          />
+          <img
+            src={fallloutLobby2}
+            alt="Atrium Lobby 2"
+            style={{
+              maxWidth: 360,
+              width: "100%",
+              borderRadius: 12,
+              boxShadow: "0 2px 12px #0002",
+            }}
+          />
+        </div>
+        <p style={{ fontSize: 18, lineHeight: 1.7 }}>
+          The Atrium is your gateway to Afterglow—a vibrant, welcoming space
+          designed for connection and decompression. Patrons 21 and up are
+          invited to <strong>BYOB</strong> and enjoy the evening responsibly.
+          Explore our pop-up <strong>record store</strong> featuring curated
+          vinyl, discover <strong>limited edition merch</strong> exclusive to
+          the event, and challenge your friends at our selection of{" "}
+          <strong>free arcade games</strong>.
+        </p>
+        <p style={{ fontSize: 18, lineHeight: 1.7 }}>
+          Relax in the <strong>lounge area</strong> with comfortable seating,
+          meet fellow guests, and recharge with a variety of{" "}
+          <strong>snacks</strong> available throughout the night. The Atrium is
+          the perfect place to settle in, catch up, and set the tone for your
+          Afterglow experience.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default Atrium;

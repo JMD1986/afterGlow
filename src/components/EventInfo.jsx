@@ -24,31 +24,37 @@ const sections = [
   {
     image: img5def,
     title: "What is Afterglow?",
+    link: "/whatIs",
     text: "Afterglow is an immersive, multi-stage mood enhancement environment designed to facilitate calm, openness, and controlled descent. Combining live instrumental music, healing sound baths, modular synthesizers, live painting, immersive visual installations, DJ sets, and our in-house vibe technicians, Afterglow offers a thoroughly curated atmosphere for emotional softening and sensory realignment. The experience unfolds across three distinct areas, each engineered to support a different phase of attunement.",
   },
   {
     image: img171f,
     title: "The Atrium",
+    link: "/atrium",
     text: "The Atrium is a social decompression chamber designed for conversation, libations, and gradual environmental adjustment. Here, guests are invited to settle into the evening at their own pace while DJs guide the room through downtempo, ambient, and trip-hop selections calibrated for ease, drift, and interpersonal warmth.",
   },
   {
     image: img3472,
     title: "The Soundbath",
+    link: "/soundbath",
     text: "The Soundbath is a dedicated alignment zone where our in-house atmosphere engineers and sensory technicians administer a sequence of live sound environments using modular synthesizers, live instrumentation, and responsive projected visuals. Each session is structured to encourage frequency tuning, emotional recalibration, and the kind of deep full-body relaxation not typically available in unsupervised conditions.",
   },
   {
     image: img372c,
     title: "The Portal",
+    link: "/thePortal",
     text: "The Portal serves as the evening’s primary transmission chamber, featuring live instrumental downtempo, ambient, and trip-hop performed by DRIFTSIDE, a collective of Austin-based musicians working across steel guitar, saxophone, synthesizers, and percussion. The environment is further activated by a live painting performance from local artist The Suddenkind, offering a parallel visual signal as the night continues to open.",
   },
   {
     image: imgDdec,
     title: "The Team",
+    link: "/theTeam",
     text: "Distributed throughout the space is the Afterglow team: Harmonic Analysts, signal creators, and additional field personnel working quietly behind the scenes to maintain favorable atmospheric conditions. Guests may also encounter hidden artifacts, subtle interventions, and other traces of ongoing research from Afterglow Enterprises LLC.",
   },
   {
     image: imgC8ae,
     title: "The Venue",
+    link: "/theVenue",
     text: (
       <>
         The venue for Afterglow is 616 Lavaca Street, located right downtown in
@@ -136,7 +142,9 @@ export default function EventInfo() {
         {sections.map((section, i) => (
           <section key={i} className="event-section scroll-animate">
             <div className="event-section-image">
-              <img src={section.image} alt={section.title} />
+              <Link to={section.link}>
+                <img src={section.image} alt={section.title} />
+              </Link>
             </div>
             <div className="event-section-text">
               <h2>{section.title}</h2>

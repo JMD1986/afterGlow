@@ -109,3 +109,18 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+.page-bg {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  animation: colorRotate 3s linear infinite;
+}
+
+@keyframes colorRotate {
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
