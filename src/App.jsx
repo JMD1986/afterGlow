@@ -1,5 +1,5 @@
-import { useState, useRef } from "react";
-import { Routes, Route } from "react-router-dom";
+import { useState, useRef, useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Survey from "./components/Survey";
 import MusicToggle from "./components/MidiBackground";
 import Explanation from "./components/Explanation";
@@ -13,6 +13,14 @@ import ThePortal from "./components/pages/ThePortal";
 import TheTeam from "./components/pages/TheTeam";
 import TheVenue from "./components/pages/TheVenue";
 import "./App.css";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 function App() {
   const [surveyDone, setSurveyDone] = useState(false);
@@ -54,6 +62,7 @@ function App() {
       {musicStarted && (
         <MusicToggle playing={musicPlaying} onToggle={toggleMute} />
       )}
+      <ScrollToTop />
       <Routes>
         <Route
           path="/"

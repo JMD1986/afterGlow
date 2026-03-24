@@ -4,17 +4,10 @@ import bg from "../../assets/backgrounds/pppsychedelic.webp";
 
 const Atrium: React.FC = () => {
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        backgroundImage: `url(${bg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-      }}
-    >
+    <div style={{ position: "relative", minHeight: "100vh" }}>
+      <div className="page-bg" style={{ backgroundImage: `url(${bg})` }} />
       <div
-        className="atrium-page"
+        className="atrium-page page-content"
         style={{
           maxWidth: 800,
           margin: "0 auto",

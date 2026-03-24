@@ -112,15 +112,31 @@ code {
 
 .page-bg {
   position: fixed;
-  inset: 0;
+  inset: -10%;
   background-size: cover;
   background-position: center;
   z-index: 0;
-  animation: colorRotate 3s linear infinite;
+  animation: bgDrift 30s ease-in-out infinite, colorRotate 20s linear infinite;
+}
+
+@keyframes bgDrift {
+  0%   { transform: scaleX(-1) rotate(0deg)    translateY(0px); }
+  25%  { transform: scaleX(-1) rotate(1.5deg)  translateY(-30px); }
+  50%  { transform: scaleX(-1) rotate(0deg)    translateY(0px); }
+  75%  { transform: scaleX(-1) rotate(-1.5deg) translateY(30px); }
+  100% { transform: scaleX(-1) rotate(0deg)    translateY(0px); }
 }
 
 @keyframes colorRotate {
   100% {
     filter: hue-rotate(360deg);
   }
+}
+
+.page-content {
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 16px;
+  padding: 32px;
+  color: #fff;
+  text-shadow: 0 0 3px #000, 0 1px 3px #000;
 }

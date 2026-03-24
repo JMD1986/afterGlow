@@ -4,17 +4,10 @@ import bg from "../../assets/backgrounds/pppsychedelic.webp";
 
 const ThePortal: React.FC = () => {
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        backgroundImage: `url(${bg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-      }}
-    >
+    <div style={{ position: "relative", minHeight: "100vh" }}>
+      <div className="page-bg" style={{ backgroundImage: `url(${bg})` }} />
       <div
-        className="portal-page"
+        className="portal-page page-content"
         style={{
           maxWidth: 900,
           margin: "0 auto",

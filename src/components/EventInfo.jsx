@@ -15,6 +15,7 @@ import {
   img920e7,
   imgDdec,
 } from "../assets/images";
+import bg from "../assets/backgrounds/pppsychedelic.webp";
 import "./EventInfo.css";
 // import EventInfoImageOverlay from "./EventInfoImageOverlay";
 
@@ -110,6 +111,12 @@ export default function EventInfo() {
         overflow: "hidden",
       }}
     >
+      {/* Animated psychedelic background — behind everything */}
+      <div
+        className="page-bg"
+        style={{ backgroundImage: `url(${bg})`, zIndex: -1 }}
+        aria-hidden="true"
+      />
       {/* TrippyRings background, absolutely positioned, transparent, non-interactive */}
       <div
         style={{
