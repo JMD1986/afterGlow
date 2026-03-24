@@ -12,6 +12,8 @@ import {
 } from "../assets/images";
 import "./EventInfo.css";
 // import EventInfoImageOverlay from "./EventInfoImageOverlay";
+
+import TrippyRings from "./TrippyRings";
 import { Link } from "react-router-dom";
 
 const sections = [
@@ -70,9 +72,31 @@ export default function EventInfo() {
   }, []);
 
   return (
-    <>
+    <div
+      style={{
+        position: "relative",
+        minHeight: "100vh",
+        width: "100vw",
+        overflow: "hidden",
+      }}
+    >
+      {/* TrippyRings background, absolutely positioned, transparent, non-interactive */}
+      <div
+        style={{
+          position: "fixed",
+          inset: 0,
+          zIndex: 0,
+          pointerEvents: "none",
+        }}
+        aria-hidden="true"
+      >
+        <TrippyRings />
+      </div>
       {/* Full viewport hero image with overlayed welcome text */}
-      <div className="event-hero-image-container">
+      <div
+        className="event-hero-image-container"
+        style={{ position: "relative", zIndex: 1 }}
+      >
         <img src={imgF58c} alt="Afterglow Hero" className="event-hero-image" />
         <div className="event-hero-welcome">
           <span>welcome to afterglow</span>
@@ -80,7 +104,11 @@ export default function EventInfo() {
         </div>
       </div>
       {/* <EventInfoImageOverlay /> */}
-      <div className="event-info" ref={containerRef}>
+      <div
+        className="event-info"
+        ref={containerRef}
+        style={{ position: "relative", zIndex: 2 }}
+      >
         {sections.map((section, i) => (
           <section key={i} className="event-section scroll-animate">
             <div className="event-section-image">
@@ -93,9 +121,12 @@ export default function EventInfo() {
           </section>
         ))}
       </div>
-      <div className="event-info-bottom-link">
+      <div
+        className="event-info-bottom-link"
+        style={{ position: "relative", zIndex: 3 }}
+      >
         <Link to="/forReal">what is it really?</Link>
       </div>
-    </>
+    </div>
   );
 }

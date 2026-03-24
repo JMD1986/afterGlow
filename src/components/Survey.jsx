@@ -119,7 +119,10 @@ export default function Survey({ onComplete, onStartMusic }) {
                 className="survey-btn"
                 onClick={() => {
                   triggerPulse();
-                  handleCompleteAndNavigate({ vibe: "could be chiller", assist: true });
+                  handleCompleteAndNavigate({
+                    vibe: "could be chiller",
+                    assist: true,
+                  });
                 }}
               >
                 Yes, Elevate My Vibe
@@ -128,7 +131,10 @@ export default function Survey({ onComplete, onStartMusic }) {
                 className="survey-btn"
                 onClick={() => {
                   triggerPulse();
-                  handleCompleteAndNavigate({ vibe: "could be chiller", assist: false });
+                  handleCompleteAndNavigate({
+                    vibe: "could be chiller",
+                    assist: false,
+                  });
                 }}
               >
                 No Thanks, I'll Figure It Out
