@@ -125,3 +125,31 @@
   opacity: 1;
   text-decoration: underline;
 }
+
+/* ── radial light-blue pulse on button click ── */
+.trippy-pulse {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(135, 206, 250, 0.7) 0%, rgba(135, 206, 250, 0) 70%);
+  animation: pulse-glow 1.2s ease-out forwards;
+}
+
+@keyframes pulse-glow {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 250vmax;
+    height: 250vmax;
+    opacity: 0;
+  }
+}

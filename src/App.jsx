@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Survey from "./components/Survey";
 import MusicToggle from "./components/MidiBackground";
 import Explanation from "./components/Explanation";
+import CountdownModal from "./components/CountdownModal";
 import "./App.css";
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
                   onStartMusic={startMusic}
                 />
               )}
+              {surveyDone && <CountdownModal />}
               <main className="main-content"></main>
             </>
           }

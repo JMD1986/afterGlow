@@ -1,7 +1,6 @@
 import { useState, useMemo } from "react";
 import surveyBg from "../assets/images/b0b6e3adad261f511b3205f0f125e3ba.jpg";
 import { images } from "../assets/images";
-// import TrippyRings from "./TrippyRings";
 import TrippyTriangles from "./TrippyTriangles";
 import "./Survey.css";
 
@@ -13,6 +12,11 @@ function getRandomBg(exclude) {
 export default function Survey({ onComplete, onStartMusic }) {
   const [step, setStep] = useState(1);
   const [firstAnswer, setFirstAnswer] = useState(null);
+  const [pulseKey, setPulseKey] = useState(0);
+
+  function triggerPulse() {
+    setPulseKey((k) => k + 1);
+  }
 
   // Pick two random backgrounds once on mount (excluding the first-screen image)
   const [chillBg, chillerBg] = useMemo(() => {
@@ -23,6 +27,7 @@ export default function Survey({ onComplete, onStartMusic }) {
   }, []);
 
   function handleFirstAnswer(answer) {
+    triggerPulse();
     setFirstAnswer(answer);
     setStep(2);
     onStartMusic();
@@ -37,6 +42,7 @@ export default function Survey({ onComplete, onStartMusic }) {
       style={{ backgroundImage: `url(${currentBg})` }}
     >
       <div className="trippy-wrapper">
+        <div key={pulseKey} className="trippy-pulse" />
         <TrippyTriangles />
       </div>
       <div className="survey-content">
@@ -73,13 +79,19 @@ export default function Survey({ onComplete, onStartMusic }) {
             <div className="survey-choices">
               <button
                 className="survey-btn"
-                onClick={() => onComplete({ vibe: "chill", share: true })}
+                onClick={() => {
+                  triggerPulse();
+                  onComplete({ vibe: "chill", share: true });
+                }}
               >
                 Yes, I'm Chill Like That
               </button>
               <button
                 className="survey-btn"
-                onClick={() => onComplete({ vibe: "chill", share: false })}
+                onClick={() => {
+                  triggerPulse();
+                  onComplete({ vibe: "chill", share: false });
+                }}
               >
                 Not Really. I Keep My Vibes to Myself
               </button>
@@ -98,17 +110,19 @@ export default function Survey({ onComplete, onStartMusic }) {
             <div className="survey-choices">
               <button
                 className="survey-btn"
-                onClick={() =>
-                  onComplete({ vibe: "could be chiller", assist: true })
-                }
+                onClick={() => {
+                  triggerPulse();
+                  onComplete({ vibe: "could be chiller", assist: true });
+                }}
               >
                 Yes, Elevate My Vibe
               </button>
               <button
                 className="survey-btn"
-                onClick={() =>
-                  onComplete({ vibe: "could be chiller", assist: false })
-                }
+                onClick={() => {
+                  triggerPulse();
+                  onComplete({ vibe: "could be chiller", assist: false });
+                }}
               >
                 No Thanks, I'll Figure It Out
               </button>
