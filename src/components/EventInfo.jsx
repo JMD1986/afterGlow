@@ -105,6 +105,8 @@ export default function EventInfo() {
   return (
     <div
       style={{
+        marginTop: -24,
+        // border: "4px solid #ffb347",
         position: "relative",
         minHeight: "100vh",
         width: "100vw",

@@ -66,6 +66,7 @@
   align-items: flex-end;
   justify-content: center;
   background: #000;
+  margin-top: -24px;
 }
 
 .event-hero-image {
