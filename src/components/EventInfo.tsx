@@ -21,7 +21,16 @@ import "./EventInfo.css";
 
 import TrippyRings from "./animations/TrippyRings";
 import { Link } from "react-router-dom";
-const sections = [
+import type { ReactNode } from "react";
+
+type Section = {
+  image: string;
+  title: string;
+  link: string;
+  text: ReactNode;
+};
+
+const sections: Section[] = [
   {
     image: img5def,
     title: "What is Afterglow?",
@@ -81,10 +90,11 @@ const sections = [
 ];
 
 export default function EventInfo() {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const els = containerRef.current?.querySelectorAll(".scroll-animate");
+    const els =
+      containerRef.current?.querySelectorAll<HTMLElement>(".scroll-animate");
     if (!els) return;
 
     const observer = new IntersectionObserver(
@@ -105,8 +115,6 @@ export default function EventInfo() {
   return (
     <div
       style={{
-        marginTop: -24,
-        // border: "4px solid #ffb347",
         position: "relative",
         minHeight: "100vh",
         width: "100vw",

@@ -13,22 +13,35 @@ import ThePortal from "./components/pages/ThePortal";
 import TheTeam from "./components/pages/TheTeam";
 import TheVenue from "./components/pages/TheVenue";
 import "./App.css";
+import type { FC, ReactNode, MutableRefObject } from "react";
 
-function ScrollToTop() {
+// Interfaces for props
+interface MusicToggleProps {
+  playing: boolean;
+  onToggle: () => void;
+}
+
+interface SurveyProps {
+  onComplete: () => void;
+  onStartMusic: () => void;
+}
+
+// ScrollToTop component
+const ScrollToTop: FC = () => {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
   return null;
-}
+};
 
-function App() {
-  const [surveyDone, setSurveyDone] = useState(false);
-  const [musicStarted, setMusicStarted] = useState(false);
-  const [musicPlaying, setMusicPlaying] = useState(false);
-  const audioRef = useRef(null);
+const App: FC = () => {
+  const [surveyDone, setSurveyDone] = useState<boolean>(false);
+  const [musicStarted, setMusicStarted] = useState<boolean>(false);
+  const [musicPlaying, setMusicPlaying] = useState<boolean>(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  function startMusic() {
+  function startMusic(): void {
     if (audioRef.current && !musicPlaying) {
       audioRef.current.play();
       setMusicPlaying(true);
@@ -36,7 +49,7 @@ function App() {
     }
   }
 
-  function toggleMute() {
+  function toggleMute(): void {
     if (!audioRef.current) return;
     if (musicPlaying) {
       audioRef.current.pause();
@@ -47,7 +60,7 @@ function App() {
     }
   }
 
-  function handleSurveyComplete() {
+  function handleSurveyComplete(): void {
     setSurveyDone(true);
   }
 
@@ -149,6 +162,6 @@ function App() {
       </Routes>
     </>
   );
-}
+};
 
 export default App;
