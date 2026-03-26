@@ -1,9 +1,9 @@
-import React from "react";
 import "./TriangleTravelers.css";
+import type { FC } from "react";
 
 const MAX = 200;
 
-export default function TriangleTravelers() {
+const TriangleTravelers: FC = () => {
   return (
     <div className="triangle-travelers-wrap">
       {Array.from({ length: MAX }).map((_, i) => (
@@ -11,4 +11,6 @@ export default function TriangleTravelers() {
       ))}
     </div>
   );
-}
+};
+
+export default TriangleTravelers;

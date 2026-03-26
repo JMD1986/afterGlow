@@ -1,8 +1,9 @@
 import "./TrippyTriangles.css";
+import type { FC } from "react";
 
 const COUNT = 20;
 
-export default function TrippyTriangles() {
+const TrippyTriangles: FC = () => {
   const polygons = [];
   for (let i = 1; i <= COUNT; i++) {
     polygons.push(
@@ -25,4 +26,6 @@ export default function TrippyTriangles() {
       </svg>
     </div>
   );
-}
+};
+
+export default TrippyTriangles;
