@@ -1,6 +1,12 @@
 import React from "react";
-import { vibeReader, jester } from "../../assets/images";
+import {
+  vibeReader,
+  jester,
+  treyAbraham,
+  colorburnAV,
+} from "../../assets/images";
 import bg from "../../assets/backgrounds/pppsychedelic.webp";
+import { Link } from "react-router-dom";
 
 const imgStyle: React.CSSProperties = {
   width: "100%",
@@ -65,22 +71,7 @@ const TheTeam: React.FC = () => {
           </div>
 
           <div style={cardStyle}>
-            <iframe
-              src="https://www.instagram.com/p/C59bC7BpYyc/embed"
-              width="300"
-              height="360"
-              frameBorder={0}
-              scrolling="no"
-              allowTransparency
-              allow="encrypted-media"
-              style={{
-                borderRadius: 12,
-                border: "none",
-                display: "block",
-                marginBottom: 12,
-              }}
-              title="Colorburn on Instagram"
-            />
+            <img src={colorburnAV} alt="Colorburn" style={imgStyle} />
             <h2 style={{ margin: "12px 0 8px" }}>Colorburn</h2>
             <p style={{ fontSize: 16, lineHeight: 1.6 }}>
               Colorburn is an AV artist weaving live visuals and sound into a
@@ -89,22 +80,7 @@ const TheTeam: React.FC = () => {
             </p>
           </div>
           <div style={cardStyle}>
-            <iframe
-              src="https://www.instagram.com/p/C59bC7BpYyc/embed"
-              width="300"
-              height="360"
-              frameBorder={0}
-              scrolling="no"
-              allowTransparency
-              allow="encrypted-media"
-              style={{
-                borderRadius: 12,
-                border: "none",
-                display: "block",
-                marginBottom: 12,
-              }}
-              title="Colorburn on Instagram"
-            />
+            <img src={treyAbraham} alt="Trey Abraham" style={imgStyle} />
             <h2 style={{ margin: "12px 0 8px" }}>Trey Abraham</h2>
             <p style={{ fontSize: 16, lineHeight: 1.6 }}>
               Trey Abraham is a mixed media artist, visual performer, and
@@ -113,6 +89,14 @@ const TheTeam: React.FC = () => {
               interpret live music
             </p>
           </div>
+        </div>
+        <div style={{ textAlign: "center", marginTop: 48 }}>
+          <Link
+            to="/eventInfo"
+            style={{ color: "#3a6", fontWeight: 600, fontSize: 18 }}
+          >
+            ← Back to Event Info
+          </Link>
         </div>
       </div>
     </div>

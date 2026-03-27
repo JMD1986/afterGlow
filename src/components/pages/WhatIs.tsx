@@ -1,5 +1,6 @@
 import React from "react";
 import bg from "../../assets/backgrounds/pppsychedelic.webp";
+import { Link } from "react-router-dom";
 
 const WhatIs: React.FC = () => {
   return (
@@ -58,6 +59,14 @@ const WhatIs: React.FC = () => {
         >
           All homegrown. All fun. All weird as hell.
         </p>
+        <div style={{ textAlign: "center", marginTop: 48 }}>
+          <Link
+            to="/eventInfo"
+            style={{ color: "#3a6", fontWeight: 600, fontSize: 18 }}
+          >
+            ← Back to Event Info
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import { couchbound, bryanGary, jaykWilson } from "../../assets/images";
 import bg from "../../assets/backgrounds/pppsychedelic.webp";
+import { Link } from "react-router-dom";
 
 const Soundbath: React.FC = () => {
   return (
@@ -128,6 +129,14 @@ const Soundbath: React.FC = () => {
               Listen to Net Ether on Bandcamp
             </a>
           </div>
+        </div>
+        <div style={{ textAlign: "center", marginTop: 48 }}>
+          <Link
+            to="/eventInfo"
+            style={{ color: "#3a6", fontWeight: 600, fontSize: 18 }}
+          >
+            ← Back to Event Info
+          </Link>
         </div>
       </div>
     </div>

@@ -29,6 +29,8 @@ import vibeReader from "./vibeReader.jpg";
 import jester from "./jester.jpg";
 import falloutOutside from "./falloutOutside.jpg";
 import canvas from "./canvas.png";
+import treyAbraham from "./Trey-Abraham.png";
+import colorburnAV from "./colorburnAV.png";
 
 export const images = [
   imgF58c,
@@ -62,6 +64,8 @@ export const images = [
   jester,
   falloutOutside,
   canvas,
+  treyAbraham,
+  colorburnAV,
 ];
 
 export {
@@ -96,4 +100,6 @@ export {
   jester,
   falloutOutside,
   canvas,
+  treyAbraham,
+  colorburnAV,
 };

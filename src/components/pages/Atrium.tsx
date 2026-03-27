@@ -1,6 +1,7 @@
 import React from "react";
 import { falloutLobby, fallloutLobby2 } from "../../assets/images";
 import bg from "../../assets/backgrounds/pppsychedelic.webp";
+import { Link } from "react-router-dom";
 
 const Atrium: React.FC = () => {
   return (
@@ -63,6 +64,14 @@ const Atrium: React.FC = () => {
           the perfect place to settle in, catch up, and set the tone for your
           Afterglow experience.
         </p>
+        <div style={{ textAlign: "center", marginTop: 48 }}>
+          <Link
+            to="/eventInfo"
+            style={{ color: "#3a6", fontWeight: 600, fontSize: 18 }}
+          >
+            ← Back to Event Info
+          </Link>
+        </div>
       </div>
     </div>
   );
