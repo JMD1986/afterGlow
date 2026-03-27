@@ -88,6 +88,31 @@ const TheTeam: React.FC = () => {
               the energy of the room.
             </p>
           </div>
+          <div style={cardStyle}>
+            <iframe
+              src="https://www.instagram.com/p/C59bC7BpYyc/embed"
+              width="300"
+              height="360"
+              frameBorder={0}
+              scrolling="no"
+              allowTransparency
+              allow="encrypted-media"
+              style={{
+                borderRadius: 12,
+                border: "none",
+                display: "block",
+                marginBottom: 12,
+              }}
+              title="Colorburn on Instagram"
+            />
+            <h2 style={{ margin: "12px 0 8px" }}>Trey Abraham</h2>
+            <p style={{ fontSize: 16, lineHeight: 1.6 }}>
+              Trey Abraham is a mixed media artist, visual performer, and
+              musician living in Austin, Texas whose works are often initiated
+              as stream of consciousness paintings that synesthetically
+              interpret live music
+            </p>
+          </div>
         </div>
       </div>
     </div>
