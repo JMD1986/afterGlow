@@ -5,6 +5,9 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   base: "/afterGlow/",
+  preview: {
+    allowedHosts: ["afterglow-damp.onrender.com"],
+  },
   test: {
     environment: "jsdom",
     globals: true,
