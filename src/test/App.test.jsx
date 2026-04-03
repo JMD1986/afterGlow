@@ -74,4 +74,11 @@ describe("App", () => {
       screen.getByRole("heading", { name: /Fallout Theater/i }),
     ).toBeInTheDocument();
   });
+
+  it("renders Explanation page on /explanation route", () => {
+    renderApp("/explanation");
+    expect(
+      screen.getByRole("heading", { name: /What's This All About/i }),
+    ).toBeInTheDocument();
+  });
 });

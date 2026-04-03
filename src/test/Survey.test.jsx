@@ -81,6 +81,33 @@ describe("Survey", () => {
     });
   });
 
+  it("calls onComplete with share: false when 'Not Really' is clicked (chill path)", async () => {
+    const user = userEvent.setup();
+    const onComplete = vi.fn();
+    renderSurvey({ onComplete });
+
+    await user.click(screen.getByText("Chill"));
+    await user.click(
+      screen.getByText("Not Really. I Keep My Vibes to Myself"),
+    );
+
+    expect(onComplete).toHaveBeenCalledWith({ vibe: "chill", share: false });
+  });
+
+  it("calls onComplete with assist: false when 'No Thanks' is clicked (chiller path)", async () => {
+    const user = userEvent.setup();
+    const onComplete = vi.fn();
+    renderSurvey({ onComplete });
+
+    await user.click(screen.getByText("Could Be Chiller"));
+    await user.click(screen.getByText("No Thanks, I'll Figure It Out"));
+
+    expect(onComplete).toHaveBeenCalledWith({
+      vibe: "could be chiller",
+      assist: false,
+    });
+  });
+
   it("has a link to the explanation page", () => {
     renderSurvey();
     const link = screen.getByText("what's this all about?");
