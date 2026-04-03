@@ -30,7 +30,7 @@ describe("Twilio SMS Webhook", () => {
   it("POST /sms returns TwiML with welcome message", async () => {
     const res = await request(app).post("/sms").send("Body=hello");
     expect(res.text).toContain("Welcome to Afterglow");
-    expect(res.text).toContain("https://test.example.com/afterGlow");
+    expect(res.text).toContain("tinyurl.com/afterglowatx");
   });
 
   it("POST /sms returns valid TwiML structure", async () => {

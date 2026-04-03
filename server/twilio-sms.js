@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.post("/sms", (req, res) => {
   const twiml = new twilio.twiml.MessagingResponse();
   twiml.message(
-    `Welcome to Afterglow! 🌈✨\nCheck out the event: ${SITE_LINK}`,
+    `Welcome to Afterglow! 🌈✨\nCheck out the event: tinyurl.com/afterglowatx`,
   );
   res.type("text/xml");
   res.send(twiml.toString());
