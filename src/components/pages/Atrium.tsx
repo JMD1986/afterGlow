@@ -2,6 +2,7 @@ import React from "react";
 import { falloutLobby, fallloutLobby2 } from "../../assets/images";
 import bg from "../../assets/backgrounds/pppsychedelic.webp";
 import { Link } from "react-router-dom";
+import "../EventInfo.css";
 
 const Atrium: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const Atrium: React.FC = () => {
           padding: 24,
           position: "relative",
           zIndex: 3,
+          marginBottom: 48,
         }}
       >
         <h1>The Atrium</h1>
@@ -72,6 +74,18 @@ const Atrium: React.FC = () => {
             ← Back to Event Info
           </Link>
         </div>
+      </div>
+
+      {/* Floating ticket footer */}
+      <div className="floating-ticket-footer visible">
+        <a
+          href="https://www.eventbrite.com/e/afterglow-a-late-night-dance-party-tickets-1984935756280?aff=oddtdtcreator"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="floating-ticket-link"
+        >
+          Buy Tickets — Limited Time $5
+        </a>
       </div>
     </div>
   );

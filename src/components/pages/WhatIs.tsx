@@ -1,6 +1,7 @@
 import React from "react";
 import bg from "../../assets/backgrounds/pppsychedelic.webp";
 import { Link } from "react-router-dom";
+import "../EventInfo.css";
 
 const WhatIs: React.FC = () => {
   return (
@@ -9,11 +10,13 @@ const WhatIs: React.FC = () => {
       <div
         className="page-content"
         style={{
+          marginBottom: 48,
           maxWidth: 800,
           margin: "0 auto",
           padding: 24,
           position: "relative",
           zIndex: 3,
+          marginBottom: 48,
         }}
       >
         <h1>What is Afterglow?</h1>
@@ -42,8 +45,8 @@ const WhatIs: React.FC = () => {
         </p>
 
         <p style={{ fontSize: 20, lineHeight: 1.75, marginBottom: 24 }}>
-          Shows are cheap, because the economy fuckin sucks. Expect multiple
-          ambient musicians running simultaneous sets, a collective of
+          Shows are cheap, because the economy kinda sucks right now. Expect
+          multiple ambient musicians running simultaneous sets, a collective of
           instrumentalists in the main room performing improvisational
           experimental music, and comedic performances and installations brought
           to you by Fallout Theater's own clowning and immersive comedy members.
@@ -67,6 +70,18 @@ const WhatIs: React.FC = () => {
             ← Back to Event Info
           </Link>
         </div>
+      </div>
+
+      {/* Floating ticket footer */}
+      <div className="floating-ticket-footer visible">
+        <a
+          href="https://www.eventbrite.com/e/afterglow-a-late-night-dance-party-tickets-1984935756280?aff=oddtdtcreator"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="floating-ticket-link"
+        >
+          Buy Tickets — Limited Time $5
+        </a>
       </div>
     </div>
   );

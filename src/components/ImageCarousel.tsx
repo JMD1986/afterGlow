@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   img406,
   img8473,
@@ -20,20 +20,29 @@ const carouselImages = [
   img0096,
 ];
 
-export default function ImageCarousel() {
-  const [current, setCurrent] = useState(0);
+const AUTO_PLAY_MS = 4000;
 
-  const prev = () =>
-    setCurrent((i) => (i === 0 ? carouselImages.length - 1 : i - 1));
-  const next = () =>
-    setCurrent((i) => (i === carouselImages.length - 1 ? 0 : i + 1));
+export default function ImageCarousel({
+  className = "",
+}: {
+  className?: string;
+}) {
+  const [current, setCurrent] = useState(() =>
+    Math.floor(Math.random() * carouselImages.length),
+  );
+
+  const next = useCallback(
+    () => setCurrent((i) => (i === carouselImages.length - 1 ? 0 : i + 1)),
+    [],
+  );
+
+  useEffect(() => {
+    const timer = setInterval(next, AUTO_PLAY_MS);
+    return () => clearInterval(timer);
+  }, [next, current]);
 
   return (
-    <div className="carousel">
-      <button className="carousel-arrow carousel-arrow-left" onClick={prev} aria-label="Previous image">
-        &#8249;
-      </button>
-
+    <div className={`carousel ${className}`}>
       <div className="carousel-track">
         {carouselImages.map((src, i) => (
           <img
@@ -41,21 +50,6 @@ export default function ImageCarousel() {
             src={src}
             alt={`Afterglow photo ${i + 1}`}
             className={`carousel-slide ${i === current ? "active" : ""}`}
-          />
-        ))}
-      </div>
-
-      <button className="carousel-arrow carousel-arrow-right" onClick={next} aria-label="Next image">
-        &#8250;
-      </button>
-
-      <div className="carousel-dots">
-        {carouselImages.map((_, i) => (
-          <button
-            key={i}
-            className={`carousel-dot ${i === current ? "active" : ""}`}
-            onClick={() => setCurrent(i)}
-            aria-label={`Go to image ${i + 1}`}
           />
         ))}
       </div>

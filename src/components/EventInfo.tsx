@@ -1,9 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   img3192,
   img6764,
   imgC8ae,
-  imgF58c,
   img77d3,
   img171f,
   img3472,
@@ -20,6 +19,7 @@ import "./EventInfo.css";
 // import EventInfoImageOverlay from "./EventInfoImageOverlay";
 
 import TrippyRings from "./animations/TrippyRings";
+import ImageCarousel from "./ImageCarousel";
 import { Link } from "react-router-dom";
 import type { ReactNode } from "react";
 
@@ -42,7 +42,8 @@ const sections: Section[] = [
       in-house vibe technicians (interactive comedy), Afterglow offers a thoroughly
       curated atmosphere for maximum chillness with Austin weirdness.
       The experience unfolds across three distinct areas, each engineered
-      to support a different phase of vibrations.`,
+      to support a different phase of vibrations.
+      Also it's BYOB and 21+ so bring your own booze and good vibes and we'll provide the rest.`,
   },
   {
     image: img171f,
@@ -121,6 +122,8 @@ const sections: Section[] = [
 
 export default function EventInfo() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const [showFooter, setShowFooter] = useState(false);
 
   useEffect(() => {
     const els =
@@ -139,6 +142,19 @@ export default function EventInfo() {
     );
 
     els.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setShowFooter(!entry.isIntersecting),
+      { threshold: 0, rootMargin: "-50% 0px 0px 0px" },
+    );
+
+    observer.observe(hero);
     return () => observer.disconnect();
   }, []);
 
@@ -169,17 +185,27 @@ export default function EventInfo() {
       >
         <TrippyRings />
       </div>
-      {/* Full viewport hero image with overlayed welcome text */}
+      {/* Full viewport hero carousel with overlayed welcome text */}
       <div
+        ref={heroRef}
         className="event-hero-image-container"
         style={{ position: "relative", zIndex: 1 }}
       >
-        <img src={imgF58c} alt="Afterglow Hero" className="event-hero-image" />
+        <ImageCarousel className="event-hero-carousel" />
+        {/* Trippy overlay on top of carousel, behind text */}
+        <div className="hero-trippy-overlay" aria-hidden="true">
+          <TrippyRings />
+        </div>
         <div className="event-hero-welcome">
+          <span className="hero-welcome-line">Welcome to the party.</span>
+          <span className="hero-presenting">presenting:</span>
           <span className="hero-title">afterglow</span>
           <span className="hero-subtitle">
-            two stages of musical chillness and interactive art
+            Two stages of musical chillness and interactive art. Keeping Austin weird and relaxed since 2024.
           </span>
+          {/* <span className="hero-byob">
+            BYOB
+          </span> */}
           <span className="hero-details">
             April 25, 2026 · 11PM · 616 Lavaca St, Austin TX
           </span>
@@ -214,11 +240,24 @@ export default function EventInfo() {
           </section>
         ))}
       </div>
+
       <div
         className="event-info-bottom-link"
         style={{ position: "relative", zIndex: 3 }}
       >
         <Link to="/forReal">what is it really?</Link>
+      </div>
+
+      {/* Floating ticket footer */}
+      <div className={`floating-ticket-footer${showFooter ? " visible" : ""}`}>
+        <a
+          href="https://www.eventbrite.com/e/afterglow-a-late-night-dance-party-tickets-1984935756280?aff=oddtdtcreator"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="floating-ticket-link"
+        >
+          Buy Tickets — Limited Time $5
+        </a>
       </div>
     </div>
   );
