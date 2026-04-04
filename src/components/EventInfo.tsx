@@ -35,31 +35,61 @@ const sections: Section[] = [
     image: img5def,
     title: "What is Afterglow?",
     link: "/whatIs",
-    text: "Afterglow is an immersive, multi-stage mood enhancement environment designed to facilitate calm, openness, and controlled descent. Combining live instrumental music, healing sound baths, modular synthesizers, live painting, immersive visual installations, DJ sets, and our in-house vibe technicians, Afterglow offers a thoroughly curated atmosphere for emotional softening and sensory realignment. The experience unfolds across three distinct areas, each engineered to support a different phase of attunement.",
+    text: `Afterglow is an immersive, multi-stage sound and art event
+      designed to facilitate calm, openness, and relaxation. Combining
+      live instrumental music, healing sound baths, modular synthesizers,
+      live painting, immersive visual installations, DJ sets, and our
+      in-house vibe technicians (interactive comedy), Afterglow offers a thoroughly
+      curated atmosphere for maximum chillness with Austin weirdness.
+      The experience unfolds across three distinct areas, each engineered
+      to support a different phase of vibrations.`,
   },
   {
     image: img171f,
     title: "The Atrium",
     link: "/atrium",
-    text: "The Atrium is a social decompression chamber designed for conversation, libations, and gradual environmental adjustment. Here, guests are invited to settle into the evening at their own pace while DJs guide the room through downtempo, ambient, and trip-hop selections calibrated for ease, drift, and interpersonal warmth.",
+    text: `The Atrium is a social area designed for
+      conversation, libations, and gradual environmental adjustment.
+      Here, guests are invited to settle into the evening at their own
+      pace while DJs guide the room through downtempo, ambient, and
+      trip-hop selections calibrated for optimal vibe-setting.
+      The space also features a rotating visual installation
+      from local artists, providing a dynamic backdrop that evolves
+      throughout the night.`,
   },
   {
     image: img3472,
     title: "The Soundbath",
     link: "/soundbath",
-    text: "The Soundbath is a dedicated alignment zone where our in-house atmosphere engineers and sensory technicians administer a sequence of live sound environments using modular synthesizers, live instrumentation, and responsive projected visuals. Each session is structured to encourage frequency tuning, emotional recalibration, and the kind of deep full-body relaxation not typically available in unsupervised conditions.",
+    text: `The Soundbath is a dedicated  zone where our in-house
+      atmosphere engineers and sensory technicians administer a sequence
+      of live sound environments using modular synthesizers, live
+      instrumentation, and responsive projected visuals. Three different
+      sound artists ranging from gongs and ambient percussion to modular synthesizers.`,
   },
   {
     image: img372c,
     title: "The Portal",
     link: "/thePortal",
-    text: "The Portal serves as the evening’s primary transmission chamber, featuring live instrumental downtempo, ambient, and trip-hop performed by DRIFTSIDE, a collective of Austin-based musicians working across steel guitar, saxophone, synthesizers, and percussion. The environment is further activated by a live painting performance from local artist The Suddenkind, offering a parallel visual signal as the night continues to open.",
+    text: `The Portal serves as the evening's primary transmission
+      chamber, featuring live instrumental downtempo, ambient, and
+      trip-hop performed by DRIFTSIDE, a collective of Austin-based
+      musicians working across steel guitar, saxophone, synthesizers,
+      and percussion. The environment is further activated by a live
+      painting performance from local artist Trey Abraham, offering a
+      parallel visual signal as the night continues to open.`,
   },
   {
     image: imgDdec,
     title: "The Team",
     link: "/theTeam",
-    text: "Distributed throughout the space is the Afterglow team: Harmonic Analysts, signal creators, and additional field personnel working quietly behind the scenes to maintain favorable atmospheric conditions. Guests may also encounter hidden artifacts, subtle interventions, and other traces of ongoing research from Afterglow Enterprises LLC.",
+    text: `Distributed throughout the space is the Afterglow team:
+      Harmonic Analysts, signal creators, and additional field personnel
+      working quietly behind the scenes to maintain favorable atmospheric
+      conditions. Guests may also encounter hidden artifacts, subtle
+      interventions, and other traces of ongoing research from Afterglow
+      Enterprises LLC. Think fun art, secret installations, and silly
+      interactive comedy, all designed to keep the vibe just right.`,
   },
   {
     image: imgC8ae,
@@ -146,8 +176,21 @@ export default function EventInfo() {
       >
         <img src={imgF58c} alt="Afterglow Hero" className="event-hero-image" />
         <div className="event-hero-welcome">
-          <span>welcome to afterglow</span>
-          <span className="-hero-ascend">are you ready to ascend?</span>
+          <span className="hero-title">afterglow</span>
+          <span className="hero-subtitle">
+            two stages of musical chillness and interactive art
+          </span>
+          <span className="hero-details">
+            April 25, 2026 · 11PM · 616 Lavaca St, Austin TX
+          </span>
+          <a
+            href="https://www.eventbrite.com/e/afterglow-a-late-night-dance-party-tickets-1984935756280?aff=oddtdtcreator"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hero-cta"
+          >
+            Buy Tickets — Limited Time $5
+          </a>
         </div>
       </div>
       {/* <EventInfoImageOverlay /> */}
@@ -161,6 +204,7 @@ export default function EventInfo() {
             <div className="event-section-image">
               <Link to={section.link}>
                 <img src={section.image} alt={section.title} />
+                <span className="image-overlay-label">click for more info</span>
               </Link>
             </div>
             <div className="event-section-text">

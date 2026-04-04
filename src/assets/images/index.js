@@ -31,6 +31,13 @@ import falloutOutside from "./falloutOutside.jpg";
 import canvas from "./canvas.png";
 import treyAbraham from "./Trey-Abraham.png";
 import colorburnAV from "./colorburnAV.png";
+import img406 from "./406396847_368246462448900_6720276611633646089_n-1024x658.jpg";
+import img8473 from "./IMG_8473-1.jpg";
+import img2470 from "./IMG_2470.jpg";
+import img7519 from "./IMG_7519.jpeg";
+import dclassic from "./dclassic 2024-10-26 233825.696.jpg";
+import eurorack from "./best-eurorack-synth-modules-of-2013.jpg";
+import img0096 from "./20250920201115__417209172346_1835008_IMG-0096-A.JPG";
 
 export const images = [
   imgF58c,
@@ -66,6 +73,13 @@ export const images = [
   canvas,
   treyAbraham,
   colorburnAV,
+  img406,
+  img8473,
+  img2470,
+  img7519,
+  dclassic,
+  eurorack,
+  img0096,
 ];
 
 export {
@@ -102,4 +116,11 @@ export {
   canvas,
   treyAbraham,
   colorburnAV,
+  img406,
+  img8473,
+  img2470,
+  img7519,
+  dclassic,
+  eurorack,
+  img0096,
 };
