@@ -1,7 +1,6 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Survey from "./components/Survey";
-import MusicToggle from "./components/MidiBackground";
 import Explanation from "./components/Explanation";
 import CountdownModal from "./components/CountdownModal";
 import EventInfo from "./components/EventInfo";
@@ -13,17 +12,10 @@ import ThePortal from "./components/pages/ThePortal";
 import TheTeam from "./components/pages/TheTeam";
 import TheVenue from "./components/pages/TheVenue";
 import "./App.css";
-import type { FC, ReactNode, MutableRefObject } from "react";
-
-// Interfaces for props
-interface MusicToggleProps {
-  playing: boolean;
-  onToggle: () => void;
-}
+import type { FC } from "react";
 
 interface SurveyProps {
   onComplete: () => void;
-  onStartMusic: () => void;
 }
 
 // ScrollToTop component
@@ -36,62 +28,16 @@ const ScrollToTop: FC = () => {
 };
 
 const App: FC = () => {
-  const [surveyDone, setSurveyDone] = useState<boolean>(false);
-  const [musicStarted, setMusicStarted] = useState<boolean>(false);
-  const [musicPlaying, setMusicPlaying] = useState<boolean>(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  function startMusic(): void {
-    if (audioRef.current && !musicPlaying) {
-      audioRef.current.play();
-      setMusicPlaying(true);
-      setMusicStarted(true);
-    }
-  }
-
-  function toggleMute(): void {
-    if (!audioRef.current) return;
-    if (musicPlaying) {
-      audioRef.current.pause();
-      setMusicPlaying(false);
-    } else {
-      audioRef.current.play();
-      setMusicPlaying(true);
-    }
-  }
-
-  function handleSurveyComplete(): void {
-    setSurveyDone(true);
-  }
-
   return (
     <>
-      <audio
-        ref={audioRef}
-        src="/return-to-innocence.mp3"
-        loop
-        preload="auto"
-      />
-      {musicStarted && (
-        <MusicToggle playing={musicPlaying} onToggle={toggleMute} />
-      )}
       <ScrollToTop />
       <Routes>
         <Route
           path="/"
           element={
-            <>
-              {!surveyDone && (
-                <Survey
-                  onComplete={handleSurveyComplete}
-                  onStartMusic={startMusic}
-                />
-              )}
-              {surveyDone && <CountdownModal />}
-              <main className="main-content">
-                <EventInfo />
-              </main>
-            </>
+            <main className="main-content">
+              <EventInfo />
+            </main>
           }
         />
         <Route path="/explanation" element={<Explanation />} />

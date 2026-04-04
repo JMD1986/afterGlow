@@ -17,7 +17,7 @@ function getRandomBg(exclude) {
   return pool[Math.floor(Math.random() * pool.length)];
 }
 
-export default function Survey({ onComplete, onStartMusic }) {
+export default function Survey({ onComplete }) {
   const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [firstAnswer, setFirstAnswer] = useState(null);
@@ -39,7 +39,6 @@ export default function Survey({ onComplete, onStartMusic }) {
     triggerPulse();
     setFirstAnswer(answer);
     setStep(2);
-    onStartMusic();
   }
 
   function handleCompleteAndNavigate(data) {
