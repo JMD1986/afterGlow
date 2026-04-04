@@ -83,12 +83,22 @@
   pointer-events: none;
 }
 
+/* Trippy animation overlay — sits between carousel and text */
+.hero-trippy-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.35;
+  mix-blend-mode: screen;
+}
+
 .event-hero-welcome {
   position: absolute;
   left: 50%;
-  top: 75%;
+  top: 45%;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: 3;
   width: 100vw;
   text-align: center;
   pointer-events: none;
@@ -112,6 +122,24 @@
   pointer-events: auto;
 }
 
+.hero-welcome-line {
+  font-size: 2rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: lowercase;
+  opacity: 0.85;
+}
+
+.hero-presenting {
+  font-size: 1.2rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: lowercase;
+  opacity: 0.75;
+  margin-bottom: 0 !important;
+  padding: 0.2em 1em !important;
+}
+
 .hero-title {
   font-size: 3rem !important;
   text-transform: lowercase;
@@ -127,6 +155,15 @@
 
 .hero-details {
   font-size: 1rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.04em !important;
+  opacity: 0.85;
+  padding: 0.3em 1em !important;
+  background: rgba(0, 0, 0, 0.35) !important;
+  border-radius: 0.3em !important;
+}
+.hero-byob {
+  font-size: 1.5rem !important;
   font-weight: 500 !important;
   letter-spacing: 0.04em !important;
   opacity: 0.85;
@@ -370,5 +407,62 @@
   .event-info-overlay-img {
     width: 90vw;
     top: 10%;
+  }
+}
+
+.event-info-bottom-link {
+  padding-bottom: 5em;
+}
+
+/* ── floating ticket footer ── */
+
+.floating-ticket-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75em 1em;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 179, 71, 0.3);
+  z-index: 100;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.floating-ticket-footer.visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.floating-ticket-link {
+  display: inline-block;
+  padding: 0.65em 2em;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111;
+  background: #ffb347;
+  border-radius: 2em;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.floating-ticket-link:hover {
+  background: #ffc870;
+  transform: scale(1.04);
+}
+
+@media (min-width: 768px) {
+  .floating-ticket-link {
+    font-size: 1.25rem;
+    padding: 0.7em 2.5em;
   }
 }

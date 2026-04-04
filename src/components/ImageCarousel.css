@@ -1,0 +1,69 @@
+/* ── image carousel ── */
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 60px auto;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-track {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+/* ── hero-mode: fullscreen behind overlay ── */
+.event-hero-carousel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: #000;
+  z-index: 1;
+}
+
+.event-hero-carousel .carousel-track {
+  aspect-ratio: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.event-hero-carousel .carousel-slide {
+  object-position: center;
+  opacity: 0;
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.event-hero-carousel .carousel-slide.active {
+  opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+  .carousel {
+    margin: 40px auto;
+    border-radius: 12px;
+  }
+}
