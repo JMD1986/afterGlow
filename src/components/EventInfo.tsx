@@ -201,7 +201,7 @@ export default function EventInfo() {
           <span className="hero-presenting">presenting:</span>
           <span className="hero-title">afterglow</span>
           <span className="hero-subtitle">
-            two stages of musical chillness and interactive art.
+            Two stages of musical chillness and interactive art. Keeping Austin weird and relaxed since 2024.
           </span>
           {/* <span className="hero-byob">
             BYOB
