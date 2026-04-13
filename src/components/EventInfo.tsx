@@ -124,6 +124,7 @@ export default function EventInfo() {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const [showFooter, setShowFooter] = useState(false);
+  const [showScrollHint, setShowScrollHint] = useState(true);
 
   useEffect(() => {
     const els =
@@ -143,6 +144,16 @@ export default function EventInfo() {
 
     els.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 40) {
+        setShowScrollHint(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -246,6 +257,11 @@ export default function EventInfo() {
         style={{ position: "relative", zIndex: 3 }}
       >
         <Link to="/forReal">what is it really?</Link>
+      </div>
+
+      {/* Scroll hint footer — visible on load, disappears once user scrolls */}
+      <div className={`scroll-hint-footer${showScrollHint ? " visible" : ""}`}>
+        scroll for more info
       </div>
 
       {/* Floating ticket footer */}

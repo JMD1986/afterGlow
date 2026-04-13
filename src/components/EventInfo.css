@@ -417,6 +417,37 @@
   padding-bottom: 5em;
 }
 
+/* ── scroll hint footer — shown on load, hidden once user scrolls ── */
+
+.scroll-hint-footer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.6em 1em;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 100;
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.scroll-hint-footer.visible {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
 /* ── floating ticket footer ── */
 
 .floating-ticket-footer {
