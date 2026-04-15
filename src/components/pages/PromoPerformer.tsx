@@ -1,5 +1,6 @@
 import { falloutPosterAfterglow } from "../../assets/images";
 import bg from "../../assets/backgrounds/pppsychedelic.webp";
+import { useRef, useEffect, useCallback } from "react";
 import type { FC, ReactNode } from "react";
 
 interface QA {
@@ -13,17 +14,22 @@ export interface PromoPerformerProps {
   performingImage: string;
   infoBgImage: string;
   qa: QA[];
+  room: string;
+  setTime: string;
+  performanceType: string;
 }
 
 const sectionStyle: React.CSSProperties = {
   position: "relative",
-  width: 1080,
-  height: 1350,
+  width: "calc(100vw - 32px)",
+  maxWidth: 1080,
+  aspectRatio: "4 / 5",
   overflow: "hidden",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  margin: "0 auto",
+  margin: "15vh auto",
+  containerType: "inline-size" as never,
 };
 
 const textStyle: React.CSSProperties = {
@@ -52,7 +58,7 @@ const overlayStyle: React.CSSProperties = {
   flexDirection: "column",
   justifyContent: "space-between",
   alignItems: "center",
-  padding: "48px 24px",
+  padding: "clamp(24px, 4cqi, 48px) clamp(12px, 3cqi, 24px)",
   pointerEvents: "none",
 };
 
@@ -62,7 +68,33 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
   performingImage,
   infoBgImage,
   qa,
+  room,
+  setTime,
+  performanceType,
 }) => {
+  const infoSectionRef = useRef<HTMLDivElement>(null);
+  const infoContentRef = useRef<HTMLDivElement>(null);
+
+  const fitContent = useCallback(() => {
+    const section = infoSectionRef.current;
+    const content = infoContentRef.current;
+    if (!section || !content) return;
+
+    content.style.transform = "scale(1)";
+    const sectionH = section.clientHeight;
+    const contentH = content.scrollHeight;
+    if (contentH > sectionH) {
+      const scale = (sectionH / contentH) * 0.95;
+      content.style.transform = `scale(${scale})`;
+    }
+  }, []);
+
+  useEffect(() => {
+    fitContent();
+    window.addEventListener("resize", fitContent);
+    return () => window.removeEventListener("resize", fitContent);
+  }, [fitContent]);
+
   return (
     <div style={{ background: "#000" }}>
       <div
@@ -72,21 +104,51 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
       />
 
       {/* Section 1: Headshot */}
-      <div style={sectionStyle}>
-        <img src={headshot} alt={name} style={imgStyle} />
+      <div className="promo-section" style={sectionStyle}>
+        <img
+          src={headshot}
+          alt={name}
+          style={{
+            ...imgStyle,
+            maxWidth: "100%",
+            maxHeight: "100%",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+        />
         <div style={overlayStyle}>
-          <span
+          <div
             style={{
-              ...textStyle,
-              fontSize: "clamp(1.5rem, 4vw, 3rem)",
-              textTransform: "uppercase",
-              letterSpacing: "0.15em",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
             }}
           >
-            Meet the Performers
-          </span>
+            <span
+              style={{
+                ...textStyle,
+                fontSize: "clamp(2rem, 5cqi, 4rem)",
+                textTransform: "uppercase",
+                letterSpacing: "0.1em",
+              }}
+            >
+              Afterglow
+            </span>
+            <span
+              style={{
+                ...textStyle,
+                fontSize: "clamp(0.9rem, 2.5cqi, 1.5rem)",
+                textTransform: "uppercase",
+                letterSpacing: "0.15em",
+                marginTop: "0.3em",
+              }}
+            >
+              Meet the Performers
+            </span>
+          </div>
           <span
-            style={{ ...textStyle, fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}
+            style={{ ...textStyle, fontSize: "clamp(1.8rem, 5cqi, 3.5rem)" }}
           >
             {name}
           </span>
@@ -94,7 +156,7 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
       </div>
 
       {/* Section 2: Info Q&A */}
-      <div style={sectionStyle}>
+      <div ref={infoSectionRef} className="promo-section" style={sectionStyle}>
         <img
           src={infoBgImage}
           alt="Background"
@@ -116,22 +178,31 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
           }}
         />
         <div
+          ref={infoContentRef}
           style={{
             ...overlayStyle,
             justifyContent: "center",
-            padding: "48px 32px",
+            padding: "clamp(24px, 4cqi, 48px) clamp(16px, 3cqi, 32px)",
             pointerEvents: "auto",
+            transformOrigin: "center center",
           }}
         >
           <div
             style={{
               maxWidth: 800,
+              width: "100%",
               display: "flex",
               flexDirection: "column",
-              gap: 28,
+              gap: "clamp(14px, 2.5cqi, 28px)",
             }}
           >
-            <h2 style={{ ...textStyle, fontSize: 36, marginBottom: 8 }}>
+            <h2
+              style={{
+                ...textStyle,
+                fontSize: "clamp(1.4rem, 3.5cqi, 2.25rem)",
+                marginBottom: "clamp(4px, 0.8cqi, 8px)",
+              }}
+            >
               {name}
             </h2>
 
@@ -141,8 +212,8 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
                   style={{
                     ...textStyle,
                     fontFamily: "'Blisey', sans-serif",
-                    fontSize: 22,
-                    marginBottom: 6,
+                    fontSize: "clamp(0.9rem, 2cqi, 1.375rem)",
+                    marginBottom: "clamp(3px, 0.5cqi, 6px)",
                     color: "#ffb347",
                   }}
                 >
@@ -152,7 +223,7 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
                   style={{
                     ...textStyle,
                     fontFamily: "sans-serif",
-                    fontSize: 18,
+                    fontSize: "clamp(0.8rem, 1.7cqi, 1.125rem)",
                     lineHeight: 1.6,
                   }}
                 >
@@ -165,29 +236,77 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
       </div>
 
       {/* Section 3: Performance */}
-      <div style={sectionStyle}>
+      <div className="promo-section" style={sectionStyle}>
         <img
           src={performingImage}
           alt={`${name} performing`}
-          style={imgStyle}
+          style={{
+            ...imgStyle,
+            maxWidth: "100%",
+            maxHeight: "100%",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
         />
         <div style={overlayStyle}>
           <span
             style={{
               ...textStyle,
-              fontSize: "clamp(1.5rem, 4vw, 3rem)",
+              fontSize: "clamp(1.5rem, 4cqi, 3rem)",
               textTransform: "uppercase",
               letterSpacing: "0.15em",
             }}
           >
             Live at Afterglow
           </span>
-          <span />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "clamp(6px, 1.5cqi, 12px)",
+              background: "rgba(0,0,0,0.6)",
+              backdropFilter: "blur(6px)",
+              borderRadius: 12,
+              padding: "clamp(12px, 2.5cqi, 24px) clamp(20px, 4cqi, 40px)",
+            }}
+          >
+            <span
+              style={{
+                ...textStyle,
+                fontFamily: "sans-serif",
+                fontSize: "clamp(0.9rem, 2.2cqi, 1.4rem)",
+                textTransform: "uppercase",
+                letterSpacing: "0.1em",
+              }}
+            >
+              {room}
+            </span>
+            <span
+              style={{
+                ...textStyle,
+                fontSize: "clamp(1.2rem, 3cqi, 2rem)",
+              }}
+            >
+              {setTime}
+            </span>
+            <span
+              style={{
+                ...textStyle,
+                fontFamily: "sans-serif",
+                fontSize: "clamp(0.85rem, 2cqi, 1.2rem)",
+                fontStyle: "italic",
+              }}
+            >
+              {performanceType}
+            </span>
+          </div>
         </div>
       </div>
 
       {/* Section 4: Afterglow Poster */}
-      <div style={sectionStyle}>
+      <div className="promo-section" style={sectionStyle}>
         <img
           src={falloutPosterAfterglow}
           alt="Afterglow event poster"
@@ -196,64 +315,79 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
       </div>
 
       {/* Section 5: Event Details + CTA */}
-      <div style={sectionStyle}>
+      <div className="promo-section" style={sectionStyle}>
         <div
           style={{
             ...overlayStyle,
             justifyContent: "center",
-            gap: 24,
+            alignItems: "center",
             pointerEvents: "auto",
           }}
         >
-          <span
+          <div
             style={{
-              ...textStyle,
-              fontSize: "clamp(2.5rem, 6vw, 5rem)",
-              textTransform: "uppercase",
-              letterSpacing: "0.1em",
+              background: "rgba(0,0,0,0.65)",
+              backdropFilter: "blur(6px)",
+              borderRadius: 16,
+              padding: "clamp(24px, 4cqi, 48px) clamp(20px, 4cqi, 40px)",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "clamp(12px, 2.5cqi, 24px)",
             }}
           >
-            afterglow
-          </span>
-          <span
-            style={{
-              ...textStyle,
-              fontFamily: "sans-serif",
-              fontSize: "clamp(1.2rem, 3vw, 2rem)",
-            }}
-          >
-            April 25, 2026 · 11PM
-          </span>
-          <span
-            style={{
-              ...textStyle,
-              fontFamily: "sans-serif",
-              fontSize: "clamp(1rem, 2.5vw, 1.5rem)",
-            }}
-          >
-            616 Lavaca St, Austin TX
-          </span>
-          <a
-            href="https://www.eventbrite.com/e/afterglow-a-late-night-dance-party-tickets-1984935756280?aff=oddtdtcreator"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              ...textStyle,
-              fontFamily: "sans-serif",
-              fontSize: "clamp(1.2rem, 3vw, 1.8rem)",
-              fontWeight: 700,
-              background: "rgba(255,255,255,0.15)",
-              backdropFilter: "blur(8px)",
-              border: "2px solid rgba(255,255,255,0.4)",
-              borderRadius: 12,
-              padding: "16px 40px",
-              color: "#fff",
-              textDecoration: "none",
-              marginTop: 16,
-            }}
-          >
-            Buy Tickets — Limited Time $5
-          </a>
+            <span
+              style={{
+                ...textStyle,
+                fontSize: "clamp(2.5rem, 6cqi, 5rem)",
+                textTransform: "uppercase",
+                letterSpacing: "0.1em",
+              }}
+            >
+              afterglow
+            </span>
+            <span
+              style={{
+                ...textStyle,
+                fontFamily: "sans-serif",
+                fontSize: "clamp(1.2rem, 3cqi, 2rem)",
+              }}
+            >
+              April 25, 2026 · 11PM
+            </span>
+            <span
+              style={{
+                ...textStyle,
+                fontFamily: "sans-serif",
+                fontSize: "clamp(1rem, 2.5cqi, 1.5rem)",
+              }}
+            >
+              616 Lavaca St, Austin TX
+            </span>
+            <span
+              style={{
+                ...textStyle,
+                fontFamily: "sans-serif",
+                fontSize: "clamp(0.9rem, 2.2cqi, 1.3rem)",
+                lineHeight: 1.6,
+              }}
+            >
+              Music, Art, and comedy for the stone cold chillers.
+              <br />
+              BYOB and BYOV (bring your own vibes)
+            </span>
+            <span
+              style={{
+                ...textStyle,
+                fontFamily: "sans-serif",
+                fontSize: "clamp(1rem, 2.5cqi, 1.5rem)",
+                fontWeight: 700,
+                marginTop: 16,
+              }}
+            >
+              ticket link in bio. DM for more info :-)
+            </span>
+          </div>
         </div>
       </div>
     </div>

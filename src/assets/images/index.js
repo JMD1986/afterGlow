@@ -41,6 +41,7 @@ import img0096 from "./20250920201115__417209172346_1835008_IMG-0096-A.webp";
 import brianHeadshot from "./unnamed.webp";
 import falloutPosterAfterglow from "./FalloutPosterAfterglow.webp";
 import brianMcAughnPerforming from "./brianMcAughnPerforming.webp";
+import jaykWilsonBio from "./JaykWilsonBio.webp";
 
 export const images = [
   imgF58c,
@@ -86,6 +87,7 @@ export const images = [
   brianHeadshot,
   falloutPosterAfterglow,
   brianMcAughnPerforming,
+  jaykWilsonBio,
 ];
 
 export {
@@ -132,4 +134,5 @@ export {
   brianHeadshot,
   falloutPosterAfterglow,
   brianMcAughnPerforming,
+  jaykWilsonBio,
 };

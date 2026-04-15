@@ -13,6 +13,7 @@ import TheTeam from "./components/pages/TheTeam";
 import TheVenue from "./components/pages/TheVenue";
 import Promo from "./components/pages/Promo";
 import BrianClown from "./components/pages/BrianClown";
+import JaykWilson from "./components/pages/JaykWilson";
 import "./App.css";
 import type { FC } from "react";
 
@@ -109,6 +110,7 @@ const App: FC = () => {
         />
         <Route path="/promo" element={<Promo />} />
         <Route path="/promo/brianClown" element={<BrianClown />} />
+        <Route path="/promo/jaykWilson" element={<JaykWilson />} />
       </Routes>
     </>
   );
