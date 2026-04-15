@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Blisey';
+  src: url('./assets/fonts/Blisey.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;

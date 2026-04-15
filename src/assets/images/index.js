@@ -38,6 +38,9 @@ import img7519 from "./IMG_7519.webp";
 import dclassic from "./dclassic 2024-10-26 233825.696.webp";
 import eurorack from "./best-eurorack-synth-modules-of-2013.webp";
 import img0096 from "./20250920201115__417209172346_1835008_IMG-0096-A.webp";
+import brianHeadshot from "./unnamed.webp";
+import falloutPosterAfterglow from "./FalloutPosterAfterglow.webp";
+import brianMcAughnPerforming from "./brianMcAughnPerforming.webp";
 
 export const images = [
   imgF58c,
@@ -80,6 +83,9 @@ export const images = [
   dclassic,
   eurorack,
   img0096,
+  brianHeadshot,
+  falloutPosterAfterglow,
+  brianMcAughnPerforming,
 ];
 
 export {
@@ -123,4 +129,7 @@ export {
   dclassic,
   eurorack,
   img0096,
+  brianHeadshot,
+  falloutPosterAfterglow,
+  brianMcAughnPerforming,
 };

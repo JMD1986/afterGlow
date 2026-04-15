@@ -11,6 +11,8 @@ import Soundbath from "./components/pages/Soundbath";
 import ThePortal from "./components/pages/ThePortal";
 import TheTeam from "./components/pages/TheTeam";
 import TheVenue from "./components/pages/TheVenue";
+import Promo from "./components/pages/Promo";
+import BrianClown from "./components/pages/BrianClown";
 import "./App.css";
 import type { FC } from "react";
 
@@ -105,6 +107,8 @@ const App: FC = () => {
             </main>
           }
         />
+        <Route path="/promo" element={<Promo />} />
+        <Route path="/promo/brianClown" element={<BrianClown />} />
       </Routes>
     </>
   );
