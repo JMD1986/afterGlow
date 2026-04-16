@@ -14,6 +14,8 @@ import TheVenue from "./components/pages/TheVenue";
 import Promo from "./components/pages/Promo";
 import BrianClown from "./components/pages/BrianClown";
 import JaykWilson from "./components/pages/JaykWilson";
+import JoFoster from "./components/pages/JoFoster";
+import BryanGary from "./components/pages/BryanGary";
 import "./App.css";
 import type { FC } from "react";
 
@@ -111,6 +113,8 @@ const App: FC = () => {
         <Route path="/promo" element={<Promo />} />
         <Route path="/promo/brianClown" element={<BrianClown />} />
         <Route path="/promo/jaykWilson" element={<JaykWilson />} />
+        <Route path="/promo/joFoster" element={<JoFoster />} />
+        <Route path="/promo/bryanGary" element={<BryanGary />} />
       </Routes>
     </>
   );
