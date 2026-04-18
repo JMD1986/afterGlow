@@ -128,7 +128,7 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
             <span
               style={{
                 ...textStyle,
-                fontSize: "clamp(2rem, 5cqi, 4rem)",
+                fontSize: "clamp(3.24rem, 8.1cqi, 6.48rem)",
                 textTransform: "uppercase",
                 letterSpacing: "0.1em",
               }}
@@ -138,17 +138,21 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
             <span
               style={{
                 ...textStyle,
-                fontSize: "clamp(0.9rem, 2.5cqi, 1.5rem)",
+                fontSize: "clamp(1.44rem, 4.08cqi, 2.4rem)",
                 textTransform: "uppercase",
                 letterSpacing: "0.15em",
-                marginTop: "0.3em",
+                marginTop: "0.75em",
               }}
             >
               Meet the Performers
             </span>
           </div>
           <span
-            style={{ ...textStyle, fontSize: "clamp(1.8rem, 5cqi, 3.5rem)" }}
+            style={{
+              ...textStyle,
+              fontSize: "clamp(2.88rem, 8.1cqi, 5.64rem)",
+              marginBottom: "clamp(5rem, 11cqi, 9rem)",
+            }}
           >
             {name}
           </span>
@@ -199,7 +203,7 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
             <h2
               style={{
                 ...textStyle,
-                fontSize: "clamp(1.4rem, 3.5cqi, 2.25rem)",
+                fontSize: "clamp(1.9rem, 4.7cqi, 3rem)",
                 marginBottom: "clamp(4px, 0.8cqi, 8px)",
               }}
             >
@@ -212,7 +216,7 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
                   style={{
                     ...textStyle,
                     fontFamily: "'Blisey', sans-serif",
-                    fontSize: "clamp(0.9rem, 2cqi, 1.375rem)",
+                    fontSize: "clamp(1.2rem, 2.7cqi, 1.85rem)",
                     marginBottom: "clamp(3px, 0.5cqi, 6px)",
                     color: "#ffb347",
                   }}
@@ -223,7 +227,7 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
                   style={{
                     ...textStyle,
                     fontFamily: "sans-serif",
-                    fontSize: "clamp(0.8rem, 1.7cqi, 1.125rem)",
+                    fontSize: "clamp(1.08rem, 2.3cqi, 1.5rem)",
                     lineHeight: 1.6,
                   }}
                 >
@@ -253,7 +257,7 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
           <span
             style={{
               ...textStyle,
-              fontSize: "clamp(1.5rem, 4cqi, 3rem)",
+              fontSize: "clamp(2rem, 5.4cqi, 4rem)",
               textTransform: "uppercase",
               letterSpacing: "0.15em",
             }}
@@ -270,13 +274,14 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
               backdropFilter: "blur(6px)",
               borderRadius: 12,
               padding: "clamp(12px, 2.5cqi, 24px) clamp(20px, 4cqi, 40px)",
+              marginBottom: "clamp(2rem, 5cqi, 4rem)",
             }}
           >
             <span
               style={{
                 ...textStyle,
                 fontFamily: "sans-serif",
-                fontSize: "clamp(0.9rem, 2.2cqi, 1.4rem)",
+                fontSize: "clamp(1.94rem, 4.86cqi, 3.06rem)",
                 textTransform: "uppercase",
                 letterSpacing: "0.1em",
               }}
@@ -286,7 +291,7 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
             <span
               style={{
                 ...textStyle,
-                fontSize: "clamp(1.2rem, 3cqi, 2rem)",
+                fontSize: "clamp(2.59rem, 6.48cqi, 4.38rem)",
               }}
             >
               {setTime}
@@ -295,7 +300,7 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
               style={{
                 ...textStyle,
                 fontFamily: "sans-serif",
-                fontSize: "clamp(0.85rem, 2cqi, 1.2rem)",
+                fontSize: "clamp(1.86rem, 4.38cqi, 2.59rem)",
                 fontStyle: "italic",
               }}
             >
@@ -339,7 +344,7 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
             <span
               style={{
                 ...textStyle,
-                fontSize: "clamp(2.5rem, 6cqi, 5rem)",
+                fontSize: "clamp(3.4rem, 8.1cqi, 6.75rem)",
                 textTransform: "uppercase",
                 letterSpacing: "0.1em",
               }}
@@ -350,7 +355,7 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
               style={{
                 ...textStyle,
                 fontFamily: "sans-serif",
-                fontSize: "clamp(1.2rem, 3cqi, 2rem)",
+                fontSize: "clamp(1.6rem, 4cqi, 2.7rem)",
               }}
             >
               April 25, 2026 · 11PM
@@ -359,7 +364,7 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
               style={{
                 ...textStyle,
                 fontFamily: "sans-serif",
-                fontSize: "clamp(1rem, 2.5cqi, 1.5rem)",
+                fontSize: "clamp(1.35rem, 3.4cqi, 2rem)",
               }}
             >
               616 Lavaca St, Austin TX
@@ -368,7 +373,7 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
               style={{
                 ...textStyle,
                 fontFamily: "sans-serif",
-                fontSize: "clamp(0.9rem, 2.2cqi, 1.3rem)",
+                fontSize: "clamp(1.2rem, 3cqi, 1.75rem)",
                 lineHeight: 1.6,
               }}
             >
@@ -380,7 +385,7 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
               style={{
                 ...textStyle,
                 fontFamily: "sans-serif",
-                fontSize: "clamp(1rem, 2.5cqi, 1.5rem)",
+                fontSize: "clamp(1.35rem, 3.4cqi, 2rem)",
                 fontWeight: 700,
                 marginTop: 16,
               }}

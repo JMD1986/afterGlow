@@ -1,4 +1,4 @@
-import { joFosterHeadshot, img171f } from "../../assets/images";
+import { joFosterHeadshot, joFoster2, img171f } from "../../assets/images";
 import type { FC } from "react";
 import PromoPerformer from "./PromoPerformer";
 
@@ -6,7 +6,7 @@ const JoFoster: FC = () => (
   <PromoPerformer
     name="Jo Foster"
     headshot={joFosterHeadshot}
-    performingImage={img171f}
+    performingImage={joFoster2}
     infoBgImage={img171f}
     room="The Atrium"
     setTime="All Night"
