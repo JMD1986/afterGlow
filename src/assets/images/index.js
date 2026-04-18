@@ -45,6 +45,7 @@ import jaykWilsonBio from "./JaykWilsonBio.webp";
 import joFosterHeadshot from "./joFosterHeadshot.webp";
 import joFoster2 from "./joFoster2.webp";
 import brianGary2 from "./Screenshot 2026-04-16 145635.webp";
+import couchbound2 from "./couchbound2.webp";
 
 export const images = [
   imgF58c,
@@ -94,6 +95,7 @@ export const images = [
   joFosterHeadshot,
   joFoster2,
   brianGary2,
+  couchbound2,
 ];
 
 export {
@@ -144,4 +146,5 @@ export {
   joFosterHeadshot,
   joFoster2,
   brianGary2,
+  couchbound2,
 };
