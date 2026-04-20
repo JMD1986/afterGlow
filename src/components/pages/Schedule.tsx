@@ -75,8 +75,8 @@ const EVENTS: RoomEvent[] = [
   {
     startIndex: 2,
     span: 11,
-    name: "Brian & Jo",
-    subtext: "Clowning — 11 PM to End",
+    name: "Brian McAughn and Jo Foster",
+    subtext: "present The Vibe Reader and The Jester",
     col: 4,
     accent: "#f472b6",
   },
@@ -88,16 +88,18 @@ const ROOMS = [
   { name: "The Atrium", accent: "#f472b6", col: 4 },
 ];
 
-const ROW_HEIGHT = 52; // px per 15-min slot
-
 const Schedule: FC = () => (
+  // Outer: fills viewport, centers the instagram card
   <div
     style={{
       position: "relative",
-      minHeight: "100dvh",
-      width: "100vw",
+      width: "100dvw",
+      height: "100dvh",
       background: "#000",
-      overflowX: "hidden",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      overflow: "hidden",
     }}
   >
     <div
@@ -115,22 +117,27 @@ const Schedule: FC = () => (
       aria-hidden="true"
     />
 
+    {/* Instagram portrait card — 4:5 aspect ratio */}
     <div
       style={{
         position: "relative",
         zIndex: 2,
-        padding: "32px 16px 48px",
-        maxWidth: 900,
-        margin: "0 auto",
+        width: "min(100dvw, calc(100dvh * 4 / 5))",
+        aspectRatio: "4 / 5",
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        padding: "7% 3% 3%",
+        boxSizing: "border-box",
       }}
     >
       {/* Header */}
-      <div style={{ textAlign: "center", marginBottom: 32 }}>
+      <div style={{ textAlign: "center", marginBottom: "2%" }}>
         <h1
           style={{
             fontFamily: "'Blisey', sans-serif",
             color: "#fff",
-            fontSize: "clamp(2.2rem, 6vw, 3.5rem)",
+            fontSize: "clamp(1.8rem, 8vw, 3.5rem)",
             textTransform: "uppercase",
             letterSpacing: "0.12em",
             margin: 0,
@@ -143,10 +150,10 @@ const Schedule: FC = () => (
           style={{
             fontFamily: "'Blisey', sans-serif",
             color: "rgba(255,255,255,0.75)",
-            fontSize: "clamp(0.9rem, 2.5vw, 1.2rem)",
-            letterSpacing: "0.2em",
+            fontSize: "clamp(0.7rem, 3vw, 1.2rem)",
+            letterSpacing: "0.25em",
             textTransform: "uppercase",
-            margin: "6px 0 0",
+            margin: "12px 0 0",
           }}
         >
           Schedule
@@ -157,9 +164,10 @@ const Schedule: FC = () => (
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "76px repeat(3, 1fr)",
-          gap: "0 8px",
-          marginBottom: 8,
+          gridTemplateColumns: "18% repeat(3, 1fr)",
+          gap: "0 1%",
+          marginBottom: "1%",
+          flexShrink: 0,
         }}
       >
         <div />
@@ -169,11 +177,11 @@ const Schedule: FC = () => (
             style={{
               fontFamily: "'Blisey', sans-serif",
               color: room.accent,
-              fontSize: "clamp(0.65rem, 1.8vw, 0.9rem)",
+              fontSize: "clamp(0.5rem, 2vw, 0.85rem)",
               textTransform: "uppercase",
-              letterSpacing: "0.1em",
+              letterSpacing: "0.08em",
               textAlign: "center",
-              paddingBottom: 8,
+              paddingBottom: "1%",
               borderBottom: `2px solid ${room.accent}`,
               textShadow: `0 0 12px ${room.accent}88`,
             }}
@@ -184,17 +192,16 @@ const Schedule: FC = () => (
       </div>
 
       {/*
-        Main schedule grid
-        Columns: [labels(76px)] [Ambient] [Main Stage] [Atrium]
-        Rows: one per TIME_SLOT at ROW_HEIGHT px each
-        Row 1 = 10:30 PM (Doors), rows 2-13 = 10:45 PM through 1:30 AM
+        Main schedule grid — fills remaining card height via flex:1
+        Rows use 1fr so they divide the available space equally
       */}
       <div
         style={{
+          flex: 1,
           display: "grid",
-          gridTemplateColumns: "76px repeat(3, 1fr)",
-          gridTemplateRows: `repeat(${TIME_SLOTS.length}, ${ROW_HEIGHT}px)`,
-          gap: "0 8px",
+          gridTemplateColumns: "18% repeat(3, 1fr)",
+          gridTemplateRows: `repeat(${TIME_SLOTS.length}, 1fr)`,
+          gap: "0 1%",
         }}
       >
         {/* Time labels */}
@@ -208,7 +215,7 @@ const Schedule: FC = () => (
               alignItems: "flex-start",
               fontFamily: "'Blisey', sans-serif",
               color: "rgba(255,255,255,0.55)",
-              fontSize: "clamp(0.62rem, 1.5vw, 0.78rem)",
+              fontSize: "clamp(0.5rem, 2.5vw, 0.78rem)",
               letterSpacing: "0.05em",
               whiteSpace: "nowrap",
             }}
@@ -237,8 +244,7 @@ const Schedule: FC = () => (
             gridColumn: "2 / 5",
             gridRow: 1,
             alignSelf: "center",
-            margin: "2px 2px",
-            height: ROW_HEIGHT - 8,
+            margin: "1% 0.5%",
             background: "rgba(255,255,255,0.08)",
             border: "1.5px solid rgba(255,255,255,0.35)",
             borderRadius: 8,
@@ -285,7 +291,7 @@ const Schedule: FC = () => (
               style={{
                 fontFamily: "'Blisey', sans-serif",
                 color: "#fff",
-                fontSize: "clamp(0.7rem, 1.8vw, 0.95rem)",
+                fontSize: "clamp(0.6rem, 2.8vw, 0.95rem)",
                 textAlign: "center",
                 textShadow: `0 0 10px ${ev.accent}`,
                 letterSpacing: "0.05em",
@@ -299,7 +305,7 @@ const Schedule: FC = () => (
                 style={{
                   fontFamily: "'Blisey', sans-serif",
                   color: ev.accent,
-                  fontSize: "clamp(0.55rem, 1.3vw, 0.75rem)",
+                  fontSize: "clamp(0.45rem, 2vw, 0.75rem)",
                   textAlign: "center",
                   marginTop: 4,
                   opacity: 0.9,

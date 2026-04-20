@@ -18,6 +18,9 @@ import JoFoster from "./components/pages/JoFoster";
 import BryanGary from "./components/pages/BryanGary";
 import Couchbound from "./components/pages/Couchbound";
 import Schedule from "./components/pages/Schedule";
+import Music from "./components/pages/Music";
+import Art from "./components/pages/Art";
+import Comedy from "./components/pages/Comedy";
 import "./App.css";
 import type { FC } from "react";
 
@@ -119,6 +122,9 @@ const App: FC = () => {
         <Route path="/promo/bryanGary" element={<BryanGary />} />
         <Route path="/promo/couchbound" element={<Couchbound />} />
         <Route path="/promo/schedule" element={<Schedule />} />
+        <Route path="/promo/music" element={<Music />} />
+        <Route path="/promo/art" element={<Art />} />
+        <Route path="/promo/comedy" element={<Comedy />} />
       </Routes>
     </>
   );
