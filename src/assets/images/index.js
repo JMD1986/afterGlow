@@ -46,6 +46,9 @@ import joFosterHeadshot from "./joFosterHeadshot.webp";
 import joFoster2 from "./joFoster2.webp";
 import brianGary2 from "./Screenshot 2026-04-16 145635.webp";
 import couchbound2 from "./couchbound2.webp";
+import modularsynth from "./modularsynth.webp";
+import clown1 from "./clown1.webp";
+import artImg from "./art.webp";
 
 export const images = [
   imgF58c,
@@ -147,4 +150,7 @@ export {
   joFoster2,
   brianGary2,
   couchbound2,
+  modularsynth,
+  clown1,
+  artImg,
 };

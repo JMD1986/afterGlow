@@ -8,7 +8,7 @@ const BryanGary: FC = () => (
     headshot={bryanGary}
     performingImage={brianGary2}
     infoBgImage={imgB7e5}
-    room="Main Stage"
+    room="Ambient Chillout Room"
     setTime="11:45"
     performanceType="Modular Synth"
     qa={[
