@@ -37,10 +37,13 @@ const Art: FC = () => (
   <div
     style={{
       position: "relative",
-      minHeight: "100dvh",
-      width: "100vw",
+      width: "100dvw",
+      height: "100dvh",
       background: "#000",
-      overflowX: "hidden",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      overflow: "hidden",
     }}
   >
     <div
@@ -62,18 +65,22 @@ const Art: FC = () => (
       style={{
         position: "relative",
         zIndex: 2,
-        maxWidth: 900,
-        margin: "0 auto",
-        padding: "48px 20px 180px",
+        width: "min(100dvw, calc(100dvh * 4 / 5))",
+        aspectRatio: "4 / 5",
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        padding: "5% 4% 4%",
+        boxSizing: "border-box",
       }}
     >
       {/* Page title */}
-      <div style={{ textAlign: "center", marginBottom: 48 }}>
+      <div style={{ textAlign: "center", marginBottom: "2%", flexShrink: 0 }}>
         <h1
           style={{
             fontFamily: "'Blisey', sans-serif",
             color: "#fff",
-            fontSize: "clamp(2rem, 7vw, 3.5rem)",
+            fontSize: "clamp(4rem, 14vw, 7rem)",
             textTransform: "uppercase",
             letterSpacing: "0.15em",
             margin: 0,
@@ -86,7 +93,7 @@ const Art: FC = () => (
           style={{
             fontFamily: "'Blisey', sans-serif",
             color: "#34d399",
-            fontSize: "clamp(0.9rem, 3vw, 1.3rem)",
+            fontSize: "clamp(1.8rem, 6vw, 2.6rem)",
             letterSpacing: "0.3em",
             textTransform: "uppercase",
             margin: "6px 0 0",
@@ -98,110 +105,130 @@ const Art: FC = () => (
       </div>
 
       {/* Performer rows */}
-      {PERFORMERS.map((p) => (
-        <div
-          key={p.name}
-          style={{
-            display: "flex",
-            flexDirection: p.flip ? "row-reverse" : "row",
-            gap: 32,
-            alignItems: "center",
-            marginBottom: 56,
-            flexWrap: "wrap",
-          }}
-        >
-          {/* Image */}
+      <div
+        style={{
+          flex: 1,
+          display: "flex",
+          flexDirection: "column",
+          gap: "2%",
+          overflow: "hidden",
+        }}
+      >
+        {PERFORMERS.map((p) => (
           <div
+            key={p.name}
             style={{
-              flex: "1 1 260px",
-              maxWidth: 320,
-              minWidth: 200,
+              display: "flex",
+              flexDirection: p.flip ? "row-reverse" : "row",
+              gap: "4%",
+              alignItems: "center",
+              flex: 1,
+              minHeight: 0,
             }}
           >
-            <img
-              src={p.headshot}
-              alt={p.name}
+            <div
               style={{
-                width: "100%",
-                borderRadius: 12,
-                display: "block",
-                boxShadow: "0 4px 32px rgba(52,211,153,0.25)",
-                border: "1.5px solid rgba(52,211,153,0.3)",
+                flex: "0 0 38%",
+                maxWidth: "38%",
+                height: "100%",
               }}
-            />
-          </div>
+            >
+              <img
+                src={p.headshot}
+                alt={p.name}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  borderRadius: 12,
+                  display: "block",
+                  boxShadow: "0 4px 32px rgba(52,211,153,0.25)",
+                  border: "1.5px solid rgba(52,211,153,0.3)",
+                }}
+              />
+            </div>
 
-          {/* Text */}
-          <div
-            style={{
-              flex: "1 1 260px",
-              minWidth: 200,
-              textAlign: p.flip ? "right" : "left",
-            }}
-          >
-            <h2
+            <div
               style={{
-                fontFamily: "'Blisey', sans-serif",
-                color: "#fff",
-                fontSize: "clamp(2.8rem, 8vw, 4rem)",
-                letterSpacing: "0.08em",
-                margin: "0 0 8px",
-                textShadow: "0 2px 12px rgba(0,0,0,0.8)",
+                flex: 1,
+                minWidth: 0,
+                textAlign: p.flip ? "right" : "left",
+                overflow: "hidden",
               }}
             >
-              {p.name}
-            </h2>
-            <p
-              style={{
-                fontFamily: "'Blisey', sans-serif",
-                color: "#34d399",
-                fontSize: "clamp(1.5rem, 5vw, 2rem)",
-                textTransform: "uppercase",
-                letterSpacing: "0.15em",
-                margin: "0 0 4px",
-                textShadow: "0 0 10px #34d39966",
-              }}
-            >
-              {p.performanceType}
-            </p>
-            <p
-              style={{
-                fontFamily: "'Blisey', sans-serif",
-                color: "rgba(255,255,255,0.6)",
-                fontSize: "clamp(1.4rem, 4vw, 1.8rem)",
-                letterSpacing: "0.08em",
-                margin: "0 0 16px",
-              }}
-            >
-              {p.room} · {p.setTime}
-            </p>
-            <p
-              style={{
-                fontFamily: "sans-serif",
-                color: "rgba(255,255,255,0.8)",
-                fontSize: "clamp(1.6rem, 4vw, 2rem)",
-                lineHeight: 1.6,
-                margin: 0,
-              }}
-            >
-              <span
+              <h2
                 style={{
                   fontFamily: "'Blisey', sans-serif",
-                  color: "rgba(255,255,255,0.45)",
-                  fontSize: "0.75em",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.1em",
-                  display: "block",
-                  marginBottom: 4,
+                  color: "#fff",
+                  fontSize: "clamp(2.8rem, 6cqi, 4.6rem)",
+                  letterSpacing: "0.08em",
+                  margin: "0 0 4px",
+                  textShadow: "0 2px 12px rgba(0,0,0,0.8)",
                 }}
               >
-                Equipment
-              </span>
-              {p.equipment}
-            </p>
+                {p.name}
+              </h2>
+              <p
+                style={{
+                  fontFamily: "'Blisey', sans-serif",
+                  color: "#34d399",
+                  fontSize: "clamp(1.6rem, 3.6cqi, 2.4rem)",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.13em",
+                  margin: "0 0 2px",
+                  textShadow: "0 0 10px #34d39966",
+                }}
+              >
+                {p.performanceType}
+              </p>
+              <p
+                style={{
+                  fontFamily: "'Blisey', sans-serif",
+                  color: "#d1d5db",
+                  fontSize: "clamp(1.5rem, 3.4cqi, 2.2rem)",
+                  letterSpacing: "0.06em",
+                  margin: "0 0 8px",
+                  WebkitTextStroke: "1px #000",
+                  textShadow:
+                    "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
+                }}
+              >
+                {p.room} · {p.setTime}
+              </p>
+              <p
+                style={{
+                  fontFamily: "sans-serif",
+                  color: "#d1d5db",
+                  fontSize: "clamp(1.6rem, 3.6cqi, 2.3rem)",
+                  lineHeight: 1.3,
+                  margin: 0,
+                  WebkitTextStroke: "1px #000",
+                  textShadow:
+                    "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "'Blisey', sans-serif",
+                    color: "#d6c2a1",
+                    fontSize: "0.72em",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
+                    display: "block",
+                    marginBottom: 2,
+                    WebkitTextStroke: "1px #000",
+                    textShadow:
+                      "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
+                  }}
+                >
+                  Equipment
+                </span>
+                {p.equipment}
+              </p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   </div>
 );

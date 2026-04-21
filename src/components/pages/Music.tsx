@@ -59,7 +59,7 @@ const PERFORMERS: Performer[] = [
     name: "Driftside",
     headshot: driftside,
     performingImage: driftside,
-    equipment: "Steel guitar, saxophone, synthesizers & percussion",
+    equipment: "Downtempo Improv Collective",
     performanceType: "Album Release and Big Band Set",
     room: "Main Stage / The Portal",
     setTime: "11:30 PM",
@@ -210,10 +210,13 @@ const Music: FC = () => (
               <p
                 style={{
                   fontFamily: "'Blisey', sans-serif",
-                  color: "rgba(255,255,255,0.5)",
+                  color: "#d1d5db",
                   fontSize: "clamp(0.9rem, 3vw, 1.3rem)",
                   letterSpacing: "0.06em",
                   margin: 0,
+                  WebkitTextStroke: "1px #000",
+                  textShadow:
+                    "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
                 }}
               >
                 {p.setTime}
@@ -221,10 +224,13 @@ const Music: FC = () => (
               <p
                 style={{
                   fontFamily: "sans-serif",
-                  color: "rgba(255,255,255,0.6)",
+                  color: "#d1d5db",
                   fontSize: "clamp(0.8rem, 2.6vw, 1.2rem)",
                   lineHeight: 1.4,
                   margin: "3px 0 0",
+                  WebkitTextStroke: "1px #000",
+                  textShadow:
+                    "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
                 }}
               >
                 {p.equipment}
