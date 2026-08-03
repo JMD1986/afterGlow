@@ -1,4 +1,4 @@
-import { jaykWilsonBio, jaykWilson, imgB7e5 } from "../../assets/images";
+import { jaykWilsonBio, jaykWilson, clownBackground9 } from "../../assets/images";
 import type { FC } from "react";
 import PromoPerformer from "./PromoPerformer";
 
@@ -7,9 +7,9 @@ const ImprovisedSuperjam: FC = () => (
     name="Improvised Superjam"
     headshot={jaykWilsonBio}
     performingImage={jaykWilson}
-    infoBgImage={imgB7e5}
+    infoBgImage={clownBackground9}
     room="Main Stage / The Portal"
-    setTime="1:00AM"
+    setTime="11:45PM"
     performanceType="All-Hands Improv Jam"
     qa={[
       {
@@ -20,7 +20,7 @@ const ImprovisedSuperjam: FC = () => (
       {
         question: "What influences are you channeling?",
         answer:
-          "The Grateful Dead parking lot, Sun Ra Arkestra energy, and that moment when everyone locks in.",
+          "Terry Riley, Bill Evans, A Grateful Dead bootleg tape after getting copied 76 times",
       },
       {
         question: "Where can we hear this music?",

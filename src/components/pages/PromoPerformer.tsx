@@ -1,5 +1,6 @@
 import { falloutPosterAfterglow } from "../../assets/images";
-import bg from "../../assets/backgrounds/pppsychedelic.webp";
+import backgroundAugust22 from "../../assets/backgrounds/BackgroundAugust22.webp";
+// import bg from "../../assets/backgrounds/pppsychedelic.webp";
 import { useRef, useEffect, useCallback } from "react";
 import type { FC, ReactNode } from "react";
 
@@ -99,7 +100,7 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
     <div style={{ background: "#000" }}>
       <div
         className="page-bg"
-        style={{ backgroundImage: `url(${bg})` }}
+        style={{ backgroundImage: `url(${backgroundAugust22})` }}
         aria-hidden="true"
       />
 
@@ -125,6 +126,7 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
               alignItems: "center",
             }}
           >
+            {/*
             <span
               style={{
                 ...textStyle,
@@ -146,6 +148,7 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
             >
               Meet the Performers
             </span>
+            */}
           </div>
           <span
             style={{

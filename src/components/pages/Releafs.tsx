@@ -1,4 +1,4 @@
-import { jaykWilsonBio, jaykWilson, imgB7e5 } from "../../assets/images";
+import { jaykWilsonBio, jaykWilson, clownBackground12 } from "../../assets/images";
 import type { FC } from "react";
 import PromoPerformer from "./PromoPerformer";
 
@@ -7,9 +7,9 @@ const Releafs: FC = () => (
     name="Releafs"
     headshot={jaykWilsonBio}
     performingImage={jaykWilson}
-    infoBgImage={imgB7e5}
-    room="Ambient Chillout Room"
-    setTime="1:15AM"
+    infoBgImage={clownBackground12}
+    room="The Atrium"
+    setTime="10:00PM"
     performanceType="Leafwave Ambient Set"
     qa={[
       {

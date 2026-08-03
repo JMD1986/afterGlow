@@ -1,4 +1,4 @@
-import { bryanGary, brianGary2, imgB7e5 } from "../../assets/images";
+import { bryanGary, brianGary2, clownBackground10 } from "../../assets/images";
 import type { FC } from "react";
 import PromoPerformer from "./PromoPerformer";
 
@@ -7,9 +7,9 @@ const BryanGary: FC = () => (
     name="Bryan Gary"
     headshot={bryanGary}
     performingImage={brianGary2}
-    infoBgImage={imgB7e5}
-    room="Ambient Chillout Room"
-    setTime="11:45"
+    infoBgImage={clownBackground10}
+    room="Atrium"
+    setTime="12:15AM"
     performanceType="Modular Synth"
     qa={[
       {

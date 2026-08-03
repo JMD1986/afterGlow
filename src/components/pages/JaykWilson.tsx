@@ -1,4 +1,4 @@
-import { jaykWilsonBio, jaykWilson, imgB7e5 } from "../../assets/images";
+import { jaykWilsonBio, jaykWilson, clownBackground9 } from "../../assets/images";
 import type { FC } from "react";
 import PromoPerformer from "./PromoPerformer";
 
@@ -7,7 +7,7 @@ const JaykWilsonPage: FC = () => (
     name="Jayk Wilson"
     headshot={jaykWilsonBio}
     performingImage={jaykWilson}
-    infoBgImage={imgB7e5}
+    infoBgImage={clownBackground9}
     room="Ambient Chillout Room"
     setTime="11PM"
     performanceType="Gong Soundbath"

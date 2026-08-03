@@ -1,7 +1,7 @@
 import {
   brianHeadshot,
   brianMcAughnPerforming,
-  imgB7e5,
+  clownBackground12,
 } from "../../assets/images";
 import type { FC } from "react";
 import PromoPerformer from "./PromoPerformer";
@@ -11,7 +11,7 @@ const BrianClown: FC = () => (
     name="Brian McAughan"
     headshot={brianHeadshot}
     performingImage={brianMcAughnPerforming}
-    infoBgImage={imgB7e5}
+    infoBgImage={clownBackground12}
     room="The Atrium"
     setTime="11PM – End"
     performanceType="Vibe Genie"

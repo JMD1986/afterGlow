@@ -1,35 +1,41 @@
-import { colorburnAV, canvas, imgB7e5 } from "../../assets/images";
+import { joeyZSheep, joeyZSheep2, clownBackground11 } from "../../assets/images";
 import type { FC } from "react";
 import PromoPerformer from "./PromoPerformer";
 
 const JoeyZ: FC = () => (
   <PromoPerformer
     name="Joey Z"
-    headshot={colorburnAV}
-    performingImage={canvas}
-    infoBgImage={imgB7e5}
-    room="Main Stage / The Portal"
+    headshot={joeyZSheep2}
+    performingImage={joeyZSheep}
+    infoBgImage={clownBackground11}
+    room="The Side Stage"
     setTime="11:15PM"
-    performanceType="Electric Bass Grooves"
+    performanceType="Surrealist Clown Show"
     qa={[
       {
-        question: "What equipment are you using?",
-        answer:
-          "Fender Precision Bass, a warm amp stack, and enough low end to rearrange the furniture.",
+        question: "Who are you?",
+        answer: (
+          <>
+          Joey Z is an avant-garde comedian entertainer based in Austin TX who has been 
+            performing for over a decade sharing the stage with acts such as Danny Brown, 
+            Reggie Watts, Rushadicus, Natalie Palamides, Zach Zucker, Robby Hoffman, 
+            The Lizard Man, and Wolves Glendale to name a few.
+          </>
+        )
       },
       {
         question: "What influences are you channeling?",
         answer: "Pino Palladino, Thundercat, and the feeling of a perfect pocket.",
       },
       {
-        question: "Where can we hear your music?",
+        question: "Tell us about yourself?",
         answer: (
           <>
-            joeyz.bandcamp.com
-            <br />
-            Instagram — @joeyz.bass
-            <br />
-            Spotify — Joey Z
+            In early 2025 Joey released 
+            an audio demo of his one man show Trip Sitter which a Buzz Music review called 
+            "revolutionary". His live act features elements of stand up comedy, story telling, 
+            music, and performance art. Joey is currently working on his surreal clown 
+            show SHEEP which has toured to 20 cities since 2025.
           </>
         ),
       },

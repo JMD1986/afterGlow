@@ -22,6 +22,7 @@ import TrippyRings from "./animations/TrippyRings";
 import ImageCarousel from "./ImageCarousel";
 import { Link } from "react-router-dom";
 import type { ReactNode } from "react";
+import { TICKET_URL } from "../constants/tickets";
 
 type Section = {
   image: string;
@@ -102,7 +103,7 @@ const sections: Section[] = [
         Austin, Texas.
         <br />
         <a
-          href="https://www.eventbrite.com/e/afterglow-a-late-night-dance-party-tickets-1984935756280?aff=oddtdtcreator"
+          href={TICKET_URL}
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -221,7 +222,7 @@ export default function EventInfo() {
             April 25, 2026 · 11PM · 616 Lavaca St, Austin TX
           </span>
           <a
-            href="https://www.eventbrite.com/e/afterglow-a-late-night-dance-party-tickets-1984935756280?aff=oddtdtcreator"
+            href={TICKET_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="hero-cta"
@@ -267,7 +268,7 @@ export default function EventInfo() {
       {/* Floating ticket footer */}
       <div className={`floating-ticket-footer${showFooter ? " visible" : ""}`}>
         <a
-          href="https://www.eventbrite.com/e/afterglow-a-late-night-dance-party-tickets-1984935756280?aff=oddtdtcreator"
+          href={TICKET_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="floating-ticket-link"

@@ -1,4 +1,4 @@
-import { couchbound2, couchbound, imgB7e5 } from "../../assets/images";
+import { couchbound2, couchbound, clownBackground11 } from "../../assets/images";
 import type { FC } from "react";
 import PromoPerformer from "./PromoPerformer";
 
@@ -7,7 +7,7 @@ const PricklyPairPopsAtx: FC = () => (
     name="Prickly Pair Pops ATX"
     headshot={couchbound2}
     performingImage={couchbound}
-    infoBgImage={imgB7e5}
+    infoBgImage={clownBackground11}
     room="The Atrium"
     setTime="All Night"
     performanceType="Frozen Treats & Desert Vibes"

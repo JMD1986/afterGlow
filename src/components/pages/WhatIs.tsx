@@ -1,6 +1,7 @@
 import React from "react";
 import bg from "../../assets/backgrounds/pppsychedelic.webp";
 import { Link } from "react-router-dom";
+import { TICKET_URL } from "../../constants/tickets";
 import "../EventInfo.css";
 
 const WhatIs: React.FC = () => {
@@ -75,7 +76,7 @@ const WhatIs: React.FC = () => {
       {/* Floating ticket footer */}
       <div className="floating-ticket-footer visible">
         <a
-          href="https://www.eventbrite.com/e/afterglow-a-late-night-dance-party-tickets-1984935756280?aff=oddtdtcreator"
+          href={TICKET_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="floating-ticket-link"

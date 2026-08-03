@@ -49,6 +49,23 @@ import couchbound2 from "./couchbound2.webp";
 import modularsynth from "./modularsynth.webp";
 import clown1 from "./clown1.webp";
 import artImg from "./art.webp";
+import neilsSoundSafari from "./NeilsSoundSafari.webp";
+import joeyZSheep from "./JoeyZSheep.webp";
+import bobbyBanner from "./BobbyBanner.webp";
+import bobbyBanner2 from "./BobbyBanner2.webp";
+import joeyZSheep2 from "./JoeyZSheep2.webp";
+import neilsSoundSafari2 from "./NeilsSoundSafari2.webp";
+import joeyReyes from "./JoeyReyes.webp";
+import joeyReyes2 from "./JoeyReyes2.webp";
+import hollyHart from "./HollyHart.webp";
+import hollyHart2 from "./HollyHart2.webp";
+import sugarPlumShari from "./SugarPlumShari.webp";
+import sugarPlumShari2 from "./SugarPlumShari2.webp";
+import posterAugust26 from "./PosterAugust26.webp";
+import clownBackground9 from "./clownBackground9.webp";
+import clownBackground10 from "./clownBackground10.webp";
+import clownBackground11 from "./clownBackground11.webp";
+import clownBackground12 from "./clownBackground12.webp";
 
 export const images = [
   imgF58c,
@@ -99,6 +116,23 @@ export const images = [
   joFoster2,
   brianGary2,
   couchbound2,
+  neilsSoundSafari,
+  joeyZSheep,
+  bobbyBanner,
+  bobbyBanner2,
+  joeyZSheep2,
+  neilsSoundSafari2,
+  joeyReyes,
+  joeyReyes2,
+  hollyHart,
+  hollyHart2,
+  sugarPlumShari,
+  sugarPlumShari2,
+  posterAugust26,
+  clownBackground9,
+  clownBackground10,
+  clownBackground11,
+  clownBackground12,
 ];
 
 export {
@@ -153,4 +187,21 @@ export {
   modularsynth,
   clown1,
   artImg,
+  neilsSoundSafari,
+  joeyZSheep,
+  bobbyBanner,
+  bobbyBanner2,
+  joeyZSheep2,
+  neilsSoundSafari2,
+  joeyReyes,
+  joeyReyes2,
+  hollyHart,
+  hollyHart2,
+  sugarPlumShari,
+  sugarPlumShari2,
+  posterAugust26,
+  clownBackground9,
+  clownBackground10,
+  clownBackground11,
+  clownBackground12,
 };

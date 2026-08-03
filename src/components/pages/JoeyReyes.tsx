@@ -1,16 +1,16 @@
-import { driftside, treyAbraham, imgB7e5 } from "../../assets/images";
+import { joeyReyes, joeyReyes2, clownBackground9 } from "../../assets/images";
 import type { FC } from "react";
 import PromoPerformer from "./PromoPerformer";
 
 const JoeyReyes: FC = () => (
   <PromoPerformer
     name="Joey Reyes"
-    headshot={driftside}
-    performingImage={treyAbraham}
-    infoBgImage={imgB7e5}
-    room="Ambient Chillout Room"
-    setTime="12:30AM"
-    performanceType="Live Guitar Ambient"
+    headshot={joeyReyes}
+    performingImage={joeyReyes2}
+    infoBgImage={clownBackground9}
+    room="The Portal"
+    setTime="11:45PM"
+    performanceType="Electro-Acoustic Cello Performance"
     qa={[
       {
         question: "What equipment are you using?",

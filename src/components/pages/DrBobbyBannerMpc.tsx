@@ -1,25 +1,25 @@
-import { bryanGary, brianGary2, imgB7e5 } from "../../assets/images";
+import { bobbyBanner, bobbyBanner2, clownBackground12 } from "../../assets/images";
 import type { FC } from "react";
 import PromoPerformer from "./PromoPerformer";
 
 const DrBobbyBannerMpc: FC = () => (
   <PromoPerformer
     name="Dr. Bobby Banner MPC"
-    headshot={bryanGary}
-    performingImage={brianGary2}
-    infoBgImage={imgB7e5}
-    room="Main Stage / The Portal"
-    setTime="12:00AM"
+    headshot={bobbyBanner2}
+    performingImage={bobbyBanner}
+    infoBgImage={clownBackground12}
+    room="The Atrium"
+    setTime="11:15PM"
     performanceType="MPC Beat Science"
     qa={[
       {
         question: "What equipment are you using?",
         answer:
-          "Akai MPC Live II, a crate of dusty vinyl, and a PhD in pocket grooves.",
+          "Akai MPC, Vinyl, and Bass Guitar",
       },
       {
         question: "What influences are you channeling?",
-        answer: "J Dilla, Madlib, and the hum of a late-night laundromat.",
+        answer: "Doom, Madlib, dilla",
       },
       {
         question: "Where can we hear your music?",
@@ -36,7 +36,7 @@ const DrBobbyBannerMpc: FC = () => (
       {
         question: "How do you like to chill/relax/unwind?",
         answer:
-          "Chopping samples with one hand and eating Hot Cheetos with the other.",
+          "lounging in a pool, my garden or playing video games",
       },
     ]}
   />

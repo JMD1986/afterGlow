@@ -1,15 +1,15 @@
-import { jaykWilsonBio, jaykWilson, imgB7e5 } from "../../assets/images";
+import { neilsSoundSafari, neilsSoundSafari2, clownBackground10 } from "../../assets/images";
 import type { FC } from "react";
 import PromoPerformer from "./PromoPerformer";
 
 const NeilsSoundSafari: FC = () => (
   <PromoPerformer
     name="Neil's Sound Safari"
-    headshot={jaykWilsonBio}
-    performingImage={jaykWilson}
-    infoBgImage={imgB7e5}
-    room="Ambient Chillout Room"
-    setTime="1:30AM"
+    headshot={neilsSoundSafari}
+    performingImage={neilsSoundSafari2}
+    infoBgImage={clownBackground10}
+    room="Side Stage"
+    setTime="10:15PM"
     performanceType="Field Recording Safari"
     qa={[
       {
@@ -20,10 +20,10 @@ const NeilsSoundSafari: FC = () => (
       {
         question: "What influences are you channeling?",
         answer:
-          "Chris Watson, Biosphere, and every cicada chorus on the Barton Creek greenbelt.",
+          "Marc Rebillet, Reggie Watts, Zach Zucker, Casey Rocket",
       },
       {
-        question: "Where can we hear your music?",
+        question: "Where can we see you perform?",
         answer: (
           <>
             neilssoundsafari.bandcamp.com
@@ -37,7 +37,7 @@ const NeilsSoundSafari: FC = () => (
       {
         question: "How do you like to chill/relax/unwind?",
         answer:
-          "Dawn walks with headphones off, birdwatching without the binoculars, and labeling SD cards I will never organize.",
+          "Making beats, playing video games, running my mouth with friends over drinks/food",
       },
     ]}
   />

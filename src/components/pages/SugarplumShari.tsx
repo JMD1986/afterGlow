@@ -1,17 +1,13 @@
-import {
-  brianHeadshot,
-  brianMcAughnPerforming,
-  imgB7e5,
-} from "../../assets/images";
+import { sugarPlumShari, sugarPlumShari2, clownBackground10 } from "../../assets/images";
 import type { FC } from "react";
 import PromoPerformer from "./PromoPerformer";
 
 const SugarplumShari: FC = () => (
   <PromoPerformer
     name="Sugarplum Shari"
-    headshot={brianHeadshot}
-    performingImage={brianMcAughnPerforming}
-    infoBgImage={imgB7e5}
+    headshot={sugarPlumShari}
+    performingImage={sugarPlumShari2}
+    infoBgImage={clownBackground10}
     room="The Atrium"
     setTime="11:30PM"
     performanceType="Fairy Tale Drag Cabaret"

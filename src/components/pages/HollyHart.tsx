@@ -1,13 +1,13 @@
-import { joFosterHeadshot, joFoster2, img171f } from "../../assets/images";
+import { hollyHart, hollyHart2, clownBackground12 } from "../../assets/images";
 import type { FC } from "react";
 import PromoPerformer from "./PromoPerformer";
 
 const HollyHart: FC = () => (
   <PromoPerformer
     name="Holly Hart"
-    headshot={joFosterHeadshot}
-    performingImage={joFoster2}
-    infoBgImage={img171f}
+    headshot={hollyHart2}
+    performingImage={hollyHart}
+    infoBgImage={clownBackground12}
     room="The Atrium"
     setTime="All Night"
     performanceType="Comedy & Soft Chaos"

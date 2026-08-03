@@ -1,4 +1,4 @@
-import { couchbound, couchbound2, imgB7e5 } from "../../assets/images";
+import { couchbound, couchbound2, clownBackground11 } from "../../assets/images";
 import type { FC } from "react";
 import PromoPerformer from "./PromoPerformer";
 
@@ -7,7 +7,7 @@ const Couchbound: FC = () => (
     name="Justin Alvarado"
     headshot={couchbound2}
     performingImage={couchbound}
-    infoBgImage={imgB7e5}
+    infoBgImage={clownBackground11}
     room="Ambient Chillout Room"
     setTime="12:45AM"
     performanceType="Kosmische Synth Journey"
