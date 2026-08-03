@@ -17,6 +17,15 @@ import JaykWilson from "./components/pages/JaykWilson";
 import JoFoster from "./components/pages/JoFoster";
 import BryanGary from "./components/pages/BryanGary";
 import Couchbound from "./components/pages/Couchbound";
+import Releafs from "./components/pages/Releafs";
+import DrBobbyBannerMpc from "./components/pages/DrBobbyBannerMpc";
+import HollyHart from "./components/pages/HollyHart";
+import SugarplumShari from "./components/pages/SugarplumShari";
+import PricklyPairPopsAtx from "./components/pages/PricklyPairPopsAtx";
+import JoeyReyes from "./components/pages/JoeyReyes";
+import JoeyZ from "./components/pages/JoeyZ";
+import NeilsSoundSafari from "./components/pages/NeilsSoundSafari";
+import ImprovisedSuperjam from "./components/pages/ImprovisedSuperjam";
 import Schedule from "./components/pages/Schedule";
 import Music from "./components/pages/Music";
 import Art from "./components/pages/Art";
@@ -121,6 +130,21 @@ const App: FC = () => {
         <Route path="/promo/joFoster" element={<JoFoster />} />
         <Route path="/promo/bryanGary" element={<BryanGary />} />
         <Route path="/promo/couchbound" element={<Couchbound />} />
+        <Route path="/promo/releafs" element={<Releafs />} />
+        <Route path="/promo/drBobbyBannerMpc" element={<DrBobbyBannerMpc />} />
+        <Route path="/promo/hollyHart" element={<HollyHart />} />
+        <Route path="/promo/sugarplumShari" element={<SugarplumShari />} />
+        <Route
+          path="/promo/pricklyPairPopsAtx"
+          element={<PricklyPairPopsAtx />}
+        />
+        <Route path="/promo/joeyReyes" element={<JoeyReyes />} />
+        <Route path="/promo/joeyZ" element={<JoeyZ />} />
+        <Route path="/promo/neilsSoundSafari" element={<NeilsSoundSafari />} />
+        <Route
+          path="/promo/improvisedSuperjam"
+          element={<ImprovisedSuperjam />}
+        />
         <Route path="/promo/schedule" element={<Schedule />} />
         <Route path="/promo/music" element={<Music />} />
         <Route path="/promo/art" element={<Art />} />
