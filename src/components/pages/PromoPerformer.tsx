@@ -5,7 +5,7 @@ import {
 // import backgroundAugust22 from "../../assets/backgrounds/BackgroundAugust22.webp";
 // import bg from "../../assets/backgrounds/pppsychedelic.webp";
 import { CURRENT_POSTER } from "../../constants";
-import { useRef, useEffect, useCallback } from "react";
+import { useRef, useEffect, useCallback, useState } from "react";
 import type { FC, ReactNode } from "react";
 
 interface QA {
@@ -25,6 +25,12 @@ export interface PromoPerformerProps {
   room: string;
   setTime: string;
   performanceType: string;
+  /** 1 = no zoom, 1.5 = zoomed in 50% */
+  headshotZoom?: number;
+  /** Point held fixed while zooming: "0%" frames the left of the photo */
+  headshotFocusX?: string;
+  performingZoom?: number;
+  performingFocusX?: string;
 }
 
 const NAME_SIZE_STYLES: Record<NameSize, string> = {
@@ -32,6 +38,13 @@ const NAME_SIZE_STYLES: Record<NameSize, string> = {
   medium: "clamp(2.8rem, 7.9cqi, 5.5rem)",
   small: "clamp(2.05rem, 5.8cqi, 4rem)",
 };
+
+// The performance-section name is measured and sized to span the width between
+// these side margins. It only wraps once a single line would fall below MIN.
+const PERF_NAME_INSET = "15%";
+const PERF_NAME_MAX_PX = 64;
+const PERF_NAME_MIN_PX = 28;
+const PERF_NAME_MEASURE_PX = 100;
 
 const phoneFrameStyle: React.CSSProperties = {
   width: 383,
@@ -67,6 +80,24 @@ const colorShiftStyle: React.CSSProperties = {
   animation: "purplePinkShift 20s linear infinite",
 };
 
+// Applied to an invisible duplicate stacked under the photo, so the glow pools
+// on the background above the photo instead of washing over the image.
+const shadowTwinStyle: React.CSSProperties = {
+  color: "transparent",
+  WebkitTextStroke: "0",
+  pointerEvents: "none",
+  textShadow:
+    "0 0 40px rgba(0,0,0,0.95), 0 0 90px rgba(0,0,0,0.9), 0 0 160px rgba(0,0,0,0.85), 0 20px 100px rgba(0,0,0,0.9), 0 0 240px rgba(0,0,0,0.8)",
+};
+
+// text-stroke alone leaves gaps on some renderers, so back it with hard shadows
+const outlineStyle: React.CSSProperties = {
+  WebkitTextStroke: "1px #888",
+  paintOrder: "stroke fill",
+  textShadow:
+    "1px 0 0 #888, -1px 0 0 #888, 0 1px 0 #888, 0 -1px 0 #888, 1px 1px 0 #888, -1px -1px 0 #888, 1px -1px 0 #888, -1px 1px 0 #888, 0 2px 12px rgba(0,0,0,0.8)",
+};
+
 const imgStyle: React.CSSProperties = {
   position: "absolute",
   top: "50%",
@@ -100,6 +131,10 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
   room,
   setTime,
   performanceType,
+  headshotZoom = 1,
+  headshotFocusX = "50%",
+  performingZoom = 1,
+  performingFocusX = "50%",
 }) => {
   const infoSectionRef = useRef<HTMLDivElement>(null);
   const infoContentRef = useRef<HTMLDivElement>(null);
@@ -124,6 +159,63 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
     return () => window.removeEventListener("resize", fitContent);
   }, [fitContent]);
 
+  // The background only blurs once section 2 has risen to the middle of the
+  // viewport, and stays blurred for every section after it.
+  const [bgBlurred, setBgBlurred] = useState(false);
+
+  useEffect(() => {
+    const update = () => {
+      const el = infoSectionRef.current;
+      if (!el) return;
+      setBgBlurred(el.getBoundingClientRect().top <= window.innerHeight / 2);
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
+  const perfNameRef = useRef<HTMLSpanElement>(null);
+  const [perfNameFit, setPerfNameFit] = useState({
+    fontSize: PERF_NAME_MAX_PX,
+    wrap: false,
+  });
+
+  const fitPerfName = useCallback(() => {
+    const el = perfNameRef.current;
+    if (!el) return;
+    const boxWidth = el.clientWidth;
+    if (!boxWidth) return;
+
+    // Measure the name as one unwrapped line at a known size, then scale
+    // linearly — letter-spacing is in em, so width tracks font size.
+    const prevFontSize = el.style.fontSize;
+    const prevWhiteSpace = el.style.whiteSpace;
+    el.style.whiteSpace = "nowrap";
+    el.style.fontSize = `${PERF_NAME_MEASURE_PX}px`;
+    const singleLineWidth = el.scrollWidth;
+    el.style.fontSize = prevFontSize;
+    el.style.whiteSpace = prevWhiteSpace;
+    if (!singleLineWidth) return;
+
+    const ideal = (PERF_NAME_MEASURE_PX * boxWidth) / singleLineWidth;
+    setPerfNameFit({
+      fontSize: Math.min(PERF_NAME_MAX_PX, Math.max(PERF_NAME_MIN_PX, ideal)),
+      wrap: ideal < PERF_NAME_MIN_PX,
+    });
+  }, []);
+
+  useEffect(() => {
+    fitPerfName();
+    window.addEventListener("resize", fitPerfName);
+    // Blisey loads async; measuring before it lands gives the wrong width
+    document.fonts?.ready.then(fitPerfName);
+    return () => window.removeEventListener("resize", fitPerfName);
+  }, [fitPerfName, name]);
+
   return (
     <div style={{ background: "#000" }}>
       <div
@@ -131,6 +223,21 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
         style={{
           backgroundImage: `url(${afterglowSpotlightPinkOrangeBlue})`,
           transform: "translateY(20px)",
+        }}
+        aria-hidden="true"
+      />
+      {/* Blurs the page background across the whole viewport. Painted after
+          .page-bg but before the sections, so only the background is softened. */}
+      <div
+        style={{
+          position: "fixed",
+          inset: 0,
+          backdropFilter: bgBlurred ? "blur(8px)" : "none",
+          WebkitBackdropFilter: bgBlurred ? "blur(8px)" : "none",
+          transition:
+            "backdrop-filter 400ms ease, -webkit-backdrop-filter 400ms ease",
+          zIndex: 0,
+          pointerEvents: "none",
         }}
         aria-hidden="true"
       />
@@ -146,20 +253,59 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
             overflow: "visible",
           }}
         >
-        <img
-          src={headshot}
-          alt={name}
+        {/* Shadow-only twin of "Meet the", stacked under the photo */}
+        <div
           style={{
-            ...imgStyle,
+            position: "absolute",
             top: 0,
-            transform: "translateX(-50%)",
-            maxWidth: "100%",
-            maxHeight: "100%",
+            left: 0,
+            right: 0,
+            height: 0,
+            zIndex: 0,
+          }}
+        >
+          <span
+            aria-hidden="true"
+            style={{
+              ...textStyle,
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              right: 0,
+              fontSize: "clamp(2.43rem, 6.89cqi, 4.06rem)",
+              textTransform: "uppercase",
+              letterSpacing: "0.15em",
+              ...shadowTwinStyle,
+            }}
+          >
+            Meet the
+          </span>
+        </div>
+        {/* Wrapper clips the zoom, which would otherwise escape the section */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
             width: "100%",
             height: "calc(100% - 100px)",
-            objectFit: "cover",
+            overflow: "hidden",
+            zIndex: 1,
           }}
-        />
+        >
+          <img
+            src={headshot}
+            alt={name}
+            style={{
+              display: "block",
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              transform: `scale(${headshotZoom})`,
+              transformOrigin: `${headshotFocusX} center`,
+            }}
+          />
+        </div>
         <div style={{ ...overlayStyle, justifyContent: "flex-end" }}>
           {/* Zero-height anchor on the photo's top edge: "Meet the" hangs above
               it, "Performers" sits below it, independent of font metrics. */}
@@ -175,6 +321,7 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
                 textTransform: "uppercase",
                 letterSpacing: "0.15em",
                 ...colorShiftStyle,
+                ...outlineStyle,
                 color: "#e9d5ff",
               }}
             >
@@ -191,6 +338,7 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
                 textTransform: "uppercase",
                 letterSpacing: "0.15em",
                 ...colorShiftStyle,
+                ...outlineStyle,
                 color: "#e9d5ff",
               }}
             >
@@ -296,29 +444,78 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
 
       {/* Section 3: Performance */}
       <div style={phoneFrameStyle}>
-      <div className="promo-section" style={sectionStyle}>
-        <img
-          src={performingImage}
-          alt={`${name} performing`}
+      <div
+        className="promo-section"
+        style={{
+          ...sectionStyle,
+          transform: "translateY(120px)",
+          // lets the name overhang the photo; the phone frame still clips
+          overflow: "visible",
+        }}
+      >
+        {/* Shadow-only twin of the name below the photo, so the glow pools on the
+            background above the photo instead of washing over the image. */}
+        <span
+          aria-hidden="true"
           style={{
-            ...imgStyle,
-            maxWidth: "100%",
-            maxHeight: "100%",
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
+            ...textStyle,
+            position: "absolute",
+            top: 0,
+            left: PERF_NAME_INSET,
+            right: PERF_NAME_INSET,
+            zIndex: 0,
+            transform: "translateY(-50%)",
+            fontSize: `${perfNameFit.fontSize}px`,
+            whiteSpace: perfNameFit.wrap ? "normal" : "nowrap",
+            textTransform: "uppercase",
+            letterSpacing: "0.15em",
+            ...shadowTwinStyle,
           }}
-        />
-        <div style={overlayStyle}>
+        >
+          {name}
+        </span>
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            overflow: "hidden",
+            zIndex: 1,
+          }}
+        >
+          <img
+            src={performingImage}
+            alt={`${name} performing`}
+            style={{
+              display: "block",
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              transform: `scale(${performingZoom})`,
+              transformOrigin: `${performingFocusX} center`,
+            }}
+          />
+        </div>
+        <div style={{ ...overlayStyle, justifyContent: "flex-end" }}>
+          {/* Centered on the photo's top edge: a two-line name splits across it,
+              a one-line name is halved by it. */}
           <span
+            ref={perfNameRef}
             style={{
               ...textStyle,
-              fontSize: "clamp(2rem, 5.4cqi, 4rem)",
+              position: "absolute",
+              top: 0,
+              left: PERF_NAME_INSET,
+              right: PERF_NAME_INSET,
+              transform: "translateY(-50%)",
+              fontSize: `${perfNameFit.fontSize}px`,
+              whiteSpace: perfNameFit.wrap ? "normal" : "nowrap",
               textTransform: "uppercase",
               letterSpacing: "0.15em",
+              ...colorShiftStyle,
+              ...outlineStyle,
             }}
           >
-            Live at Afterglow
+            {name}
           </span>
           <div
             style={{
@@ -348,6 +545,7 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
               style={{
                 ...textStyle,
                 fontSize: "clamp(2.59rem, 6.48cqi, 4.38rem)",
+                ...colorShiftStyle,
               }}
             >
               {setTime}

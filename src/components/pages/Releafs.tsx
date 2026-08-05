@@ -7,7 +7,11 @@ const Releafs: FC = () => (
     name="Releafs"
     nameSize="large"
     headshot={releafs}
+    headshotZoom={1.5}
+    headshotFocusX="0%"
     performingImage={releafs2}
+    performingZoom={1.5}
+    performingFocusX="0%"
     infoBgImage={clownBackground12}
     room="The Atrium"
     setTime="10:00PM"

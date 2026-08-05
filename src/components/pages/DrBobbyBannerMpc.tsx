@@ -11,7 +11,7 @@ const DrBobbyBannerMpc: FC = () => (
     infoBgImage={clownBackground12}
     room="The Atrium"
     setTime="11:15PM"
-    performanceType="MPC Beat Science"
+    performanceType="MPC Beat Surgery"
     qa={[
       {
         question: "What equipment are you using?",
@@ -26,11 +26,9 @@ const DrBobbyBannerMpc: FC = () => (
         question: "Where can we hear your music?",
         answer: (
           <>
-            drbobbybanner.bandcamp.com
+            drbobbybannermpc.bandcamp.com
             <br />
-            SoundCloud — /drbobbybannermpc
-            <br />
-            Instagram — @dr.bobby.banner
+            Instagram — @drbobbybannermpc
           </>
         ),
       },

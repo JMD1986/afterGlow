@@ -11,7 +11,7 @@ const NeilsSoundSafari: FC = () => (
     infoBgImage={clownBackground10}
     room="Side Stage"
     setTime="10:15PM"
-    performanceType="Field Recording Safari"
+    performanceType="The Crocodile Hunter meets 8 Mile"
     qa={[
        {
         question: "What influences are you channeling?",

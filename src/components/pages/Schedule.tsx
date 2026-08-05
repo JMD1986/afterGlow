@@ -1,4 +1,5 @@
 import bg from "../../assets/backgrounds/pppsychedelic.webp";
+import AfterglowSpotlightBlack from "../../assets/images/AfterglowSpotlightBlack.webp";
 import type { FC } from "react";
 
 const TIME_SLOTS = [
@@ -140,7 +141,11 @@ const Schedule: FC = () => (
   >
     <div
       className="page-bg"
-      style={{ backgroundImage: `url(${bg})` }}
+      style={{
+        backgroundImage: `url(${AfterglowSpotlightBlack})`,
+        backgroundPosition: "left bottom",
+        transform: "translateY(-350px)",
+      }}
       aria-hidden="true"
     />
     <div
@@ -164,6 +169,7 @@ const Schedule: FC = () => (
         flexDirection: "column",
         padding: "3% 9% 3% 3%",
         boxSizing: "border-box",
+        transform: "translateY(-150px)",
       }}
     >
       <div
