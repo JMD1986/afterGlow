@@ -5,6 +5,7 @@ import PromoPerformer from "./PromoPerformer";
 const Couchbound: FC = () => (
   <PromoPerformer
     name="Justin Alvarado"
+    nameSize="large"
     headshot={couchbound2}
     performingImage={couchbound}
     infoBgImage={clownBackground11}

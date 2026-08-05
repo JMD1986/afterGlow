@@ -2,7 +2,7 @@ import React from "react";
 import { falloutLobby, fallloutLobby2 } from "../../assets/images";
 import bg from "../../assets/backgrounds/pppsychedelic.webp";
 import { Link } from "react-router-dom";
-import { TICKET_URL } from "../../constants/tickets";
+import { TICKET_URL } from "../../constants";
 import "../EventInfo.css";
 
 const Atrium: React.FC = () => {

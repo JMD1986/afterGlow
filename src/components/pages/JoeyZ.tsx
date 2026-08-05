@@ -5,6 +5,7 @@ import PromoPerformer from "./PromoPerformer";
 const JoeyZ: FC = () => (
   <PromoPerformer
     name="Joey Z"
+    nameSize="large"
     headshot={joeyZSheep2}
     performingImage={joeyZSheep}
     infoBgImage={clownBackground11}
@@ -24,25 +25,14 @@ const JoeyZ: FC = () => (
         )
       },
       {
-        question: "What influences are you channeling?",
-        answer: "Pino Palladino, Thundercat, and the feeling of a perfect pocket.",
-      },
-      {
         question: "Tell us about yourself?",
         answer: (
           <>
-            In early 2025 Joey released 
-            an audio demo of his one man show Trip Sitter which a Buzz Music review called 
+            In early 2025 Joey released an audio demo of his one man show Trip Sitter which a Buzz Music review called 
             "revolutionary". His live act features elements of stand up comedy, story telling, 
-            music, and performance art. Joey is currently working on his surreal clown 
-            show SHEEP which has toured to 20 cities since 2025.
+            music, and performance art. 
           </>
         ),
-      },
-      {
-        question: "How do you like to chill/relax/unwind?",
-        answer:
-          "Noodling on a quiet bass line, thrift-store vinyl digging, and zero-plan Sundays.",
       },
     ]}
   />

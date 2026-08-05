@@ -125,20 +125,36 @@ code {
   background-size: cover;
   background-position: center;
   z-index: 0;
-  animation: bgDrift 30s ease-in-out infinite, colorRotate 20s linear infinite;
-}
-
-@keyframes bgDrift {
-  0%   { transform: scaleX(-1) rotate(0deg)    translateY(0px); }
-  25%  { transform: scaleX(-1) rotate(1.5deg)  translateY(-30px); }
-  50%  { transform: scaleX(-1) rotate(0deg)    translateY(0px); }
-  75%  { transform: scaleX(-1) rotate(-1.5deg) translateY(30px); }
-  100% { transform: scaleX(-1) rotate(0deg)    translateY(0px); }
+  transform: translateY(40px);
+  animation: colorRotate 20s linear infinite;
 }
 
 @keyframes colorRotate {
   100% {
     filter: hue-rotate(360deg);
+  }
+}
+
+/* Cycles color directly instead of hue-rotating so it stays in the
+   bright purple/pink/white range rather than sweeping the full spectrum. */
+@keyframes purplePinkShift {
+  0% {
+    color: #ffffff;
+  }
+  20% {
+    color: #fbcfe8;
+  }
+  40% {
+    color: #f0abfc;
+  }
+  60% {
+    color: #e9d5ff;
+  }
+  80% {
+    color: #d8b4fe;
+  }
+  100% {
+    color: #ffffff;
   }
 }
 

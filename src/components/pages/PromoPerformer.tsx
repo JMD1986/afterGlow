@@ -1,6 +1,10 @@
-import { falloutPosterAfterglow } from "../../assets/images";
-import backgroundAugust22 from "../../assets/backgrounds/BackgroundAugust22.webp";
+import {
+  falloutPosterAfterglow,
+  afterglowSpotlightPinkOrangeBlue,
+} from "../../assets/images";
+// import backgroundAugust22 from "../../assets/backgrounds/BackgroundAugust22.webp";
 // import bg from "../../assets/backgrounds/pppsychedelic.webp";
+import { CURRENT_POSTER } from "../../constants";
 import { useRef, useEffect, useCallback } from "react";
 import type { FC, ReactNode } from "react";
 
@@ -9,8 +13,11 @@ interface QA {
   answer: ReactNode;
 }
 
+export type NameSize = "large" | "medium" | "small";
+
 export interface PromoPerformerProps {
   name: string;
+  nameSize?: NameSize;
   headshot: string;
   performingImage: string;
   infoBgImage: string;
@@ -19,6 +26,21 @@ export interface PromoPerformerProps {
   setTime: string;
   performanceType: string;
 }
+
+const NAME_SIZE_STYLES: Record<NameSize, string> = {
+  large: "clamp(3.74rem, 10.53cqi, 7.33rem)",
+  medium: "clamp(2.8rem, 7.9cqi, 5.5rem)",
+  small: "clamp(2.05rem, 5.8cqi, 4rem)",
+};
+
+const phoneFrameStyle: React.CSSProperties = {
+  width: 383,
+  height: 852,
+  overflow: "hidden",
+  margin: "40px auto",
+  position: "relative",
+  flexShrink: 0,
+};
 
 const sectionStyle: React.CSSProperties = {
   position: "relative",
@@ -29,7 +51,7 @@ const sectionStyle: React.CSSProperties = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  margin: "15vh auto",
+  margin: 0,
   containerType: "inline-size" as never,
 };
 
@@ -38,6 +60,11 @@ const textStyle: React.CSSProperties = {
   fontFamily: "'Blisey', sans-serif",
   textShadow: "0 2px 12px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.5)",
   textAlign: "center",
+};
+
+const colorShiftStyle: React.CSSProperties = {
+  color: "#fff",
+  animation: "purplePinkShift 20s linear infinite",
 };
 
 const imgStyle: React.CSSProperties = {
@@ -65,6 +92,7 @@ const overlayStyle: React.CSSProperties = {
 
 const PromoPerformer: FC<PromoPerformerProps> = ({
   name,
+  nameSize = "large",
   headshot,
   performingImage,
   infoBgImage,
@@ -100,69 +128,91 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
     <div style={{ background: "#000" }}>
       <div
         className="page-bg"
-        style={{ backgroundImage: `url(${backgroundAugust22})` }}
+        style={{
+          backgroundImage: `url(${afterglowSpotlightPinkOrangeBlue})`,
+          transform: "translateY(20px)",
+        }}
         aria-hidden="true"
       />
 
       {/* Section 1: Headshot */}
-      <div className="promo-section" style={sectionStyle}>
+      <div style={phoneFrameStyle}>
+        <div
+          className="promo-section"
+          style={{
+            ...sectionStyle,
+            transform: "translateY(120px)",
+            // lets "Meet the" sit above the photo; the phone frame still clips
+            overflow: "visible",
+          }}
+        >
         <img
           src={headshot}
           alt={name}
           style={{
             ...imgStyle,
+            top: 0,
+            transform: "translateX(-50%)",
             maxWidth: "100%",
             maxHeight: "100%",
             width: "100%",
-            height: "100%",
+            height: "calc(100% - 100px)",
             objectFit: "cover",
           }}
         />
-        <div style={overlayStyle}>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            {/*
+        <div style={{ ...overlayStyle, justifyContent: "flex-end" }}>
+          {/* Zero-height anchor on the photo's top edge: "Meet the" hangs above
+              it, "Performers" sits below it, independent of font metrics. */}
+          <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 0 }}>
             <span
               style={{
                 ...textStyle,
-                fontSize: "clamp(3.24rem, 8.1cqi, 6.48rem)",
-                textTransform: "uppercase",
-                letterSpacing: "0.1em",
-              }}
-            >
-              Afterglow
-            </span>
-            <span
-              style={{
-                ...textStyle,
-                fontSize: "clamp(1.44rem, 4.08cqi, 2.4rem)",
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                fontSize: "clamp(2.43rem, 6.89cqi, 4.06rem)",
                 textTransform: "uppercase",
                 letterSpacing: "0.15em",
-                marginTop: "0.75em",
+                ...colorShiftStyle,
+                color: "#e9d5ff",
               }}
             >
-              Meet the Performers
+              Meet the
             </span>
-            */}
+            <span
+              style={{
+                ...textStyle,
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                fontSize: "clamp(1.87rem, 5.3cqi, 3.12rem)",
+                textTransform: "uppercase",
+                letterSpacing: "0.15em",
+                ...colorShiftStyle,
+                color: "#e9d5ff",
+              }}
+            >
+              Performers
+            </span>
           </div>
           <span
             style={{
               ...textStyle,
-              fontSize: "clamp(2.88rem, 8.1cqi, 5.64rem)",
-              marginBottom: "clamp(5rem, 11cqi, 9rem)",
+              fontSize: NAME_SIZE_STYLES[nameSize],
+              marginBottom: "clamp(6.5rem, 14.3cqi, 11.7rem)",
+              ...colorShiftStyle,
             }}
           >
             {name}
           </span>
         </div>
+        </div>
       </div>
 
       {/* Section 2: Info Q&A */}
+      <div style={phoneFrameStyle}>
       <div ref={infoSectionRef} className="promo-section" style={sectionStyle}>
         <img
           src={infoBgImage}
@@ -232,6 +282,7 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
                     fontFamily: "sans-serif",
                     fontSize: "clamp(1.08rem, 2.3cqi, 1.5rem)",
                     lineHeight: 1.6,
+                    ...colorShiftStyle,
                   }}
                 >
                   {item.answer}
@@ -241,8 +292,10 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
           </div>
         </div>
       </div>
+      </div>
 
       {/* Section 3: Performance */}
+      <div style={phoneFrameStyle}>
       <div className="promo-section" style={sectionStyle}>
         <img
           src={performingImage}
@@ -312,17 +365,21 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
           </div>
         </div>
       </div>
+      </div>
 
       {/* Section 4: Afterglow Poster */}
+      <div style={phoneFrameStyle}>
       <div className="promo-section" style={sectionStyle}>
         <img
-          src={falloutPosterAfterglow}
+          src={CURRENT_POSTER}
           alt="Afterglow event poster"
           style={imgStyle}
         />
       </div>
+      </div>
 
       {/* Section 5: Event Details + CTA */}
+      <div style={phoneFrameStyle}>
       <div className="promo-section" style={sectionStyle}>
         <div
           style={{
@@ -397,6 +454,7 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
             </span>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

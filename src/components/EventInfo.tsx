@@ -22,7 +22,7 @@ import TrippyRings from "./animations/TrippyRings";
 import ImageCarousel from "./ImageCarousel";
 import { Link } from "react-router-dom";
 import type { ReactNode } from "react";
-import { TICKET_URL } from "../constants/tickets";
+import { TICKET_URL } from "../constants";
 
 type Section = {
   image: string;

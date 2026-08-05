@@ -1,12 +1,13 @@
-import { jaykWilsonBio, jaykWilson, clownBackground12 } from "../../assets/images";
+import { releafs, releafs2, clownBackground12 } from "../../assets/images";
 import type { FC } from "react";
 import PromoPerformer from "./PromoPerformer";
 
 const Releafs: FC = () => (
   <PromoPerformer
     name="Releafs"
-    headshot={jaykWilsonBio}
-    performingImage={jaykWilson}
+    nameSize="large"
+    headshot={releafs}
+    performingImage={releafs2}
     infoBgImage={clownBackground12}
     room="The Atrium"
     setTime="10:00PM"

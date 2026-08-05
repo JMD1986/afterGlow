@@ -9,6 +9,7 @@ import PromoPerformer from "./PromoPerformer";
 const BrianClown: FC = () => (
   <PromoPerformer
     name="Brian McAughan"
+    nameSize="large"
     headshot={brianHeadshot}
     performingImage={brianMcAughnPerforming}
     infoBgImage={clownBackground12}

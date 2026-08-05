@@ -55,6 +55,8 @@ import bobbyBanner from "./BobbyBanner.webp";
 import bobbyBanner2 from "./BobbyBanner2.webp";
 import joeyZSheep2 from "./JoeyZSheep2.webp";
 import neilsSoundSafari2 from "./NeilsSoundSafari2.webp";
+import releafs from "./Releafs.webp";
+import releafs2 from "./Releafs2.webp";
 import joeyReyes from "./JoeyReyes.webp";
 import joeyReyes2 from "./JoeyReyes2.webp";
 import hollyHart from "./HollyHart.webp";
@@ -66,6 +68,14 @@ import clownBackground9 from "./clownBackground9.webp";
 import clownBackground10 from "./clownBackground10.webp";
 import clownBackground11 from "./clownBackground11.webp";
 import clownBackground12 from "./clownBackground12.webp";
+import afterglowBanner from "./AfterglowBanner.webp";
+import afterglowSpotlight from "./AfterglowSpotlight.webp";
+import afterglowSpotlightPinkOrangeBlue from "./AfterglowSpotlightPinkOrangeBlue.webp";
+import afterglowBannerPinkOrangeBlue from "./AfterglowBannerPinkOrangeBlue.webp";
+import afterglowIgPostBlack from "./AfterglowIgPostBlack.webp";
+import afterglowIgPost from "./AfterglowIgPost.webp";
+import afterglowIgPostPinkOrangeBlue from "./AfterglowIgPostPinkOrangeBlue.webp";
+import afterglowSpotlightBlack from "./AfterglowSpotlightBlack.webp";
 
 export const images = [
   imgF58c,
@@ -122,6 +132,8 @@ export const images = [
   bobbyBanner2,
   joeyZSheep2,
   neilsSoundSafari2,
+  releafs,
+  releafs2,
   joeyReyes,
   joeyReyes2,
   hollyHart,
@@ -133,6 +145,14 @@ export const images = [
   clownBackground10,
   clownBackground11,
   clownBackground12,
+  afterglowBanner,
+  afterglowSpotlight,
+  afterglowSpotlightPinkOrangeBlue,
+  afterglowBannerPinkOrangeBlue,
+  afterglowIgPostBlack,
+  afterglowIgPost,
+  afterglowIgPostPinkOrangeBlue,
+  afterglowSpotlightBlack,
 ];
 
 export {
@@ -193,6 +213,8 @@ export {
   bobbyBanner2,
   joeyZSheep2,
   neilsSoundSafari2,
+  releafs,
+  releafs2,
   joeyReyes,
   joeyReyes2,
   hollyHart,
@@ -204,4 +226,12 @@ export {
   clownBackground10,
   clownBackground11,
   clownBackground12,
+  afterglowBanner,
+  afterglowSpotlight,
+  afterglowSpotlightPinkOrangeBlue,
+  afterglowBannerPinkOrangeBlue,
+  afterglowIgPostBlack,
+  afterglowIgPost,
+  afterglowIgPostPinkOrangeBlue,
+  afterglowSpotlightBlack,
 };

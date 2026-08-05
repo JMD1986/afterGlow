@@ -5,12 +5,13 @@ import PromoPerformer from "./PromoPerformer";
 const PricklyPairPopsAtx: FC = () => (
   <PromoPerformer
     name="Prickly Pair Pops ATX"
+    nameSize="small"
     headshot={couchbound2}
     performingImage={couchbound}
     infoBgImage={clownBackground11}
     room="The Atrium"
     setTime="All Night"
-    performanceType="Frozen Treats & Desert Vibes"
+    performanceType="Baked Treats & Questionable Financial Advice"
     qa={[
       {
         question: "What are you bringing to Afterglow?",

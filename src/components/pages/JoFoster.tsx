@@ -5,6 +5,7 @@ import PromoPerformer from "./PromoPerformer";
 const JoFoster: FC = () => (
   <PromoPerformer
     name="Jo Foster"
+    nameSize="large"
     headshot={joFosterHeadshot}
     performingImage={joFoster2}
     infoBgImage={clownBackground9}

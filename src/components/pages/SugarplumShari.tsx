@@ -5,12 +5,13 @@ import PromoPerformer from "./PromoPerformer";
 const SugarplumShari: FC = () => (
   <PromoPerformer
     name="Sugarplum Shari"
+    nameSize="medium"
     headshot={sugarPlumShari}
     performingImage={sugarPlumShari2}
     infoBgImage={clownBackground10}
     room="The Atrium"
-    setTime="11:30PM"
-    performanceType="Fairy Tale Drag Cabaret"
+    setTime="All Night"
+    performanceType="Ice Cream & Emotional Support"
     qa={[
       {
         question: "What are you bringing to Afterglow?",

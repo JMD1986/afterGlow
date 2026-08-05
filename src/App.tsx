@@ -26,6 +26,7 @@ import JoeyReyes from "./components/pages/JoeyReyes";
 import JoeyZ from "./components/pages/JoeyZ";
 import NeilsSoundSafari from "./components/pages/NeilsSoundSafari";
 import ImprovisedSuperjam from "./components/pages/ImprovisedSuperjam";
+import TrippyPoster from "./components/pages/TrippyPoster";
 import Schedule from "./components/pages/Schedule";
 import Music from "./components/pages/Music";
 import Art from "./components/pages/Art";
@@ -145,6 +146,7 @@ const App: FC = () => {
           path="/promo/improvisedSuperjam"
           element={<ImprovisedSuperjam />}
         />
+        <Route path="/trippyposter" element={<TrippyPoster />} />
         <Route path="/promo/schedule" element={<Schedule />} />
         <Route path="/promo/music" element={<Music />} />
         <Route path="/promo/art" element={<Art />} />

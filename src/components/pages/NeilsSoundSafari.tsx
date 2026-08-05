@@ -5,6 +5,7 @@ import PromoPerformer from "./PromoPerformer";
 const NeilsSoundSafari: FC = () => (
   <PromoPerformer
     name="Neil's Sound Safari"
+    nameSize="medium"
     headshot={neilsSoundSafari}
     performingImage={neilsSoundSafari2}
     infoBgImage={clownBackground10}
@@ -12,12 +13,7 @@ const NeilsSoundSafari: FC = () => (
     setTime="10:15PM"
     performanceType="Field Recording Safari"
     qa={[
-      {
-        question: "What equipment are you using?",
-        answer:
-          "A Zoom H6, contact mics, a modular backpack rig, and whatever the night decides to whisper.",
-      },
-      {
+       {
         question: "What influences are you channeling?",
         answer:
           "Marc Rebillet, Reggie Watts, Zach Zucker, Casey Rocket",

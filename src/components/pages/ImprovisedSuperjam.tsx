@@ -5,6 +5,7 @@ import PromoPerformer from "./PromoPerformer";
 const ImprovisedSuperjam: FC = () => (
   <PromoPerformer
     name="Improvised Superjam"
+    nameSize="large"
     headshot={jaykWilsonBio}
     performingImage={jaykWilson}
     infoBgImage={clownBackground9}
