@@ -31,6 +31,8 @@ export interface PromoPerformerProps {
   headshotFocusX?: string;
   performingZoom?: number;
   performingFocusX?: string;
+  /** Word shown under "Meet the" (defaults to "Performers") */
+  subtitle?: string;
 }
 
 const NAME_SIZE_STYLES: Record<NameSize, string> = {
@@ -135,6 +137,7 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
   headshotFocusX = "50%",
   performingZoom = 1,
   performingFocusX = "50%",
+  subtitle = "Performers",
 }) => {
   const infoSectionRef = useRef<HTMLDivElement>(null);
   const infoContentRef = useRef<HTMLDivElement>(null);
@@ -253,64 +256,19 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
             overflow: "visible",
           }}
         >
-        {/* Shadow-only twin of "Meet the", stacked under the photo */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            height: 0,
-            zIndex: 0,
-          }}
-        >
-          <span
-            aria-hidden="true"
+          {/* Shadow-only twin of "Meet the", stacked under the photo */}
+          <div
             style={{
-              ...textStyle,
               position: "absolute",
-              bottom: 0,
+              top: 0,
               left: 0,
               right: 0,
-              fontSize: "clamp(2.43rem, 6.89cqi, 4.06rem)",
-              textTransform: "uppercase",
-              letterSpacing: "0.15em",
-              ...shadowTwinStyle,
+              height: 0,
+              zIndex: 0,
             }}
           >
-            Meet the
-          </span>
-        </div>
-        {/* Wrapper clips the zoom, which would otherwise escape the section */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "calc(100% - 100px)",
-            overflow: "hidden",
-            zIndex: 1,
-          }}
-        >
-          <img
-            src={headshot}
-            alt={name}
-            style={{
-              display: "block",
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              transform: `scale(${headshotZoom})`,
-              transformOrigin: `${headshotFocusX} center`,
-            }}
-          />
-        </div>
-        <div style={{ ...overlayStyle, justifyContent: "flex-end" }}>
-          {/* Zero-height anchor on the photo's top edge: "Meet the" hangs above
-              it, "Performers" sits below it, independent of font metrics. */}
-          <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 0 }}>
             <span
+              aria-hidden="true"
               style={{
                 ...textStyle,
                 position: "absolute",
@@ -320,339 +278,396 @@ const PromoPerformer: FC<PromoPerformerProps> = ({
                 fontSize: "clamp(2.43rem, 6.89cqi, 4.06rem)",
                 textTransform: "uppercase",
                 letterSpacing: "0.15em",
-                ...colorShiftStyle,
-                ...outlineStyle,
-                color: "#e9d5ff",
+                ...shadowTwinStyle,
               }}
             >
               Meet the
             </span>
-            <span
+          </div>
+          {/* Wrapper clips the zoom, which would otherwise escape the section */}
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "calc(100% - 100px)",
+              overflow: "hidden",
+              zIndex: 1,
+            }}
+          >
+            <img
+              src={headshot}
+              alt={name}
               style={{
-                ...textStyle,
+                display: "block",
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                transform: `scale(${headshotZoom})`,
+                transformOrigin: `${headshotFocusX} center`,
+              }}
+            />
+          </div>
+          <div style={{ ...overlayStyle, justifyContent: "flex-end" }}>
+            {/* Zero-height anchor on the photo's top edge: "Meet the" hangs above
+              it, "Performers" sits below it, independent of font metrics. */}
+            <div
+              style={{
                 position: "absolute",
                 top: 0,
                 left: 0,
                 right: 0,
-                fontSize: "clamp(1.87rem, 5.3cqi, 3.12rem)",
-                textTransform: "uppercase",
-                letterSpacing: "0.15em",
-                ...colorShiftStyle,
-                ...outlineStyle,
-                color: "#e9d5ff",
+                height: 0,
               }}
             >
-              Performers
+              <span
+                style={{
+                  ...textStyle,
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  fontSize: "clamp(2.43rem, 6.89cqi, 4.06rem)",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.15em",
+                  ...colorShiftStyle,
+                  ...outlineStyle,
+                  color: "#e9d5ff",
+                }}
+              >
+                Meet the
+              </span>
+              <span
+                style={{
+                  ...textStyle,
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  fontSize: "clamp(1.87rem, 5.3cqi, 3.12rem)",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.15em",
+                  ...colorShiftStyle,
+                  ...outlineStyle,
+                  color: "#e9d5ff",
+                }}
+              >
+                {subtitle}
+              </span>
+            </div>
+            <span
+              style={{
+                ...textStyle,
+                fontSize: NAME_SIZE_STYLES[nameSize],
+                marginBottom: "clamp(6.5rem, 14.3cqi, 11.7rem)",
+                ...colorShiftStyle,
+              }}
+            >
+              {name}
             </span>
           </div>
-          <span
-            style={{
-              ...textStyle,
-              fontSize: NAME_SIZE_STYLES[nameSize],
-              marginBottom: "clamp(6.5rem, 14.3cqi, 11.7rem)",
-              ...colorShiftStyle,
-            }}
-          >
-            {name}
-          </span>
-        </div>
         </div>
       </div>
 
       {/* Section 2: Info Q&A */}
       <div style={phoneFrameStyle}>
-      <div ref={infoSectionRef} className="promo-section" style={sectionStyle}>
-        <img
-          src={infoBgImage}
-          alt="Background"
-          style={{
-            ...imgStyle,
-            maxWidth: "100%",
-            maxHeight: "100%",
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
-        />
         <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "rgba(0,0,0,0.65)",
-            zIndex: 1,
-          }}
-        />
-        <div
-          ref={infoContentRef}
-          style={{
-            ...overlayStyle,
-            justifyContent: "center",
-            padding: "clamp(24px, 4cqi, 48px) clamp(16px, 3cqi, 32px)",
-            pointerEvents: "auto",
-            transformOrigin: "center center",
-          }}
+          ref={infoSectionRef}
+          className="promo-section"
+          style={sectionStyle}
         >
+          <img
+            src={infoBgImage}
+            alt="Background"
+            style={{
+              ...imgStyle,
+              maxWidth: "100%",
+              maxHeight: "100%",
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
           <div
             style={{
-              maxWidth: 800,
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-              gap: "clamp(14px, 2.5cqi, 28px)",
+              position: "absolute",
+              inset: 0,
+              background: "rgba(0,0,0,0.65)",
+              zIndex: 1,
+            }}
+          />
+          <div
+            ref={infoContentRef}
+            style={{
+              ...overlayStyle,
+              justifyContent: "center",
+              padding: "clamp(24px, 4cqi, 48px) clamp(16px, 3cqi, 32px)",
+              pointerEvents: "auto",
+              transformOrigin: "center center",
             }}
           >
-            <h2
+            <div
               style={{
-                ...textStyle,
-                fontSize: "clamp(1.9rem, 4.7cqi, 3rem)",
-                marginBottom: "clamp(4px, 0.8cqi, 8px)",
+                maxWidth: 800,
+                width: "100%",
+                display: "flex",
+                flexDirection: "column",
+                gap: "clamp(14px, 2.5cqi, 28px)",
               }}
             >
-              {name}
-            </h2>
+              <h2
+                style={{
+                  ...textStyle,
+                  fontSize: "clamp(1.9rem, 4.7cqi, 3rem)",
+                  marginBottom: "clamp(4px, 0.8cqi, 8px)",
+                }}
+              >
+                {name}
+              </h2>
 
-            {qa.map((item, i) => (
-              <div key={i}>
-                <p
-                  style={{
-                    ...textStyle,
-                    fontFamily: "'Blisey', sans-serif",
-                    fontSize: "clamp(1.2rem, 2.7cqi, 1.85rem)",
-                    marginBottom: "clamp(3px, 0.5cqi, 6px)",
-                    color: "#ffb347",
-                  }}
-                >
-                  {item.question}
-                </p>
-                <p
-                  style={{
-                    ...textStyle,
-                    fontFamily: "sans-serif",
-                    fontSize: "clamp(1.08rem, 2.3cqi, 1.5rem)",
-                    lineHeight: 1.6,
-                    ...colorShiftStyle,
-                  }}
-                >
-                  {item.answer}
-                </p>
-              </div>
-            ))}
+              {qa.map((item, i) => (
+                <div key={i}>
+                  <p
+                    style={{
+                      ...textStyle,
+                      fontFamily: "'Blisey', sans-serif",
+                      fontSize: "clamp(1.2rem, 2.7cqi, 1.85rem)",
+                      marginBottom: "clamp(3px, 0.5cqi, 6px)",
+                      color: "#ffb347",
+                    }}
+                  >
+                    {item.question}
+                  </p>
+                  <p
+                    style={{
+                      ...textStyle,
+                      fontFamily: "sans-serif",
+                      fontSize: "clamp(1.08rem, 2.3cqi, 1.5rem)",
+                      lineHeight: 1.6,
+                      ...colorShiftStyle,
+                    }}
+                  >
+                    {item.answer}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
       </div>
 
       {/* Section 3: Performance */}
       <div style={phoneFrameStyle}>
-      <div
-        className="promo-section"
-        style={{
-          ...sectionStyle,
-          transform: "translateY(120px)",
-          // lets the name overhang the photo; the phone frame still clips
-          overflow: "visible",
-        }}
-      >
-        {/* Shadow-only twin of the name below the photo, so the glow pools on the
-            background above the photo instead of washing over the image. */}
-        <span
-          aria-hidden="true"
-          style={{
-            ...textStyle,
-            position: "absolute",
-            top: 0,
-            left: PERF_NAME_INSET,
-            right: PERF_NAME_INSET,
-            zIndex: 0,
-            transform: "translateY(-50%)",
-            fontSize: `${perfNameFit.fontSize}px`,
-            whiteSpace: perfNameFit.wrap ? "normal" : "nowrap",
-            textTransform: "uppercase",
-            letterSpacing: "0.15em",
-            ...shadowTwinStyle,
-          }}
-        >
-          {name}
-        </span>
         <div
+          className="promo-section"
           style={{
-            position: "absolute",
-            inset: 0,
-            overflow: "hidden",
-            zIndex: 1,
+            ...sectionStyle,
+            transform: "translateY(120px)",
+            // lets the name overhang the photo; the phone frame still clips
+            overflow: "visible",
           }}
         >
-          <img
-            src={performingImage}
-            alt={`${name} performing`}
-            style={{
-              display: "block",
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              transform: `scale(${performingZoom})`,
-              transformOrigin: `${performingFocusX} center`,
-            }}
-          />
-        </div>
-        <div style={{ ...overlayStyle, justifyContent: "flex-end" }}>
-          {/* Centered on the photo's top edge: a two-line name splits across it,
-              a one-line name is halved by it. */}
+          {/* Shadow-only twin of the name below the photo, so the glow pools on the
+            background above the photo instead of washing over the image. */}
           <span
-            ref={perfNameRef}
+            aria-hidden="true"
             style={{
               ...textStyle,
               position: "absolute",
               top: 0,
               left: PERF_NAME_INSET,
               right: PERF_NAME_INSET,
+              zIndex: 0,
               transform: "translateY(-50%)",
               fontSize: `${perfNameFit.fontSize}px`,
               whiteSpace: perfNameFit.wrap ? "normal" : "nowrap",
               textTransform: "uppercase",
               letterSpacing: "0.15em",
-              ...colorShiftStyle,
-              ...outlineStyle,
+              ...shadowTwinStyle,
             }}
           >
             {name}
           </span>
           <div
             style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "clamp(6px, 1.5cqi, 12px)",
-              background: "rgba(0,0,0,0.6)",
-              backdropFilter: "blur(6px)",
-              borderRadius: 12,
-              padding: "clamp(12px, 2.5cqi, 24px) clamp(20px, 4cqi, 40px)",
-              marginBottom: "clamp(2rem, 5cqi, 4rem)",
+              position: "absolute",
+              inset: 0,
+              overflow: "hidden",
+              zIndex: 1,
             }}
           >
+            <img
+              src={performingImage}
+              alt={`${name} performing`}
+              style={{
+                display: "block",
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                transform: `scale(${performingZoom})`,
+                transformOrigin: `${performingFocusX} center`,
+              }}
+            />
+          </div>
+          <div style={{ ...overlayStyle, justifyContent: "flex-end" }}>
+            {/* Centered on the photo's top edge: a two-line name splits across it,
+              a one-line name is halved by it. */}
             <span
+              ref={perfNameRef}
               style={{
                 ...textStyle,
-                fontFamily: "sans-serif",
-                fontSize: "clamp(1.94rem, 4.86cqi, 3.06rem)",
+                position: "absolute",
+                top: 0,
+                left: PERF_NAME_INSET,
+                right: PERF_NAME_INSET,
+                transform: "translateY(-50%)",
+                fontSize: `${perfNameFit.fontSize}px`,
+                whiteSpace: perfNameFit.wrap ? "normal" : "nowrap",
                 textTransform: "uppercase",
-                letterSpacing: "0.1em",
-              }}
-            >
-              {room}
-            </span>
-            <span
-              style={{
-                ...textStyle,
-                fontSize: "clamp(2.59rem, 6.48cqi, 4.38rem)",
+                letterSpacing: "0.15em",
                 ...colorShiftStyle,
+                ...outlineStyle,
               }}
             >
-              {setTime}
+              {name}
             </span>
-            <span
+            <div
               style={{
-                ...textStyle,
-                fontFamily: "sans-serif",
-                fontSize: "clamp(1.86rem, 4.38cqi, 2.59rem)",
-                fontStyle: "italic",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "clamp(6px, 1.5cqi, 12px)",
+                background: "rgba(0,0,0,0.6)",
+                backdropFilter: "blur(6px)",
+                borderRadius: 12,
+                padding: "clamp(12px, 2.5cqi, 24px) clamp(20px, 4cqi, 40px)",
+                marginBottom: "clamp(2rem, 5cqi, 4rem)",
               }}
             >
-              {performanceType}
-            </span>
+              <span
+                style={{
+                  ...textStyle,
+                  fontFamily: "sans-serif",
+                  fontSize: "clamp(1.94rem, 4.86cqi, 3.06rem)",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                }}
+              >
+                {room}
+              </span>
+              <span
+                style={{
+                  ...textStyle,
+                  fontSize: "clamp(2.59rem, 6.48cqi, 4.38rem)",
+                  ...colorShiftStyle,
+                }}
+              >
+                {setTime}
+              </span>
+              <span
+                style={{
+                  ...textStyle,
+                  fontFamily: "sans-serif",
+                  fontSize: "clamp(1.86rem, 4.38cqi, 2.59rem)",
+                  fontStyle: "italic",
+                }}
+              >
+                {performanceType}
+              </span>
+            </div>
           </div>
         </div>
-      </div>
       </div>
 
       {/* Section 4: Afterglow Poster */}
       <div style={phoneFrameStyle}>
-      <div className="promo-section" style={sectionStyle}>
-        <img
-          src={CURRENT_POSTER}
-          alt="Afterglow event poster"
-          style={imgStyle}
-        />
-      </div>
+        <div className="promo-section" style={sectionStyle}>
+          <img
+            src={CURRENT_POSTER}
+            alt="Afterglow event poster"
+            style={imgStyle}
+          />
+        </div>
       </div>
 
       {/* Section 5: Event Details + CTA */}
       <div style={phoneFrameStyle}>
-      <div className="promo-section" style={sectionStyle}>
-        <div
-          style={{
-            ...overlayStyle,
-            justifyContent: "center",
-            alignItems: "center",
-            pointerEvents: "auto",
-          }}
-        >
+        <div className="promo-section" style={sectionStyle}>
           <div
             style={{
-              background: "rgba(0,0,0,0.65)",
-              backdropFilter: "blur(6px)",
-              borderRadius: 16,
-              padding: "clamp(24px, 4cqi, 48px) clamp(20px, 4cqi, 40px)",
-              display: "flex",
-              flexDirection: "column",
+              ...overlayStyle,
+              justifyContent: "center",
               alignItems: "center",
-              gap: "clamp(12px, 2.5cqi, 24px)",
+              pointerEvents: "auto",
             }}
           >
-            <span
+            <div
               style={{
-                ...textStyle,
-                fontSize: "clamp(3.4rem, 8.1cqi, 6.75rem)",
-                textTransform: "uppercase",
-                letterSpacing: "0.1em",
+                background: "rgba(0,0,0,0.65)",
+                backdropFilter: "blur(6px)",
+                borderRadius: 16,
+                padding: "clamp(24px, 4cqi, 48px) clamp(20px, 4cqi, 40px)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "clamp(12px, 2.5cqi, 24px)",
               }}
             >
-              afterglow
-            </span>
-            <span
-              style={{
-                ...textStyle,
-                fontFamily: "sans-serif",
-                fontSize: "clamp(1.6rem, 4cqi, 2.7rem)",
-              }}
-            >
-              April 25, 2026 · 11PM
-            </span>
-            <span
-              style={{
-                ...textStyle,
-                fontFamily: "sans-serif",
-                fontSize: "clamp(1.35rem, 3.4cqi, 2rem)",
-              }}
-            >
-              616 Lavaca St, Austin TX
-            </span>
-            <span
-              style={{
-                ...textStyle,
-                fontFamily: "sans-serif",
-                fontSize: "clamp(1.2rem, 3cqi, 1.75rem)",
-                lineHeight: 1.6,
-              }}
-            >
-              Music, Art, and comedy for the stone cold chillers.
-              <br />
-              BYOB and BYOV (bring your own vibes)
-            </span>
-            <span
-              style={{
-                ...textStyle,
-                fontFamily: "sans-serif",
-                fontSize: "clamp(1.35rem, 3.4cqi, 2rem)",
-                fontWeight: 700,
-                marginTop: 16,
-              }}
-            >
-              ticket link in bio. DM for more info :-)
-            </span>
+              <span
+                style={{
+                  ...textStyle,
+                  fontSize: "clamp(3.4rem, 8.1cqi, 6.75rem)",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                }}
+              >
+                afterglow
+              </span>
+              <span
+                style={{
+                  ...textStyle,
+                  fontFamily: "sans-serif",
+                  fontSize: "clamp(1.6rem, 4cqi, 2.7rem)",
+                }}
+              >
+                April 25, 2026 · 11PM
+              </span>
+              <span
+                style={{
+                  ...textStyle,
+                  fontFamily: "sans-serif",
+                  fontSize: "clamp(1.35rem, 3.4cqi, 2rem)",
+                }}
+              >
+                616 Lavaca St, Austin TX
+              </span>
+              <span
+                style={{
+                  ...textStyle,
+                  fontFamily: "sans-serif",
+                  fontSize: "clamp(1.2rem, 3cqi, 1.75rem)",
+                  lineHeight: 1.6,
+                }}
+              >
+                Music, Art, and comedy for the stone cold chillers.
+                <br />
+                BYOB and BYOV (bring your own vibes)
+              </span>
+              <span
+                style={{
+                  ...textStyle,
+                  fontFamily: "sans-serif",
+                  fontSize: "clamp(1.35rem, 3.4cqi, 2rem)",
+                  fontWeight: 700,
+                  marginTop: 16,
+                }}
+              >
+                ticket link in bio. DM for more info :-)
+              </span>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { releafs, releafs2, clownBackground12 } from "../../assets/images";
+import { releafs3, releafs4, clownBackground12 } from "../../assets/images";
 import type { FC } from "react";
 import PromoPerformer from "./PromoPerformer";
 
@@ -6,16 +6,16 @@ const Releafs: FC = () => (
   <PromoPerformer
     name="Releafs"
     nameSize="large"
-    headshot={releafs}
+    headshot={releafs3}
     headshotZoom={1.5}
     headshotFocusX="0%"
-    performingImage={releafs2}
+    performingImage={releafs4}
     performingZoom={1.5}
     performingFocusX="0%"
     infoBgImage={clownBackground12}
     room="The Atrium"
     setTime="10:00PM"
-    performanceType="Leafwave Ambient Set"
+    performanceType="Herbal Blend Low-End"
     qa={[
       {
         question: "What influences are you channeling?",
@@ -30,7 +30,7 @@ const Releafs: FC = () => (
             <br />
             SoundCloud — /releafs
             <br />
-            Instagram — @releafs.sound
+            Instagram — @releafs
           </>
         ),
       },

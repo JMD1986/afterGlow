@@ -28,6 +28,8 @@ import NeilsSoundSafari from "./components/pages/NeilsSoundSafari";
 import TreyAbraham from "./components/pages/TreyAbraham";
 import ImprovisedSuperjam from "./components/pages/ImprovisedSuperjam";
 import PineappleSchnoodz from "./components/pages/PineappleSchnoodz";
+import BlueOwlBrewing from "./components/pages/BlueOwlBrewing";
+import Vendors from "./components/pages/Vendors";
 import TrippyPoster from "./components/pages/TrippyPoster";
 import Schedule from "./components/pages/Schedule";
 import Music from "./components/pages/Music";
@@ -153,6 +155,8 @@ const App: FC = () => {
           path="/promo/pineappleSchnoodz"
           element={<PineappleSchnoodz />}
         />
+        <Route path="/promo/blueOwlBrewing" element={<BlueOwlBrewing />} />
+        <Route path="/promo/vendors" element={<Vendors />} />
         <Route path="/trippyposter" element={<TrippyPoster />} />
         <Route path="/promo/schedule" element={<Schedule />} />
         <Route path="/promo/music" element={<Music />} />

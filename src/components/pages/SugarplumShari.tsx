@@ -1,22 +1,26 @@
-import { sugarPlumShari, sugarPlumShari2, clownBackground10 } from "../../assets/images";
+import {
+  sugarPlumShari,
+  sugarPlumShari2,
+  clownBackground10,
+} from "../../assets/images";
 import type { FC } from "react";
 import PromoPerformer from "./PromoPerformer";
 
 const SugarplumShari: FC = () => (
   <PromoPerformer
     name="Sugarplum Shari"
-    nameSize="medium"
+    nameSize="small"
     headshot={sugarPlumShari}
     performingImage={sugarPlumShari2}
     infoBgImage={clownBackground10}
+    subtitle="Vendors"
     room="The Atrium"
     setTime="All Night"
     performanceType="Ice Cream & Emotional Support"
     qa={[
       {
         question: "What are you bringing to Afterglow?",
-        answer:
-          "Glitter, a candy cane mic stand, and enough tulle to soft-launch a parade.",
+        answer: "Regular and infused ice cream",
       },
       {
         question: "What influences are you channeling?",

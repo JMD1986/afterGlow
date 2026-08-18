@@ -1,4 +1,4 @@
-import { couchbound2, couchbound, clownBackground11 } from "../../assets/images";
+import { pricklyPearPops, clownBackground11 } from "../../assets/images";
 import type { FC } from "react";
 import PromoPerformer from "./PromoPerformer";
 
@@ -6,17 +6,17 @@ const PricklyPairPopsAtx: FC = () => (
   <PromoPerformer
     name="Prickly Pair Pops ATX"
     nameSize="small"
-    headshot={couchbound2}
-    performingImage={couchbound}
+    headshot={pricklyPearPops}
+    performingImage={pricklyPearPops}
     infoBgImage={clownBackground11}
+    subtitle="Vendors"
     room="The Atrium"
     setTime="All Night"
     performanceType="Baked Treats & Questionable Financial Advice"
     qa={[
       {
         question: "What are you bringing to Afterglow?",
-        answer:
-          "Hand-crafted prickly pear pops, chile-lime dust, and a cooler colder than your ex's texts.",
+        answer: "Hand-crafted prickly pear clown pops",
       },
       {
         question: "What influences are you channeling?",
@@ -27,18 +27,11 @@ const PricklyPairPopsAtx: FC = () => (
         question: "Where can we find your pops?",
         answer: (
           <>
-            pricklypairpopsatx.com
-            <br />
-            Instagram — @pricklypairpopsatx
+            Instagram — @pricklypearpopsatx
             <br />
             Farmers markets & late-night events around ATX
           </>
         ),
-      },
-      {
-        question: "How do you like to chill/relax/unwind?",
-        answer:
-          "Literally — sitting in an ice bath of popsicle sticks and calling it research.",
       },
     ]}
   />

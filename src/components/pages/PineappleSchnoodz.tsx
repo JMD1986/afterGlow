@@ -11,6 +11,7 @@ const PineappleSchnoodz: FC = () => (
     infoBgImage={clownBackground11}
     headshotZoom={1.4}
     performingZoom={1.4}
+    subtitle="Vendors"
     room="The Atrium"
     setTime="All Night"
     performanceType="THC"

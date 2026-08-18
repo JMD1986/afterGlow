@@ -58,6 +58,8 @@ import joeyZSheep2 from "./JoeyZSheep2.webp";
 import neilsSoundSafari2 from "./NeilsSoundSafari2.webp";
 import releafs from "./Releafs.webp";
 import releafs2 from "./Releafs2.webp";
+import releafs3 from "./Releafs3.webp";
+import releafs4 from "./Releafs4.webp";
 import joeyReyes from "./JoeyReyes.webp";
 import joeyReyes2 from "./JoeyReyes2.webp";
 import hollyHart from "./HollyHart.webp";
@@ -65,6 +67,7 @@ import hollyHart2 from "./HollyHart2.webp";
 import sugarPlumShari from "./SugarPlumShari.webp";
 import sugarPlumShari2 from "./SugarPlumShari2.webp";
 import pineappleSchnoodz from "./PineappleSchnoodz.webp";
+import pricklyPearPops from "./PricklyPearPops.webp";
 import posterAugust26 from "./PosterAugust26.webp";
 import clownBackground9 from "./clownBackground9.webp";
 import clownBackground10 from "./clownBackground10.webp";
@@ -78,6 +81,7 @@ import afterglowIgPostBlack from "./AfterglowIgPostBlack.webp";
 import afterglowIgPost from "./AfterglowIgPost.webp";
 import afterglowIgPostPinkOrangeBlue from "./AfterglowIgPostPinkOrangeBlue.webp";
 import afterglowSpotlightBlack from "./AfterglowSpotlightBlack.webp";
+import blueOwl from "./BlueOwl.webp";
 
 export const images = [
   imgF58c,
@@ -137,6 +141,8 @@ export const images = [
   neilsSoundSafari2,
   releafs,
   releafs2,
+  releafs3,
+  releafs4,
   joeyReyes,
   joeyReyes2,
   hollyHart,
@@ -144,6 +150,7 @@ export const images = [
   sugarPlumShari,
   sugarPlumShari2,
   pineappleSchnoodz,
+  pricklyPearPops,
   posterAugust26,
   clownBackground9,
   clownBackground10,
@@ -157,6 +164,7 @@ export const images = [
   afterglowIgPost,
   afterglowIgPostPinkOrangeBlue,
   afterglowSpotlightBlack,
+  blueOwl,
 ];
 
 export {
@@ -220,6 +228,8 @@ export {
   neilsSoundSafari2,
   releafs,
   releafs2,
+  releafs3,
+  releafs4,
   joeyReyes,
   joeyReyes2,
   hollyHart,
@@ -227,6 +237,7 @@ export {
   sugarPlumShari,
   sugarPlumShari2,
   pineappleSchnoodz,
+  pricklyPearPops,
   posterAugust26,
   clownBackground9,
   clownBackground10,
@@ -240,4 +251,5 @@ export {
   afterglowIgPost,
   afterglowIgPostPinkOrangeBlue,
   afterglowSpotlightBlack,
+  blueOwl,
 };
