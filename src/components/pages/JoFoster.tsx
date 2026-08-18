@@ -11,7 +11,7 @@ const JoFoster: FC = () => (
     infoBgImage={clownBackground9}
     room="The Atrium"
     setTime="All Night"
-    performanceType="Vibe Readings"
+    performanceType={`"Caricature"  "Artist"`}
     qa={[
       {
         question: "What are you bringing to Afterglow?",

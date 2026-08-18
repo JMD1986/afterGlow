@@ -30,6 +30,7 @@ import jester from "./jester.webp";
 import falloutOutside from "./falloutOutside.webp";
 import canvas from "./canvas.webp";
 import treyAbraham from "./Trey-Abraham.webp";
+import treyAbraham2 from "./TreyAbraham2.webp";
 import colorburnAV from "./colorburnAV.webp";
 import img406 from "./406396847_368246462448900_6720276611633646089_n-1024x658.webp";
 import img8473 from "./IMG_8473-1.webp";
@@ -63,6 +64,7 @@ import hollyHart from "./HollyHart.webp";
 import hollyHart2 from "./HollyHart2.webp";
 import sugarPlumShari from "./SugarPlumShari.webp";
 import sugarPlumShari2 from "./SugarPlumShari2.webp";
+import pineappleSchnoodz from "./PineappleSchnoodz.webp";
 import posterAugust26 from "./PosterAugust26.webp";
 import clownBackground9 from "./clownBackground9.webp";
 import clownBackground10 from "./clownBackground10.webp";
@@ -110,6 +112,7 @@ export const images = [
   falloutOutside,
   canvas,
   treyAbraham,
+  treyAbraham2,
   colorburnAV,
   img406,
   img8473,
@@ -140,6 +143,7 @@ export const images = [
   hollyHart2,
   sugarPlumShari,
   sugarPlumShari2,
+  pineappleSchnoodz,
   posterAugust26,
   clownBackground9,
   clownBackground10,
@@ -188,6 +192,7 @@ export {
   falloutOutside,
   canvas,
   treyAbraham,
+  treyAbraham2,
   colorburnAV,
   img406,
   img8473,
@@ -221,6 +226,7 @@ export {
   hollyHart2,
   sugarPlumShari,
   sugarPlumShari2,
+  pineappleSchnoodz,
   posterAugust26,
   clownBackground9,
   clownBackground10,

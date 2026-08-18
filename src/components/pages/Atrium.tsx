@@ -55,10 +55,34 @@ const Atrium: React.FC = () => {
           The Atrium is your gateway to Afterglow—a vibrant, welcoming space
           designed for connection and decompression. Patrons 21 and up are
           invited to <strong>BYOB</strong> and enjoy the evening responsibly.
-          Explore our pop-up <strong>record store</strong> featuring curated
-          vinyl, discover <strong>limited edition merch</strong> exclusive to
-          the event, and challenge your friends at our selection of{" "}
-          <strong>free arcade games</strong>.
+          Alongside the lounge, pop-up <strong>record store</strong>,{" "}
+          <strong>limited edition merch</strong>, and{" "}
+          <strong>free arcade games</strong>, the Atrium hosts a small
+          performance area with live performers and DJs, plus hands-on
+          activations throughout the night.
+        </p>
+        <p style={{ fontSize: 18, lineHeight: 1.7 }}>
+          On August 22nd, catch sets from{" "}
+          <Link to="/promo/drBobbyBannerMpc" style={{ color: "#3a6", fontWeight: 600 }}>
+            Dr. Bobby Banner MPC
+          </Link>
+          ,{" "}
+          <Link to="/promo/releafs" style={{ color: "#3a6", fontWeight: 600 }}>
+            Releafs
+          </Link>
+          , and{" "}
+          <Link to="/promo/bryanGary" style={{ color: "#3a6", fontWeight: 600 }}>
+            Bryan Gary
+          </Link>
+          . Activations that night include{" "}
+          <Link to="/promo/hollyHart" style={{ color: "#3a6", fontWeight: 600 }}>
+            Holly Hart
+          </Link>{" "}
+          Presents Facepaint Roulette and{" "}
+          <Link to="/promo/joFoster" style={{ color: "#3a6", fontWeight: 600 }}>
+            Jo Foster
+          </Link>
+          &apos;s &quot;Caricature&quot; &quot;Artist&quot;.
         </p>
         <p style={{ fontSize: 18, lineHeight: 1.7 }}>
           Relax in the <strong>lounge area</strong> with comfortable seating,

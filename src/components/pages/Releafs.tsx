@@ -18,14 +18,9 @@ const Releafs: FC = () => (
     performanceType="Leafwave Ambient Set"
     qa={[
       {
-        question: "What equipment are you using?",
-        answer:
-          "Teenage Engineering OP-1, a pair of Moog DFAM units, and a custom soil-mic'd contact patch for live texture.",
-      },
-      {
         question: "What influences are you channeling?",
         answer:
-          "Hiroshi Yoshimura, Green-House, and late-night walks through Zilker after rain.",
+          "My scorpio moon, endorphins, pineapple upside cake, Supertask, Clams Casino, Distinct Motive and Medicine Place radio in the gym",
       },
       {
         question: "Where can we hear your music?",
@@ -42,7 +37,7 @@ const Releafs: FC = () => (
       {
         question: "How do you like to chill/relax/unwind?",
         answer:
-          "Repotting houseplants, slow bike rides, and falling asleep to rain field recordings.",
+          "taking 25mg of Texas approved albanese gummy bears, making crafts with my daughter, and scheduling blocks of daydreaming",
       },
     ]}
   />

@@ -25,7 +25,9 @@ import PricklyPairPopsAtx from "./components/pages/PricklyPairPopsAtx";
 import JoeyReyes from "./components/pages/JoeyReyes";
 import JoeyZ from "./components/pages/JoeyZ";
 import NeilsSoundSafari from "./components/pages/NeilsSoundSafari";
+import TreyAbraham from "./components/pages/TreyAbraham";
 import ImprovisedSuperjam from "./components/pages/ImprovisedSuperjam";
+import PineappleSchnoodz from "./components/pages/PineappleSchnoodz";
 import TrippyPoster from "./components/pages/TrippyPoster";
 import Schedule from "./components/pages/Schedule";
 import Music from "./components/pages/Music";
@@ -142,9 +144,14 @@ const App: FC = () => {
         <Route path="/promo/joeyReyes" element={<JoeyReyes />} />
         <Route path="/promo/joeyZ" element={<JoeyZ />} />
         <Route path="/promo/neilsSoundSafari" element={<NeilsSoundSafari />} />
+        <Route path="/promo/treyAbraham" element={<TreyAbraham />} />
         <Route
           path="/promo/improvisedSuperjam"
           element={<ImprovisedSuperjam />}
+        />
+        <Route
+          path="/promo/pineappleSchnoodz"
+          element={<PineappleSchnoodz />}
         />
         <Route path="/trippyposter" element={<TrippyPoster />} />
         <Route path="/promo/schedule" element={<Schedule />} />

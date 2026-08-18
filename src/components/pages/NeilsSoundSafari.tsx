@@ -4,7 +4,7 @@ import PromoPerformer from "./PromoPerformer";
 
 const NeilsSoundSafari: FC = () => (
   <PromoPerformer
-    name="Neil's Sound Safari"
+    name="Neil Dorsey's Sound Safari"
     nameSize="medium"
     headshot={neilsSoundSafari}
     performingImage={neilsSoundSafari2}
