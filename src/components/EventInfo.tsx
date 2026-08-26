@@ -22,7 +22,8 @@ import TrippyRings from "./animations/TrippyRings";
 import ImageCarousel from "./ImageCarousel";
 import { Link } from "react-router-dom";
 import type { ReactNode } from "react";
-import { TICKET_URL } from "../constants";
+import {
+  TICKET_URL, CURRENT_DATE } from "../constants";
 
 type Section = {
   image: string;
@@ -219,7 +220,7 @@ export default function EventInfo() {
             BYOB
           </span> */}
           <span className="hero-details">
-            April 25, 2026 · 11PM · 616 Lavaca St, Austin TX
+            {CURRENT_DATE } · 11PM · 616 Lavaca St, Austin TX
           </span>
           <a
             href={TICKET_URL}
